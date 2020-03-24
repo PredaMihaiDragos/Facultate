@@ -61,8 +61,8 @@ private:
 
 int main()
 {
-    ifstream in("data.in");
-    ofstream out("data.out");
+    ifstream in("nfa.in");
+    ofstream out("nfa.out");
     int n, m, k, s, q;
     in >> n >> m >> k >> s;
     automat aut(n+1, s);
