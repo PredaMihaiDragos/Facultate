@@ -1,0 +1,205 @@
+a* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+}
+
+body {
+    background: url('https://raw.githubusercontent.com/WebToLearn/personal-page-css-workshop/master/img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: "Open Sans";
+    background-size: cover;
+}
+
+.header {
+    margin:0px;
+    font-family: "Lato";
+    font-size:38px;
+    font-weight: 700;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.resume-container {
+  background: white;
+  width: 990px;
+  margin: 0 auto 30px auto;
+  padding: 30px 20px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 0px 6px #c0392b;
+  border-radius: 0px 0px 4px 4px;
+  display: flex;
+}
+
+.subtitle {
+    color:#999;
+    margin-bottom:1em;
+    font-family:"Lato";
+    font-size:1.5em;
+    line-height:1em;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.menu {
+    width:990px;
+    margin:80px auto 0 auto;
+    text-align:center;
+}
+
+.menu .menu-item {
+    display:inline-block;
+    margin-right:10px;
+    margin-left:20px;
+    padding: 10px 40px 10px 40px;
+    background-color:white;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    font-family: "Lato";
+    font-size:14px;
+    color:#999;
+    vertical-align:bottom;
+}
+
+.menu .menu-item:active {
+    position:relative;
+    bottom:-1px;
+    color:#c0392b;
+    padding: 15px 40px 15px 40px;
+    margin-top:0;
+}
+
+hr
+{
+    margin-bottom:25px;
+    border-width:1px;
+    border-style:solid;
+    border-color:#f1f1f1;
+}
+
+.resume-info {
+    display:inline-flex;
+    align-items:center;
+    justify-content: space-between;
+    width:100%;
+}
+
+.resume-content .resume-date {
+    background-color:rgb(233, 199, 89);
+    padding:1px;
+    border-radius:3px;
+}
+
+.resume-content .resume-title {
+    font-size:30px;
+    font-weight:bolder;
+    color:rgb(240, 138, 6);
+}
+
+.resume-content .resume-subtitle {
+    font-weight:bolder;
+    color:darkblue;
+}
+
+.skills-item {
+    border: 1px solid lightgray;
+    border-radius:5px;
+    margin:0.5rem;
+}
+
+.skills-bg {
+    background-image: linear-gradient(135deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); 
+    background-size: 5rem 5rem;
+    color:white;
+    border-radius:3px;
+}
+
+.skills-bg.photoshop {
+    background-color:red;
+    padding-right: 1rem;
+}
+
+.skills-bg.ilustrator {
+    background-color:orange;
+    padding-right: 2rem;
+}
+
+.skills-bg.indesign {
+    background-color:rgb(129, 129, 0);
+    padding-right: 3rem;
+}
+
+.skills-bg.xd {
+    background-color:green;
+    padding-right: 4rem;
+}
+
+.skills-bg.sketch {
+    background-color:blue;
+    padding-right: 2rem;
+}
+
+.skills-bg.office {
+    background-color:purple;
+    padding-right: 1rem;
+}
+
+.skills-bg.linux {
+    background-color:rgb(122, 0, 20);
+    padding-right: 1.5rem;
+}
+
+.skills-bg.user {
+    background-color:rgb(51, 128, 179);
+    padding-right: 3.7rem;
+}
+
+.skills-bg.typography {
+    background-color:rgb(106, 18, 179);
+    padding-right: 2.8rem;
+}
+
+.skills-bg.web {
+    background-color:rgb(241, 138, 53);
+    padding-right: 1.2rem;
+}
+
+.skills-bg.html {
+    background-color:rgb(250, 226, 7);
+    padding-right: 1.6rem;
+}
+
+.skills-bg.php {
+    background-color:rgb(5, 168, 209);
+    padding-right: 2.4rem;
+}
+
+.skills-bg.javascript {
+    background-color:rgb(170, 19, 230);
+    padding-right: 1.7rem;
+}
+
+.skills-bg.ruby {
+    background-color:rgb(226, 24, 34);
+    padding-right: 0.8rem;
+}
+
+.skills-bg.python {
+    background-color:rgb(64, 187, 27);
+    padding-right: 4rem;
+}
+
+.skills{
+    list-style: none;
+    padding-left:1rem;
+}
+
+.resume-aside {
+    padding-left:1rem;
+}
