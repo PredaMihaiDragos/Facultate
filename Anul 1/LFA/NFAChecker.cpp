@@ -80,11 +80,11 @@ int main()
         aut.AddEdge(a, b, c);
     }
     in >> q;
-    char s[1005];
+    char cuv[1005];
     while(q--)
     {
-        in >> s;
-        out << aut.Contains(s) << "\n";
+        in >> cuv;
+        out << aut.Contains(cuv) << "\n";
     }
     in.close();
     out.close();
