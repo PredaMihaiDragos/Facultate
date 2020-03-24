@@ -1,0 +1,200 @@
+Numere: 10
+Valoare maxima: 10
+Tipul vectorului: Generate_random
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 10
+Valoare maxima: 10
+Tipul vectorului: Aproape_sortate
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 10
+Valoare maxima: 10
+Tipul vectorului: Sortate_descrescator
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 10
+Valoare maxima: 8
+Tipul vectorului: Putine_numere_distincte
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 1000
+Valoare maxima: 4256724
+Tipul vectorului: Generate_random
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 1000
+Valoare maxima: 4285668
+Tipul vectorului: Aproape_sortate
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 1000
+Valoare maxima: 4288832
+Tipul vectorului: Sortate_descrescator
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 1000
+Valoare maxima: 4235214
+Tipul vectorului: Putine_numere_distincte
+STL sort: a durat: 0 milisecunde
+Quicksort a durat: 0 milisecunde
+Mergesort a durat: 0 milisecunde
+Heapsort a durat: 0 milisecunde
+Radixsort a durat: 0 milisecunde
+Treapsort a durat: 0 milisecunde
+
+Numere: 100000
+Valoare maxima: 429486066
+Tipul vectorului: Generate_random
+STL sort: a durat: 29 milisecunde
+Quicksort a durat: 14 milisecunde
+Mergesort a durat: 19 milisecunde
+Heapsort a durat: 50 milisecunde
+Radixsort a durat: 9 milisecunde
+Treapsort a durat: 40 milisecunde
+
+Numere: 100000
+Valoare maxima: 429496150
+Tipul vectorului: Aproape_sortate
+STL sort: a durat: 30 milisecunde
+Quicksort a durat: 7 milisecunde
+Mergesort a durat: 17 milisecunde
+Heapsort a durat: 46 milisecunde
+Radixsort a durat: 7 milisecunde
+Treapsort a durat: 21 milisecunde
+
+Numere: 100000
+Valoare maxima: 429494236
+Tipul vectorului: Sortate_descrescator
+STL sort: a durat: 10 milisecunde
+Quicksort a durat: 8 milisecunde
+Mergesort a durat: 16 milisecunde
+Heapsort a durat: 41 milisecunde
+Radixsort a durat: 10 milisecunde
+Treapsort a durat: 20 milisecunde
+
+Numere: 100000
+Valoare maxima: 425463674
+Tipul vectorului: Putine_numere_distincte
+STL sort: a durat: 21 milisecunde
+Quicksort a durat: 12 milisecunde
+Mergesort a durat: 28 milisecunde
+Heapsort a durat: 40 milisecunde
+Radixsort a durat: 2 milisecunde
+Treapsort a durat: 30 milisecunde
+
+Numere: 350000
+Valoare maxima: 1503224587
+Tipul vectorului: Generate_random
+STL sort: a durat: 94 milisecunde
+Quicksort a durat: 66 milisecunde
+Mergesort a durat: 106 milisecunde
+Heapsort a durat: 195 milisecunde
+Radixsort a durat: 32 milisecunde
+Treapsort a durat: 177 milisecunde
+
+Numere: 350000
+Valoare maxima: 1503201858
+Tipul vectorului: Aproape_sortate
+STL sort: a durat: 70 milisecunde
+Quicksort a durat: 19 milisecunde
+Mergesort a durat: 69 milisecunde
+Heapsort a durat: 188 milisecunde
+Radixsort a durat: 30 milisecunde
+Treapsort a durat: 81 milisecunde
+
+Numere: 350000
+Valoare maxima: 1503233752
+Tipul vectorului: Sortate_descrescator
+STL sort: a durat: 41 milisecunde
+Quicksort a durat: 15 milisecunde
+Mergesort a durat: 65 milisecunde
+Heapsort a durat: 179 milisecunde
+Radixsort a durat: 31 milisecunde
+Treapsort a durat: 74 milisecunde
+
+Numere: 350000
+Valoare maxima: 1489589574
+Tipul vectorului: Putine_numere_distincte
+STL sort: a durat: 76 milisecunde
+Quicksort a durat: 51 milisecunde
+Mergesort a durat: 91 milisecunde
+Heapsort a durat: 184 milisecunde
+Radixsort a durat: 30 milisecunde
+Treapsort a durat: 125 milisecunde
+
+Numere: 500000
+Valoare maxima: 2147464530
+Tipul vectorului: Generate_random
+STL sort: a durat: 136 milisecunde
+Quicksort a durat: 92 milisecunde
+Mergesort a durat: 149 milisecunde
+Heapsort a durat: 279 milisecunde
+Radixsort a durat: 47 milisecunde
+Treapsort a durat: 277 milisecunde
+
+Numere: 500000
+Valoare maxima: 2147425587
+Tipul vectorului: Aproape_sortate
+STL sort: a durat: 100 milisecunde
+Quicksort a durat: 23 milisecunde
+Mergesort a durat: 97 milisecunde
+Heapsort a durat: 268 milisecunde
+Radixsort a durat: 40 milisecunde
+Treapsort a durat: 122 milisecunde
+
+Numere: 500000
+Valoare maxima: 2147482917
+Tipul vectorului: Sortate_descrescator
+STL sort: a durat: 60 milisecunde
+Quicksort a durat: 25 milisecunde
+Mergesort a durat: 91 milisecunde
+Heapsort a durat: 246 milisecunde
+Radixsort a durat: 40 milisecunde
+Treapsort a durat: 119 milisecunde
+
+Numere: 500000
+Valoare maxima: 2042490490
+Tipul vectorului: Putine_numere_distincte
+STL sort: a durat: 111 milisecunde
+Quicksort a durat: 75 milisecunde
+Mergesort a durat: 124 milisecunde
+Heapsort a durat: 254 milisecunde
+Radixsort a durat: 48 milisecunde
+Treapsort a durat: 175 milisecunde
+
