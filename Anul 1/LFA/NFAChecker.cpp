@@ -4,24 +4,20 @@
 #include <string>
 #include <cstring>
 #include <queue>
+#include <unordered_map>
 
 using namespace std;
 
 class automat
 {
 public:
-    automat(int nr_stari)
+    automat(int nr_stari, int stare_init)
     {
         this->nr_stari = nr_stari;
+        this->stare_init = stare_init;
         vecini.resize(nr_stari);
         is_final.resize(nr_stari);
         viz.resize(nr_stari);
-        for(vector<vector<int> > &v:vecini)
-            v.resize(26);
-    }
-    void SetStareInit(int stare)
-    {
-        stare_init = stare;
     }
     void AddStareFinala(int stare)
     {
@@ -29,7 +25,7 @@ public:
     }
     void AddEdge(int x, int y, char val)
     {
-        vecini[x][val-'a'].push_back(y);
+        vecini[x][val].push_back(y);
     }
     bool Contains(char * x)
     {
@@ -41,34 +37,6 @@ public:
             v = vector<bool>();
         return ret;
     }
-    vector<string> GetWords(int nr_max)
-    {
-        vector<string> ret;
-        queue<pair<int, string> > q;
-        q.push(make_pair(stare_init, ""));
-        while(q.empty() == false)
-        {
-            pair<int, string> f = q.front();
-            q.pop();
-
-            if(is_final[f.first])
-            {
-               ret.push_back(f.second);
-               if(ret.size() == nr_max)
-                    break;
-            }
-
-
-            for(int i = 0; i < 26; ++i)
-            {
-                string newS = f.second;
-                newS.push_back((char)('a' + i));
-                for(int v:vecini[f.first][i])
-                    q.push(make_pair(v, newS));
-            }
-        }
-        return ret;
-    }
 private:
     bool Contains(int nod, char * x, int sz)
     {
@@ -77,13 +45,15 @@ private:
         if(viz[nod][sz-1])
             return false;
         viz[nod][sz-1] = true;
-        for(int vecin:vecini[nod][x[0]-'a'])
+        if(vecini[nod].find(x[0]) == vecini[nod].end())
+            return false;
+        for(int vecin:vecini[nod][x[0]])
             if(Contains(vecin, x+1, sz-1))
                 return true;
         return false;
     }
     vector<vector<bool> > viz;
-    vector<vector<vector<int> > > vecini;
+    vector<unordered_map<char, vector<int> > > vecini;
     vector<bool> is_final;
     int stare_init;
     int nr_stari;
@@ -91,13 +61,11 @@ private:
 
 int main()
 {
-    ifstream in("nfa.in");
-    ofstream out("nfa.out");
-    int n, m, k, s;
-    in >> n >> m >> k;
-    automat aut(n+1);
-    in >> s;
-    aut.SetStareInit(s);
+    ifstream in("data.in");
+    ofstream out("data.out");
+    int n, m, k, s, q;
+    in >> n >> m >> k >> s;
+    automat aut(n+1, s);
     while(k--)
     {
         int stare;
@@ -111,11 +79,10 @@ int main()
         in >> a >> b >> c;
         aut.AddEdge(a, b, c);
     }
-    int q;
     in >> q;
+    char s[1005];
     while(q--)
     {
-        char s[150];
         in >> s;
         out << aut.Contains(s) << "\n";
     }
