@@ -13,8 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-       this.sRez = ["srez1", "srez2"];
-       this.sUma = ["suma1", "suma2"];
 app.get('/get_pacient', async function(req, res) {
     const x = await db_rez.GetPacient("101003");
     res.send(x);
