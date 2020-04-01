@@ -7,7 +7,7 @@ let con = mysql.createConnection({
     database: "test"
 })
 
-function GetPacient(query, successCallback, errorCallback) {
+function Query(query, successCallback, errorCallback) {
     con.query(query, function(err, result, fields){
         if (err) {
             return errorCallback(err);
@@ -16,10 +16,11 @@ function GetPacient(query, successCallback, errorCallback) {
     }); 
 }
 
-function GetPacientWrapper(cnp) {
-    let query = "SELECT CNP, Name FROM pacient WHERE CNP = '" + cnp + "'";
+function GetPacient(cnp) {
+    cnp = mysql.escape(cnp);
+    let query = "SELECT CNP, Name FROM pacient WHERE CNP=" + cnp;
     return new Promise((resolve, reject) => {
-        GetPacient(query,(successResponse) => {
+        Query(query,(successResponse) => {
             resolve(successResponse);
         }, (errorResponse) => {
             reject(errorResponse)
@@ -27,4 +28,18 @@ function GetPacientWrapper(cnp) {
     });
 }
 
-module.exports.GetPacient = GetPacientWrapper;
+function GetBilet(cnp, id) {
+    cnp = mysql.escape(cnp);
+    id = mysql.escape(id);
+    let query = "SELECT * FROM bilet WHERE CUVCODV=" + id + " AND IDP=" + cnp;
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
+module.exports.GetPacient = GetPacient;
+module.exports.GetBilet = GetBilet;
