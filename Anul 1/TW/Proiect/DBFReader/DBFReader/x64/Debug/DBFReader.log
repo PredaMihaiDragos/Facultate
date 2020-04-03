@@ -1,0 +1,11 @@
+﻿  database.cpp
+C:\Users\preda\source\repos\DBFReader\DBFReader\database.h(4,10): fatal error C1083: Cannot open include file: 'mysql/jdbc.h': No such file or directory
+  dbf.cpp
+C:\Users\preda\source\repos\DBFReader\DBFReader\dbf.cpp(11,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\preda\source\repos\DBFReader\DBFReader\dbf.cpp(43,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\preda\source\repos\DBFReader\DBFReader\dbf.cpp(65,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\preda\source\repos\DBFReader\DBFReader\dbf.cpp(79,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\preda\source\repos\DBFReader\DBFReader\dbf.cpp(101,28): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+C:\Users\preda\source\repos\DBFReader\DBFReader\database.h(4,10): fatal error C1083: Cannot open include file: 'mysql/jdbc.h': No such file or directory
+  Generating Code...
