@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/get_pacient', async function(req, res) {
     const x = await db_rez.GetPacient(req.query.cnp);
+
     if(x.length > 0)
         res.send(x[0]);
     else
