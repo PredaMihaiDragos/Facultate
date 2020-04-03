@@ -121,14 +121,16 @@ function Completed(pacient, bilet)
     document.getElementById("form_div").style.display = "none";
     document.getElementById("rezultate").innerHTML = 
     `<header>
-        Laborator de Analize  Medicale Dr. ADINA PREDA <br>
-        ALEXANDRIA, Str. Libertatii Nr. 122-124 <br>
-        Telefon/Fax: 0347804419 Mobil: 0740371897 <br>
-        E-mail: adinapreda@gmail.com <br><br>
-        <img id = 'sigla' src = 'images/sigla.jpg'></img>
-        <h1>Buletin de Analize Medicale ${bilet.cuvcodv}</h1>
+        <div>
+            Laborator de Analize  Medicale Dr. ADINA PREDA <br>
+            ALEXANDRIA, Str. Libertatii Nr. 122-124 <br>
+            Telefon/Fax: 0347804419 Mobil: 0740371897 <br>
+            E-mail: adinapreda@gmail.com <br><br>
+        </div>
+        <img src = 'images/sigla.jpg'></img>
     </header>
-    <section id = "detalii">
+    <section id = "rezultate_detalii">
+        <h1>Buletin de Analize Medicale ${bilet.cuvcodv}</h1>
         <div id='detalii_pacient'>
             Nume: ${pacient.name}<br>
             C.N.P.: ${pacient.cnp}<br>
@@ -147,11 +149,25 @@ function Completed(pacient, bilet)
     </section>
     <main id="rezultate_main">
     </main>
+    <footer>
+        COD FGL-5.8-01 Editia 1/16.06.2014, Revizia 0/16.06.2014<br>
+
+        NOTA: Se declara ca raportul de analiza se refera numai la obiectul analizat. Reproducerea sau utilizarea buletinului de analize in alte scopuri decat cele pentru care a fost realizat, fara acordul Laborator de Analize Medicale Dr. ADINA PREDA, este interzisa!<br>
+        Rezultatele se refera numai la proba analizata. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x - Analize neacreditate RENAR<br>
+        "!" - Valori in afara limitelor admise pentru varsta si sexul respectiv.
+    </footer>
     `;
 
     let rezTable = document.createElement("table");
     document.getElementById("rezultate_main").appendChild(rezTable);
-    let tableTitles = [""];
+    let tableTitles = ["Denumire Analiza", "Rezultat", "Unitate de masura", "Interval biologic de referinta"];
     let tableHeader = document.createElement("tr");
-    
+    for(let i = 0; i < tableTitles.length; i++)
+    {
+        const title = document.createElement("th");
+        const content = document.createTextNode(tableTitles[i]);
+        title.appendChild(content);
+        tableHeader.appendChild(title);
+    }                                        
+    rezTable.appendChild(tableHeader);
 }
