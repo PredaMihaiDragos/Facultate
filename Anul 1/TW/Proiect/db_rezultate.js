@@ -41,5 +41,25 @@ function GetBilet(cnp, id) {
     });
 }
 
+function GetGrupe(codgs) {
+    let query = "SELECT CODG, NUME FROM grupa WHERE CODG IN (";
+    for(let i = 0; i < codgs.length; i++)
+    {
+        codgs[i] = mysql.escape(codgs[i]);
+        query += codgs[i];
+        if(i != codgs.length - 1)
+            query += ",";
+    }
+    query += ") ORDER BY CODG";
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
 module.exports.GetPacient = GetPacient;
 module.exports.GetBilet = GetBilet;
+module.exports.GetGrupe = GetGrupe;

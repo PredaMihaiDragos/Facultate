@@ -54,10 +54,6 @@
     border-collapse: collapse;
 }
 
-{
-    background-color:red;
-}
-
 #rezultate_main > table > tr > th, #rezultate_main > table > tr > td
 {
     border: 1px solid black;
