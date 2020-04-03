@@ -70,6 +70,13 @@ class bilet
 document.getElementById("button_submit").onclick = () => {
     let cnp = document.getElementById('CNP').value;
     let id = document.getElementById('ID').value;
+    CheckPacient(cnp, id);
+}
+
+CheckPacient("1910923340440", "3-2498");
+
+function CheckPacient(cnp, id)
+{
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
