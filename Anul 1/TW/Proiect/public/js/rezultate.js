@@ -70,8 +70,6 @@ document.getElementById("button_submit").onclick = () => {
     CheckBilet(cnp, id);
 }
 
-CheckBilet("1910923340440", "3-2498");
-
 function CheckBilet(cnp, id)
 {
     var xhttp = new XMLHttpRequest();
@@ -91,6 +89,19 @@ function CheckBilet(cnp, id)
     //loading "Cautare bilet"
     xhttp.open("GET", "/get_bilet?cnp=" + cnp + "&id=" + id, true);
     xhttp.send();
+}
+
+function isNumeric(n) 
+{
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function areNumeric(...numbers)
+{
+    for(let n of numbers)
+        if(isNumeric(n) == false)
+            return false;
+    return true;
 }
 
 function Completed(pacient, bilet, grupe)
@@ -139,15 +150,7 @@ function Completed(pacient, bilet, grupe)
     const rezTable = document.createElement("table");
     document.getElementById("rezultate_main").appendChild(rezTable);
     const tableTitles = ["Denumire Analiza", "Rezultat", "Unitate de masura", "Interval biologic de referinta"];
-    const tableHeader = document.createElement("tr");
-    for(let i = 0; i < tableTitles.length; i++)
-    {
-        const title = document.createElement("th");
-        const content = document.createTextNode(tableTitles[i]);
-        title.appendChild(content);
-        tableHeader.appendChild(title);
-    }                                        
-    rezTable.appendChild(tableHeader);
+    AddLine(rezTable, tableTitles, true);
 
     grupe.sort(function(a, b) {
         return a.CODG - b.CODG;
@@ -155,24 +158,44 @@ function Completed(pacient, bilet, grupe)
 
     for(let i = 0; i < grupe.length; i++)
     {
-        const tr = document.createElement("tr");
-        const content = document.createTextNode(grupe[i].NUME);
-        tr.appendChild(content);
-        rezTable.appendChild(tr);
-
-        for(let j = 0; j < bilet.length; j++)
+        AddLine(rezTable, [grupe[i].NUME], false, "cell_grupa");
+        for(let j = 0; j < bilet.analize.length; j++)
         {
-            if(bilet.codg == grupe[i].CODG)
+            const analiza = bilet.analize[j];
+            if(analiza.aCodg == grupe[i].CODG)
             {
-
+                const tr = AddLine(rezTable);
+                AddCell(tr, analiza.aDen);
+                if(     areNumeric(analiza.aVmin, analiza.aVmax, analiza.aRez) 
+                    && (parseInt(analiza.aRez) < parseInt(analiza.aVmin) ||
+                        parseInt(analiza.aRez) > parseInt(analiza.aVmax) ) )
+                {
+                    AddCell(tr, analiza.aRez, false, "cell_incorrect");
+                }
+                else
+                    AddCell(tr, analiza.aRez);
+                AddCell(tr, analiza.aUma);
+                AddCell(tr, analiza.aVmin + " - " + analiza.aVmax);
             }
         }
     }
 }
 
-function AddLine(table, content)
+function AddLine(table, content = [], isHeader = false, cellClass = undefined)
 {
     const tr = document.createElement("tr");
+    for(let i = 0; i < content.length; i++)
+        AddCell(tr, content[i], isHeader, cellClass);
     table.appendChild(tr);
     return tr;
+}
+
+function AddCell(row, content, isHeader, cellClass)
+{
+    const td = document.createElement(isHeader ? "th" : "td");
+    if(cellClass != undefined)
+        td.setAttribute("class", cellClass);
+    const text = document.createTextNode(content);
+    td.appendChild(text);
+    row.appendChild(td);
 }

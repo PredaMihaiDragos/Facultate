@@ -2,7 +2,7 @@
 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 140px 200px 30vw 10vw;
+    grid-template-rows: 140px 200px auto auto;
     min-height:140px;
     min-width:680px;
 }
@@ -60,7 +60,18 @@
     border-collapse: collapse;
 }
 
+#rezultate_main > table .cell_grupa
+{
+    border-style:none;
+}
+
+#rezultate_main > table .cell_incorrect
+{
+    color:red;
+}
+
 #rezultate > footer
 {
+    padding-top:20px;
     grid-column: 1 / span 5;
 }
