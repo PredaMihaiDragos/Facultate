@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 3vw 40px 30vw 10vw;
+  grid-template-rows: 3vw 40px 43vw 40px;
   grid-gap: 1em;
 }
 
@@ -74,7 +74,7 @@ footer {
 }
 
 footer {
-  height: 10vw;
+  height: 40px;
 }
 
 #mainFrame {
