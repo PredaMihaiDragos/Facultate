@@ -31,6 +31,8 @@ function menuButtonClick()
     UpdateMainFrame(this.id);
 }
 
+let navbar, body, sticky;
+
 function init()
 {
     let menuButtons = document.getElementsByClassName('menuButton');
@@ -38,5 +40,27 @@ function init()
     for(button of menuButtons) 
     {
         button.onclick = menuButtonClick;
+    }
+    navbar = document.getElementById("navbar");
+    body = document.getElementsByTagName("BODY")[0];
+    sticky = navbar.offsetTop;
+    Scroll();
+}
+
+window.onscroll = function() {Scroll()};
+
+function Scroll() 
+{
+    if (window.pageYOffset >= sticky) 
+    {
+        navbar.classList.add("sticky");
+        body.classList.add("fixedNavbar");
+        isSticky = false;
+    } 
+    else if(window.pageYOffset < sticky)
+    {
+        navbar.classList.remove("sticky");
+        body.classList.remove("fixedNavbar");
+        isSticky = true;
     }
 }

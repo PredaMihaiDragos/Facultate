@@ -1,8 +1,14 @@
 body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 3vw 40px 43vw 40px;
+  grid-template-rows: 3vh 40px calc(97vh - 40px - 3em) calc(100vh - 40px) 40px;
   grid-gap: 1em;
+  height: 200vh;
+  width: 100vw;
+}
+
+.fixedNavbar {
+  grid-template-rows: calc(3vh + 40px + 1em) calc(97vh - 40px - 3em) calc(100vh - 40px) 40px;
 }
 
 header,
@@ -18,9 +24,13 @@ aside {
   grid-column: span 2;
 }
 
+section {
+  grid-column: 1 / span 5;
+}
+
 header {
   display: flex;
-  height: 3vw;
+  height: 3vh;
   background: #d0ff00;
 }
 
@@ -31,6 +41,13 @@ nav {
   justify-content: space-evenly;
   height: 40px;
   background: red;
+}
+
+.sticky {
+  position:fixed;
+  width:100%;
+  max-width:80em;
+  top:0;
 }
 
 nav > .menuButton {
@@ -66,7 +83,8 @@ body {
 
 main,
 aside,
-footer {
+footer,
+section {
   background: #eaeaea;
   display: flex;
   align-items: center;
@@ -74,6 +92,7 @@ footer {
 }
 
 footer {
+
   height: 40px;
 }
 
