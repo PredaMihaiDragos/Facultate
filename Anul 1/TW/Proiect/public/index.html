@@ -8,28 +8,39 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/index.js"></script>
 </head>
-<body onload = "init();">
+<body onload = "init();" id = "body">
     <header>
-        Header
+        Laborator analize medicale
     </header>
     <nav id = "navbar" class = "nonsticky">
-        <button id="button_acasa" class="menuButton menuButton_active">Acasa</button>
-        <button id="button_orar" class="menuButton">Orar</button>
-        <button id="button_programari" class="menuButton">Programari</button>
-        <button id="button_despre" class="menuButton">Despre</button>
-        <button id="button_rezultate" class="menuButton">Rezultate</button>
-        <button id="button_certificari" class="menuButton">Certificari</button>
-        <button id="button_chestionar" class="menuButton">Chestionar</button>
-        <button id="button_contact" class="menuButton">Contact</button>
+        <a id="button_acasa" class="menuButton menuButton_active" href = "#body">Acasa</a>
+        <a id="button_programari" class="menuButton" href = "#programari">Programari</a>
+        <a id="button_orar" class="menuButton" href = "#orar">Orar</a>
+        <a id="button_rezultate" class="menuButton" href = "#rezultate">Rezultate</a>
+        <a id="button_certificari" class="menuButton" href = "#certificari">Certificari</a>
+        <a id="button_chestionar" class="menuButton" href = "#chestionar">Chestionar</a>
+        <a id="button_contact" class="menuButton" href = "#contact">Contact</a>
     </nav>
     <main>
         <iframe id = "mainFrame" src = "home.html"></iframe>
     </main>
-    <aside>
-        Sidebar
+    <section id = "programari">
+        Programari
+    </section>
+    <aside id = "orar">
+        Orar
     </aside>
-    <section>
-        Next
+    <section id = "rezultate">
+        Rezultate
+    </section>
+    <section id = "certificari">
+        Certificari
+    </section>
+    <section id = "chestionar">
+        Chestionar
+    </section>
+    <section id = "contact">
+        Locatie
     </section>
     <footer>
         Footer

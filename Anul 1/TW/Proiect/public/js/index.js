@@ -1,4 +1,4 @@
-let MainFramePage = {
+/*let MainFramePage = {
     "button_acasa":"home.html",
     "button_orar":"orar.html",
     "button_programari":"programari.html",
@@ -30,17 +30,11 @@ function menuButtonClick()
 {
     UpdateMainFrame(this.id);
 }
-
+*/
 let navbar, body, sticky;
 
 function init()
 {
-    let menuButtons = document.getElementsByClassName('menuButton');
-    UpdateMainFrame();
-    for(button of menuButtons) 
-    {
-        button.onclick = menuButtonClick;
-    }
     navbar = document.getElementById("navbar");
     body = document.getElementsByTagName("BODY")[0];
     sticky = navbar.offsetTop;

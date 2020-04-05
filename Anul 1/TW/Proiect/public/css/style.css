@@ -1,31 +1,66 @@
+:root {
+  --content-height: calc(100vh);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 3vh 40px calc(97vh - 40px - 3em) calc(100vh - 40px) 40px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 3vh 40px calc(97vh - 40px - 3em) repeat(4, var(--content-height)) 40px;
   grid-gap: 1em;
-  height: 200vh;
+  height: calc(var(--content-height) * 5);
   width: 100vw;
 }
 
 .fixedNavbar {
-  grid-template-rows: calc(3vh + 40px + 1em) calc(97vh - 40px - 3em) calc(100vh - 40px) 40px;
+  grid-template-rows: calc(3vh + 40px + 1em) calc(97vh - 40px - 3em) repeat(4, var(--content-height)) 40px;
 }
 
 header,
 footer {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 10;
+}
+
+
+nav {
+  grid-column: 1 / span 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 40px;
+  background: red;
 }
 
 main {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 10;
 }
 
-aside {
-  grid-column: span 2;
+#programari
+{
+  grid-column: 1 / span 7;
 }
 
-section {
-  grid-column: 1 / span 5;
+#orar {
+  grid-column: span 3;
+}
+
+#rezultate {
+  grid-column: 1 / span 10;
+}
+
+#certificari {
+  grid-column: 1 / span 10;
+}
+
+#chestionar {
+  grid-column: 1 / span 7;
+}
+
+#contact {
+  grid-column: span 3;
 }
 
 header {
@@ -34,14 +69,6 @@ header {
   background: #d0ff00;
 }
 
-nav {
-  grid-column: 1 / span 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 40px;
-  background: red;
-}
 
 .sticky {
   position:fixed;
