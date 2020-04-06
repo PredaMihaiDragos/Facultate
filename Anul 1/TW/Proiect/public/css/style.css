@@ -101,7 +101,7 @@ nav a
 nav > span > a:hover
 {
   transition: color 0.3s ease;
-  color:#a72c00;
+  color:rgb(0, 35, 68);
 }
 
 
