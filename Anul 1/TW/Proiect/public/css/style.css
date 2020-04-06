@@ -11,34 +11,24 @@ html {
 #grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 0px 100vh repeat(4, var(--content-height)) 40px;
+  grid-template-rows: 100vh repeat(4, var(--content-height)) 40px;
   height: calc(var(--content-height) * 5);
-  width: 99vw;
+  width: 100vw;
 }
 
 body {
   margin: 0 auto;
   padding: 0 0;
+  background-color:#f2f2f2;
 }
 
 .fixedNavbar {
 }
 
-header,
-footer {
-  grid-column: 1 / span 10;
-}
-
-nav a 
-{
-  font-family: 'Muli';
-  font-weight: bold;
-  color:#FF7F50;
-}
-
 nav {
   transition: background-color 0.5s ease;
-  background-color: transparent;
+  background-color:rgba(255, 255, 255, 0.3);
+  top:150px;
   position:absolute;
   width:100%;
   display: flex;
@@ -49,112 +39,213 @@ nav {
 
 .sticky {
   transition: background-color 0.5s ease;
-  background-color:white;
+  background-color:rgba(255, 255, 255, 255);
   position:fixed;
   width:100%;
   top:0;
 }
 
+nav a 
+{
+  transition: color 0.3s ease;
+  cursor:pointer;
+  font-family: 'Muli';
+  font-weight: 1000;
+  font-size:23px;
+  color:#FF7F50;
+}
+
+nav > span > a:hover
+{
+  transition: color 0.3s ease;
+  color:#a72c00;
+}
+
+
 main {
   background: url(../images/background-main.jpg);
   background-size: cover;
-  grid-row-start: 2;
+  grid-row-start: 1;
   grid-column: 1 / span 10;
 }
 
 #programari
 {
-  background-color:yellow;
-  grid-row-start: 3;
+  background-color:#f2f2f2;
+  grid-row-start: 2;
   grid-column: 1 / span 7;
+  margin: auto auto auto auto;
+  padding: 10px;
+  display:block;
+  border-style:double;
+  border-color:lightsteelblue;
+  border-radius:20px;
+  font-family: "Muli";
+  text-align:center;
 }
 
-#orar {
-  grid-row-start: 3;
+#programari > form
+{
+  margin: auto;
+}
+
+#programari > h1
+{
+  font-size:25px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+}
+
+#programari > form > input, #programari > form > textarea, #programari > form > button
+{
+  margin-left:auto;
+  display:block;
+  border-radius:5px;
+  margin:25px;
+  font-size:17px;
+  font-family: "Muli";
+}
+
+#programari > form > input, #programari > form > button
+{
+  height:30px;
+  width: 50%;
+}
+
+#programari > form > textarea
+{
+  height:100px;
+  width: 50%;
+}
+
+#programari > form > button
+{
+  
+}
+
+#programari > form > button:hover
+{
+  transition: background-color 0.5s ease;
+  background-color:lightsteelblue;
+}
+
+#programari > form > button:focus
+{
+  outline:none;
+}
+
+#orar 
+{
+  grid-row-start: 2;
   grid-column: span 3;
+  text-align:center;
+  background-color:lightblue;
+}
+
+#orar > div
+{
+  position:relative;
+  top: calc(50% - 150px);
+  height:300px;
+  font-family: "Muli";
+}
+
+#orar > div > h1
+{
+  margin-left:100px;
+  margin-right:100px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+  font-size:25px;
+}
+
+#orar > div > table
+{
+  width:100%;
+  text-align:center;
+  font-size:20px;
+  border-spacing:20px;
 }
 
 #rezultate {
-  grid-row-start: 4;
+  grid-row-start: 3;
   grid-column: 1 / span 10;
   background-color:red;
 }
 
 #certificari {
-  grid-row-start: 5;
+  grid-row-start: 4;
   grid-column: 1 / span 10;
 }
 
 #chestionar {
-  grid-row-start: 6;
+  grid-row-start: 5;
   grid-column: 1 / span 7;
 }
 
 #contact {
-  grid-row-start: 6;
+  grid-row-start: 5;
   grid-column: span 3;
 }
 
 footer {
-  grid-row-start: 7;
+  grid-column: 1 / span 10;
+  border-style:solid; 
+  grid-row-start: 6;
+  font-family:'Muli';
+  padding: auto;
   height: 40px;
 }
 
-nav > .menuButton {
-  height:100%;
-  width:100%;
-  display: flex;
-  justify-content:center;
-  align-items:center;
- 
-}
 
-nav > .menuButton:focus {
-  outline: none;
-}
-
-nav > .menuButton:nth-child(odd) {
-
-}
-
-nav > .menuButton:nth-child(even) {
-  
-}
-
-nav .menuButton_active {
- 
-}
-
-aside,
-footer,
-section {
-  background: #eaeaea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#mainFrame {
-  width:100%;
-  height:100%;
-  border-style: none;
-}
 
 @media (max-width: 1280px) {
-  
-  main,
-  aside {
-    grid-column: 1 / span 5;
-  }
-  
 }
 
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: 240px;
+  #grid {
+    grid-template-rows: 100vh repeat(6, var(--content-height)) 40px;
+    height: calc(var(--content-height) * 7);
   }
-  body {
-    grid-template-rows: 3vw 240px 30vw 10vw;
+  
+  main {
+    grid-row-start: 1;
+    grid-column: 1 / span 10;
+  }
+  
+  #programari
+  {
+    grid-row-start: 2;
+    grid-column: 1 / span 10;
+  }
+  
+  #orar {
+    grid-row-start: 3;
+    grid-column: 1 / span 10;
+  }
+  
+  #rezultate {
+    grid-row-start: 4;
+    grid-column: 1 / span 10;
+  }
+  
+  #certificari {
+    grid-row-start: 5;
+    grid-column: 1 / span 10;
+  }
+  
+  #chestionar {
+    grid-row-start: 6;
+    grid-column: 1 / span 10;
+  }
+  
+  #contact {
+    grid-row-start: 7;
+    grid-column: 1 / span 10;
+  }
+  
+  footer {
+    grid-row-start: 8;
+    grid-column: 1 / span 10;
   }
 }

@@ -7,26 +7,73 @@
     
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/index.js"></script>
+
+    <script src="https://kit.fontawesome.com/fe29c7813b.js" crossorigin="anonymous"></script>
 </head>
 <body onload = "init();">
     <nav id = "navbar" class = "nonsticky">
+        <span>
         <a onclick = "scrollToTarget('grid');" id="button_acasa" class="menuButton menuButton_active">Acasa</a>
+        </span>
+        <span>
         <a onclick = "scrollToTarget('programari');" id="button_programari" class="menuButton">Programari</a>
+        </span>
+        <!--<span>
         <a onclick = "scrollToTarget('orar');" id="button_orar" class="menuButton">Orar</a>
+        </span> -->
+        <span>
         <a onclick = "scrollToTarget('rezultate');" id="button_rezultate" class="menuButton">Rezultate</a>
+        </span>
+        <span>
         <a onclick = "scrollToTarget('certificari');" id="button_certificari" class="menuButton">Certificari</a>
-        <a onclick = "scrollToTarget('chestionar');" id="button_chestionar" class="menuButton">Chestionar</a>
+        </span>
+        <span>
+         <!--<a onclick = "scrollToTarget('chestionar');" id="button_chestionar" class="menuButton">Chestionar</a>
+        </span>
+        <span>
         <a onclick = "scrollToTarget('contact');" id="button_contact" class="menuButton">Contact</a>
+        </span>-->
     </nav>
     <div id = "grid">
         <main>
-            <iframe id = "mainFrame" src = "home.html"></iframe>
+            main
         </main>
         <section id = "programari">
-            Programari
+            <h1><i class="fas fa-book"></i> Completeaza urmatorul formular pentru a te programa online!</h1>
+            <form>
+                <input type = "text" id="nume" placeholder = "Nume si prenume">
+                <input type = "text" id="telefon" placeholder = "Telefon">
+                <input type = "text" id="email" placeholder = "Email">
+                <textarea placeholder = "Mesajul dumneavoastra"></textarea>
+                <button>Trimite</button>
+            </form>
         </section>
         <aside id = "orar">
-            Orar
+            <div>
+                <h1>Orar</h1>
+                <table>
+                    <tr>
+                        <td>Luni</td>
+                        <td>07:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Marti</td>
+                        <td>07:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Miercuri</td>
+                        <td>07:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Joi</td>
+                        <td>07:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Vineri</td>
+                        <td>07:00 - 16:00</td>
+                    </tr>
+                </table>
+            </div>
         </aside>
         <section id = "rezultate">
             Rezultate
@@ -41,7 +88,7 @@
             Locatie
         </section>
         <footer>
-            Footer
+            Copyright &copy; 2020 Mihai-Dragos Preda
         </footer>
     </div>
 </body>

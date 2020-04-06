@@ -36,7 +36,7 @@ let navbar, body, sticky;
 function init()
 {
     navbar = document.getElementById("navbar");
-    sticky = 1;
+    sticky = 150;
     Scroll();
 }
 
@@ -60,7 +60,9 @@ function scrollToTarget(id)
 {
     const element = document.getElementById(id);
     const headerOffset = 70;
-    const elementPosition = element.offsetTop;
+    const style = window.getComputedStyle(element);
+    const marginTop = style.getPropertyValue('margin-top'); 
+    const elementPosition = element.offsetTop - parseInt(marginTop);
     const offsetPosition = elementPosition - headerOffset;
 
     window.scrollTo({
