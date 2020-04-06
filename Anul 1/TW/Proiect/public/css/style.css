@@ -1,22 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 :root {
-  --content-height: calc(100vh);
+  --content-height: calc(100vh - 70px);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
+#grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 3vh 40px calc(97vh - 40px - 3em) repeat(4, var(--content-height)) 40px;
-  grid-gap: 1em;
+  grid-template-rows: 0px 100vh repeat(4, var(--content-height)) 40px;
   height: calc(var(--content-height) * 5);
-  width: 100vw;
+  width: 99vw;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 0;
 }
 
 .fixedNavbar {
-  grid-template-rows: calc(3vh + 40px + 1em) calc(97vh - 40px - 3em) repeat(4, var(--content-height)) 40px;
 }
 
 header,
@@ -24,57 +29,75 @@ footer {
   grid-column: 1 / span 10;
 }
 
+nav a 
+{
+  font-family: 'Muli';
+  font-weight: bold;
+  color:#FF7F50;
+}
 
 nav {
-  grid-column: 1 / span 10;
+  transition: background-color 0.5s ease;
+  background-color: transparent;
+  position:absolute;
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: 40px;
-  background: red;
+  height: 70px;
+}
+
+.sticky {
+  transition: background-color 0.5s ease;
+  background-color:white;
+  position:fixed;
+  width:100%;
+  top:0;
 }
 
 main {
+  background: url(../images/background-main.jpg);
+  background-size: cover;
+  grid-row-start: 2;
   grid-column: 1 / span 10;
 }
 
 #programari
 {
+  background-color:yellow;
+  grid-row-start: 3;
   grid-column: 1 / span 7;
 }
 
 #orar {
+  grid-row-start: 3;
   grid-column: span 3;
 }
 
 #rezultate {
+  grid-row-start: 4;
   grid-column: 1 / span 10;
+  background-color:red;
 }
 
 #certificari {
+  grid-row-start: 5;
   grid-column: 1 / span 10;
 }
 
 #chestionar {
+  grid-row-start: 6;
   grid-column: 1 / span 7;
 }
 
 #contact {
+  grid-row-start: 6;
   grid-column: span 3;
 }
 
-header {
-  display: flex;
-  height: 3vh;
-  background: #d0ff00;
-}
-
-
-.sticky {
-  position:fixed;
-  width:100%;
-  max-width:80em;
-  top:0;
+footer {
+  grid-row-start: 7;
+  height: 40px;
 }
 
 nav > .menuButton {
@@ -83,7 +106,7 @@ nav > .menuButton {
   display: flex;
   justify-content:center;
   align-items:center;
-  background:green;
+ 
 }
 
 nav > .menuButton:focus {
@@ -91,24 +114,17 @@ nav > .menuButton:focus {
 }
 
 nav > .menuButton:nth-child(odd) {
-  background:red;
+
 }
 
 nav > .menuButton:nth-child(even) {
-  color:yellow;
+  
 }
 
 nav .menuButton_active {
-  background:blue !important;
+ 
 }
 
-body {
-  margin: 0 auto;
-  max-width: 80em;
-  padding: 1em 0;
-}
-
-main,
 aside,
 footer,
 section {
@@ -116,11 +132,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-footer {
-
-  height: 40px;
 }
 
 #mainFrame {

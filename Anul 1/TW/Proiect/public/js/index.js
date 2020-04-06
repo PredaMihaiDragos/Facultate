@@ -36,8 +36,7 @@ let navbar, body, sticky;
 function init()
 {
     navbar = document.getElementById("navbar");
-    body = document.getElementsByTagName("BODY")[0];
-    sticky = navbar.offsetTop;
+    sticky = 1;
     Scroll();
 }
 
@@ -48,13 +47,24 @@ function Scroll()
     if (window.pageYOffset >= sticky) 
     {
         navbar.classList.add("sticky");
-        body.classList.add("fixedNavbar");
         isSticky = false;
     } 
     else if(window.pageYOffset < sticky)
     {
         navbar.classList.remove("sticky");
-        body.classList.remove("fixedNavbar");
         isSticky = true;
     }
+}
+
+function scrollToTarget(id)
+{
+    const element = document.getElementById(id);
+    const headerOffset = 70;
+    const elementPosition = element.offsetTop;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
 }

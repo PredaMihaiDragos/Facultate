@@ -8,42 +8,41 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/index.js"></script>
 </head>
-<body onload = "init();" id = "body">
-    <header>
-        Laborator analize medicale
-    </header>
+<body onload = "init();">
     <nav id = "navbar" class = "nonsticky">
-        <a id="button_acasa" class="menuButton menuButton_active" href = "#body">Acasa</a>
-        <a id="button_programari" class="menuButton" href = "#programari">Programari</a>
-        <a id="button_orar" class="menuButton" href = "#orar">Orar</a>
-        <a id="button_rezultate" class="menuButton" href = "#rezultate">Rezultate</a>
-        <a id="button_certificari" class="menuButton" href = "#certificari">Certificari</a>
-        <a id="button_chestionar" class="menuButton" href = "#chestionar">Chestionar</a>
-        <a id="button_contact" class="menuButton" href = "#contact">Contact</a>
+        <a onclick = "scrollToTarget('grid');" id="button_acasa" class="menuButton menuButton_active">Acasa</a>
+        <a onclick = "scrollToTarget('programari');" id="button_programari" class="menuButton">Programari</a>
+        <a onclick = "scrollToTarget('orar');" id="button_orar" class="menuButton">Orar</a>
+        <a onclick = "scrollToTarget('rezultate');" id="button_rezultate" class="menuButton">Rezultate</a>
+        <a onclick = "scrollToTarget('certificari');" id="button_certificari" class="menuButton">Certificari</a>
+        <a onclick = "scrollToTarget('chestionar');" id="button_chestionar" class="menuButton">Chestionar</a>
+        <a onclick = "scrollToTarget('contact');" id="button_contact" class="menuButton">Contact</a>
     </nav>
-    <main>
-        <iframe id = "mainFrame" src = "home.html"></iframe>
-    </main>
-    <section id = "programari">
-        Programari
-    </section>
-    <aside id = "orar">
-        Orar
-    </aside>
-    <section id = "rezultate">
-        Rezultate
-    </section>
-    <section id = "certificari">
-        Certificari
-    </section>
-    <section id = "chestionar">
-        Chestionar
-    </section>
-    <section id = "contact">
-        Locatie
-    </section>
-    <footer>
-        Footer
-    </footer>
+    <div id = "grid">
+        <main>
+            <iframe id = "mainFrame" src = "home.html"></iframe>
+        </main>
+        <section id = "programari">
+            Programari
+        </section>
+        <aside id = "orar">
+            Orar
+        </aside>
+        <section id = "rezultate">
+            Rezultate
+        </section>
+        <section id = "certificari">
+            Certificari
+        </section>
+        <section id = "chestionar">
+            Chestionar
+        </section>
+        <section id = "contact">
+            Locatie
+        </section>
+        <footer>
+            Footer
+        </footer>
+    </div>
 </body>
 </html>
