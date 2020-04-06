@@ -11,7 +11,24 @@
     <script src="https://kit.fontawesome.com/fe29c7813b.js" crossorigin="anonymous"></script>
 </head>
 <body onload = "init();">
+    <header>
+        <span class = "sigla">
+            <h1>Laborator analize medicale <br>
+                Dr. Adina Preda</h1>
+        </span>
+        <span class = "locatie">
+            <h1><i class="fas fa-map-marker-alt icon"></i> LOCAȚIA NOASTRĂ</h1>
+            Str. Libertatii, nr. 122-124, Alexandria
+        </span>
+        <span class = "contact">
+            <h1><i class="fas fa-phone-alt icon"></i> 0740 371 897</h1>
+            Luni – Vineri, între 07:00 - 16:00
+        </span>
+    </header>
     <nav id = "navbar" class = "nonsticky">
+        <span>
+            CHESTIONAR
+        </span>
         <span>
         <a onclick = "scrollToTarget('grid');" id="button_acasa" class="menuButton menuButton_active">Acasa</a>
         </span>
@@ -23,6 +40,9 @@
         </span> -->
         <span>
         <a onclick = "scrollToTarget('rezultate');" id="button_rezultate" class="menuButton">Rezultate</a>
+        </span>
+        <span>
+        <a onclick = "scrollToTarget('analize');" id="button_analize" class="menuButton">Analize</a>
         </span>
         <span>
         <a onclick = "scrollToTarget('certificari');" id="button_certificari" class="menuButton">Certificari</a>
@@ -38,6 +58,8 @@
         <main>
             main
         </main>
+        <section id = "analize">
+        </section>
         <section id = "programari">
             <h1><i class="fas fa-book"></i> Completeaza urmatorul formular pentru a te programa online!</h1>
             <form>
@@ -76,16 +98,20 @@
             </div>
         </aside>
         <section id = "rezultate">
-            Rezultate
+            <div class="background">
+                <h1><i class="fas fa-poll-h"></i> Obtine acum rezultatele tale!</h1>
+                <form>
+                    <input type = "text" id="nume" placeholder = "CNP">
+                    <input type = "text" id="telefon" placeholder = "Cod proba">
+                    <aside>
+                        Rezultatele analizelor eliberate cu acest program nu au nici o valoare legala. Un buletin de analize conform normelor legale in vigoare trebuie sa poarte parafa, semnatura medicului si stampila laboratorului unde a fost efectuata. Va asteptam sa ridicati rezultatele analizelor de la sediul nostru!
+                    </aside>
+                    <button>Vizualizeaza rezultate</button>  
+                </form>
+            </div>
         </section>
         <section id = "certificari">
             Certificari
-        </section>
-        <section id = "chestionar">
-            Chestionar
-        </section>
-        <section id = "contact">
-            Locatie
         </section>
         <footer>
             Copyright &copy; 2020 Mihai-Dragos Preda

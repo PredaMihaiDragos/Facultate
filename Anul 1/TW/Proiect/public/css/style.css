@@ -25,9 +25,46 @@ body {
 .fixedNavbar {
 }
 
+header 
+{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content: space-evenly;
+  height:150px;
+  width:100%;
+  background-color:rgba(255, 255, 255, 0.6);
+  font-family: "Muli";
+}
+
+header .sigla
+{
+  margin-left:20px;
+  flex-grow:4;
+}
+
+header .locatie
+{
+  flex-grow:1;
+}
+
+header .contact
+{
+  flex-grow:1;
+}
+
+header .locatie .icon
+{
+  color:rgba(0, 105, 204, 0.95);
+}
+header .contact .icon
+{
+  color:rgba(0, 105, 204, 0.95);
+}
+
 nav {
   transition: background-color 0.5s ease;
-  background-color:rgba(255, 255, 255, 0.3);
+  background-color:rgba(0, 105, 204, 0.95);
   top:150px;
   position:absolute;
   width:100%;
@@ -38,8 +75,9 @@ nav {
 }
 
 .sticky {
+  z-index:5000;
   transition: background-color 0.5s ease;
-  background-color:rgba(255, 255, 255, 255);
+  background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
   width:100%;
   top:0;
@@ -52,7 +90,12 @@ nav a
   font-family: 'Muli';
   font-weight: 1000;
   font-size:23px;
-  color:#FF7F50;
+  color:white;
+}
+
+.sticky a
+{
+  color:white;
 }
 
 nav > span > a:hover
@@ -108,19 +151,18 @@ main {
 
 #programari > form > input, #programari > form > button
 {
+  position:relative;
+  left:22%;
   height:30px;
   width: 50%;
 }
 
 #programari > form > textarea
 {
+  position:relative;
+  left:22%;
   height:100px;
   width: 50%;
-}
-
-#programari > form > button
-{
-  
 }
 
 #programari > form > button:hover
@@ -139,7 +181,8 @@ main {
   grid-row-start: 2;
   grid-column: span 3;
   text-align:center;
-  background-color:lightblue;
+
+  background-color:rgb(129, 167, 204);
 }
 
 #orar > div
@@ -170,22 +213,73 @@ main {
 #rezultate {
   grid-row-start: 3;
   grid-column: 1 / span 10;
-  background-color:red;
+  display:block;
+  font-family: "Muli";
+  text-align:center;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:rgb(199, 201, 204);;
+  z-index:0;
 }
 
-#certificari {
-  grid-row-start: 4;
+#rezultate .background
+{
+  max-width:700px;
+}
+
+#rezultate .background > h1
+{
+  font-size:25px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+}
+
+#rezultate .background > form > input,  #rezultate .background > form > button
+{
+  margin-left:auto;
+  display:block;
+  border-radius:5px;
+  margin:25px;
+  font-size:17px;
+  font-family: "Muli";
+}
+
+#rezultate .background > form > input, #rezultate .background > form > button
+{
+  position:relative;
+  left:22%;
+  height:30px;
+  width: 50%;
+}
+
+#rezultate .background > form > aside
+{
+  font-size:15px;
+}
+
+#rezultate .background > form > button:hover
+{
+  transition: background-color 0.5s ease;
+  background-color:lightsteelblue;
+}
+
+#rezultate .background > form > button:focus
+{
+  outline:none;
+}
+
+#analize {
+  background-color:green;
+  grid-row-start:4;
   grid-column: 1 / span 10;
 }
 
-#chestionar {
+#certificari {
   grid-row-start: 5;
-  grid-column: 1 / span 7;
-}
-
-#contact {
-  grid-row-start: 5;
-  grid-column: span 3;
+  grid-column: 1 / span 10;
 }
 
 footer {
