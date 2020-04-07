@@ -75,12 +75,27 @@ nav {
 }
 
 .sticky {
-  z-index:5000;
+  z-index:100;
   transition: background-color 0.5s ease;
   background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
   width:100%;
   top:0;
+}
+
+#rezultate_popup
+{
+  background-color:white !important;
+  height:0;
+  width:0;
+  position:fixed;
+  z-index:5001;
+  top:0;
+}
+
+.rezultate_table
+{
+  background-color:white;
 }
 
 nav a 
@@ -225,19 +240,19 @@ main {
   z-index:0;
 }
 
-#rezultate .background
+#rezultate .container
 {
   max-width:700px;
 }
 
-#rezultate .background > h1
+#rezultate .container > h1
 {
   font-size:25px;
   padding-bottom:10px;
   border-bottom-style: solid;
 }
 
-#rezultate .background > form > input,  #rezultate .background > form > button
+#rezultate .container .form > input,  #rezultate .container .form > button
 {
   margin-left:auto;
   display:block;
@@ -247,7 +262,7 @@ main {
   font-family: "Muli";
 }
 
-#rezultate .background > form > input, #rezultate .background > form > button
+#rezultate .container .form > input, #rezultate .container .form > button
 {
   position:relative;
   left:22%;
@@ -255,18 +270,18 @@ main {
   width: 50%;
 }
 
-#rezultate .background > form > aside
+#rezultate .container .form > aside
 {
   font-size:15px;
 }
 
-#rezultate .background > form > button:hover
+#rezultate .container .form > button:hover
 {
   transition: background-color 0.5s ease;
   background-color:lightsteelblue;
 }
 
-#rezultate .background > form > button:focus
+#rezultate .container .form > button:focus
 {
   outline:none;
 }
@@ -290,7 +305,6 @@ footer {
   padding: auto;
   height: 40px;
 }
-
 
 
 @media (max-width: 1280px) {

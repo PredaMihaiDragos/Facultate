@@ -64,7 +64,7 @@ class bilet
     }
 }
 
-document.getElementById("button_submit").onclick = () => {
+document.getElementById("rezultate_submit").onclick = () => {
     let cnp = document.getElementById('CNP').value;
     let id = document.getElementById('ID').value;
     CheckBilet(cnp, id);
@@ -107,8 +107,10 @@ function areNumeric(...numbers)
 function Completed(pacient, bilet, grupe)
 {
     //stop loading
-    document.getElementById("form_div").style.display = "none";
-    document.getElementById("rezultate").innerHTML = 
+    const popup = document.getElementById("rezultate_popup");
+    popup.style.width = "100vw";
+    popup.style.height = "100vh";
+    popup.innerHTML = 
     `<header>
         <div>
             Laborator de Analize  Medicale Dr. ADINA PREDA <br>
@@ -148,6 +150,7 @@ function Completed(pacient, bilet, grupe)
     `;
 
     const rezTable = document.createElement("table");
+    rezTable.setAttribute("class", "rezultate_table");
     document.getElementById("rezultate_main").appendChild(rezTable);
     const tableTitles = ["Denumire Analiza", "Rezultat", "Unitate de masura", "Interval biologic de referinta"];
     AddLine(rezTable, tableTitles, true);
