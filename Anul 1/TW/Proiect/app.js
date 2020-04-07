@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db_rez = require('./db_rezultate.js');
+const pdf_rez = require('./pdf_rezultate.js');
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/get_bilet', async function(req, res) {
+/*app.get('/get_bilet', async function(req, res) {
     const pacient = await db_rez.GetPacient(req.query.cnp);
     if(pacient.length == 0)
     {
@@ -32,8 +33,38 @@ app.get('/get_bilet', async function(req, res) {
     for(let i = 0; i < analize.length; i++)
         codgs.add(analize[i].aCodg);
     const grupe = await db_rez.GetGrupe(Array.from(codgs));
+
+
     const ret = {"pacient": pacient[0], "bilet":bilet[0], "grupe":grupe};
     res.send(ret);
+})*/
+
+app.get('/get_bilet', async function(req, res) {
+    const pacient = await db_rez.GetPacient(req.query.cnp);
+    if(pacient.length == 0)
+    {
+        res.status(404);      
+        res.send('Pacientul nu a fost gasit.');
+        return;
+    }
+    const bilet = await db_rez.GetBilet(req.query.cnp, req.query.id);
+    if(bilet.length == 0)
+    {
+        res.status(404);      
+        res.send('Biletul nu a fost gasit.');
+        return;
+    }
+    bilet[0].ANALIZE = JSON.parse(bilet[0].ANALIZE);
+    const analize = bilet[0].ANALIZE;
+    codgs = new Set();
+    for(let i = 0; i < analize.length; i++)
+        codgs.add(analize[i].aCodg);
+    const grupe = await db_rez.GetGrupe(Array.from(codgs));
+
+    const pdf = await pdf_rez.GetPdf(pacient[0], bilet[0], grupe);
+    res.contentType("application/pdf");
+    res.send(pdf);
+    return;
 })
 
 module.exports = app;
