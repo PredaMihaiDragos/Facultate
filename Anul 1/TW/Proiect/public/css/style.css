@@ -116,7 +116,7 @@ main {
 {
   background-color:#f2f2f2;
   grid-row-start: 2;
-  grid-column: 1 / span 7;
+  grid-column: 1 / span 6;
   margin: auto auto auto auto;
   padding: 10px;
   display:block;
@@ -179,21 +179,25 @@ main {
 #orar 
 {
   grid-row-start: 2;
-  grid-column: span 3;
+  grid-column: span 4;
   text-align:center;
 
   background-color:rgb(129, 167, 204);
 }
 
-#orar > div
+#orar .orar
 {
-  position:relative;
-  top: calc(50% - 150px);
   height:300px;
   font-family: "Muli";
 }
 
-#orar > div > h1
+#orar .analize
+{
+  height:400px;
+  overflow:scroll;
+}
+
+#orar .orar > h1
 {
   margin-left:100px;
   margin-right:100px;
@@ -202,12 +206,14 @@ main {
   font-size:25px;
 }
 
-#orar > div > table
+#orar .orar > table
 {
+  position:relative;
+  top:-10px;
   width:100%;
   text-align:center;
   font-size:20px;
-  border-spacing:20px;
+  border-spacing:5px;
 }
 
 #rezultate {
