@@ -70,3 +70,13 @@ function scrollToTarget(id)
          behavior: "smooth"
     });
 }
+
+function GetResults()
+{
+    const xmlHttp = new XMLHttpRequest();
+    const id = document.getElementById("rezultate_id").value;
+    const cnp = document.getElementById("rezultate_cnp").value;
+    xmlHttp.open( "GET", "/get_bilet?cnp="+cnp+"&id="+id, false );
+    xmlHttp.send( null );
+    alert(xmlHttp.responseText);
+}
