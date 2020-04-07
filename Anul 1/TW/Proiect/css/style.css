@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --content-height: calc(100vh - 70px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 100vh repeat(4, var(--content-height)) 40px;
+  height: calc(var(--content-height) * 5);
+  width: 100vw;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 0;
+  background-color:#f2f2f2;
+}
+
+.fixedNavbar {
+}
+
+header 
+{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content: space-evenly;
+  height:150px;
+  width:100%;
+  background-color:rgba(255, 255, 255, 0.6);
+  font-family: "Muli";
+}
+
+header .sigla
+{
+  margin-left:20px;
+  flex-grow:4;
+}
+
+header .locatie
+{
+  flex-grow:1;
+}
+
+header .contact
+{
+  flex-grow:1;
+}
+
+header .locatie .icon
+{
+  color:rgba(0, 105, 204, 0.95);
+}
+header .contact .icon
+{
+  color:rgba(0, 105, 204, 0.95);
+}
+
+nav {
+  transition: background-color 0.5s ease;
+  background-color:rgba(0, 105, 204, 0.95);
+  top:150px;
+  position:absolute;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 70px;
+}
+
+.sticky {
+  z-index:5000;
+  transition: background-color 0.5s ease;
+  background-color:rgba(0, 105, 204, 0.95);
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+nav a 
+{
+  transition: color 0.3s ease;
+  cursor:pointer;
+  font-family: 'Muli';
+  font-weight: 1000;
+  font-size:23px;
+  color:white;
+}
+
+.sticky a
+{
+  color:white;
+}
+
+nav > span > a:hover
+{
+  transition: color 0.3s ease;
+  color:rgb(0, 35, 68);
+}
+
+
+main {
+  background: url(../images/background-main.jpg);
+  background-size: cover;
+  grid-row-start: 1;
+  grid-column: 1 / span 10;
+}
+
+#programari
+{
+  background-color:#f2f2f2;
+  grid-row-start: 2;
+  grid-column: 1 / span 7;
+  margin: auto auto auto auto;
+  padding: 10px;
+  display:block;
+  border-style:double;
+  border-color:lightsteelblue;
+  border-radius:20px;
+  font-family: "Muli";
+  text-align:center;
+}
+
+#programari > form
+{
+  margin: auto;
+}
+
+#programari > h1
+{
+  font-size:25px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+}
+
+#programari > form > input, #programari > form > textarea, #programari > form > button
+{
+  margin-left:auto;
+  display:block;
+  border-radius:5px;
+  margin:25px;
+  font-size:17px;
+  font-family: "Muli";
+}
+
+#programari > form > input, #programari > form > button
+{
+  position:relative;
+  left:22%;
+  height:30px;
+  width: 50%;
+}
+
+#programari > form > textarea
+{
+  position:relative;
+  left:22%;
+  height:100px;
+  width: 50%;
+}
+
+#programari > form > button:hover
+{
+  transition: background-color 0.5s ease;
+  background-color:lightsteelblue;
+}
+
+#programari > form > button:focus
+{
+  outline:none;
+}
+
+#orar 
+{
+  grid-row-start: 2;
+  grid-column: span 3;
+  text-align:center;
+
+  background-color:rgb(129, 167, 204);
+}
+
+#orar > div
+{
+  position:relative;
+  top: calc(50% - 150px);
+  height:300px;
+  font-family: "Muli";
+}
+
+#orar > div > h1
+{
+  margin-left:100px;
+  margin-right:100px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+  font-size:25px;
+}
+
+#orar > div > table
+{
+  width:100%;
+  text-align:center;
+  font-size:20px;
+  border-spacing:20px;
+}
+
+#rezultate {
+  grid-row-start: 3;
+  grid-column: 1 / span 10;
+  display:block;
+  font-family: "Muli";
+  text-align:center;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:rgb(199, 201, 204);;
+  z-index:0;
+}
+
+#rezultate .background
+{
+  max-width:700px;
+}
+
+#rezultate .background > h1
+{
+  font-size:25px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+}
+
+#rezultate .background > form > input,  #rezultate .background > form > button
+{
+  margin-left:auto;
+  display:block;
+  border-radius:5px;
+  margin:25px;
+  font-size:17px;
+  font-family: "Muli";
+}
+
+#rezultate .background > form > input, #rezultate .background > form > button
+{
+  position:relative;
+  left:22%;
+  height:30px;
+  width: 50%;
+}
+
+#rezultate .background > form > aside
+{
+  font-size:15px;
+}
+
+#rezultate .background > form > button:hover
+{
+  transition: background-color 0.5s ease;
+  background-color:lightsteelblue;
+}
+
+#rezultate .background > form > button:focus
+{
+  outline:none;
+}
+
+#analize {
+  background-color:green;
+  grid-row-start:4;
+  grid-column: 1 / span 10;
+}
+
+#certificari {
+  grid-row-start: 5;
+  grid-column: 1 / span 10;
+}
+
+footer {
+  grid-column: 1 / span 10;
+  border-style:solid; 
+  grid-row-start: 6;
+  font-family:'Muli';
+  padding: auto;
+  height: 40px;
+}
+
+
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 768px) {
+  #grid {
+    grid-template-rows: 100vh repeat(6, var(--content-height)) 40px;
+    height: calc(var(--content-height) * 7);
+  }
+  
+  main {
+    grid-row-start: 1;
+    grid-column: 1 / span 10;
+  }
+  
+  #programari
+  {
+    grid-row-start: 2;
+    grid-column: 1 / span 10;
+  }
+  
+  #orar {
+    grid-row-start: 3;
+    grid-column: 1 / span 10;
+  }
+  
+  #rezultate {
+    grid-row-start: 4;
+    grid-column: 1 / span 10;
+  }
+  
+  #certificari {
+    grid-row-start: 5;
+    grid-column: 1 / span 10;
+  }
+  
+  #chestionar {
+    grid-row-start: 6;
+    grid-column: 1 / span 10;
+  }
+  
+  #contact {
+    grid-row-start: 7;
+    grid-column: 1 / span 10;
+  }
+  
+  footer {
+    grid-row-start: 8;
+    grid-column: 1 / span 10;
+  }
+}
