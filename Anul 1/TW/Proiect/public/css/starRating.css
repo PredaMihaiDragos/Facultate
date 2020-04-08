@@ -1,11 +1,17 @@
 .radioStar
 {
     color:black;
+    padding:5px;
+}
+
+.radioEmoji
+{
+    padding:5px;
 }
 
 .radio-hover, .radio-checked
 {
-    color:red;
+    color:#559a9b;
 }
 
 .radio-not-hover

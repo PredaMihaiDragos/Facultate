@@ -60,6 +60,43 @@ function GetGrupe(codgs) {
     });
 }
 
+function AddReview(cnp, parere, calitate, pret, promptitudine)
+{
+    cnp = mysql.escape(cnp);
+    parere = mysql.escape(parere);
+    calitate = mysql.escape(calitate);
+    pret = mysql.escape(pret);
+    promptitudine = mysql.escape(promptitudine);
+    let query = "REPLACE INTO chestionar(CNP, PARERE, CALITATE, PRET, PROMPTITUDINE) VALUES" + 
+                `(${cnp},${parere},${calitate},${pret},${promptitudine})`;
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
+function AddProgramare(cnp, parere, calitate, pret, promptitudine)
+{
+    cnp = mysql.escape(cnp);
+    parere = mysql.escape(parere);
+    calitate = mysql.escape(calitate);
+    pret = mysql.escape(pret);
+    promptitudine = mysql.escape(promptitudine);
+    let query = "REPLACE INTO chestionar(CNP, PARERE, CALITATE, PRET, PROMPTITUDINE) VALUES" + 
+                `(${cnp},${parere},${calitate},${pret},${promptitudine})`;
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
 module.exports.GetPacient = GetPacient;
 module.exports.GetBilet = GetBilet;
 module.exports.GetGrupe = GetGrupe;
+module.exports.AddReview = AddReview;

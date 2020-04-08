@@ -41,8 +41,60 @@ function scrollToTarget(id)
 
 function GetResults()
 {
-    const id = document.getElementById("rezultate_id").value;
-    const cnp = document.getElementById("rezultate_cnp").value;
+    const id = encodeURIComponent(document.getElementById("rezultate_id").value);
+    const cnp = encodeURIComponent(document.getElementById("rezultate_cnp").value);
     const pdfWindow = window.open("/get_bilet?cnp="+cnp+"&id="+id);
+}
+
+submitChestionar.onclick = function()
+{
+    const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
+    const parere = encodeURIComponent(starRating.get("parere").GetStars());
+    const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
+    const pret = encodeURIComponent(starRating.get("pret").GetStars());
+    const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4) 
+        {
+            if(this.status == 201)
+            {
+                alert("Raspunsurile tale au fost primite. Multumim!");
+                HideChestionar();
+            }
+            else
+                alert(xhttp.responseText);
+        }
+    };
+    xhttp.open("PUT", "/chestionar", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("cnp="+cnp+"&parere="+parere+"&calitate="+calitate+"&pret="+pret+"&promptitudine="+promptitudine);
+}
+
+submitProgramari.onclick() = function()
+{
+    const nume = encodeURIComponent(document.getElementById("programari_nume").value);
+    const telefon = encodeURIComponent(document.getElementById("programari_telefon").value);
+    const email = encodeURIComponent(document.getElementById("programari_email").value);
+    const mesaj = encodeURIComponent(document.getElementById("programari_mesaj").value);
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4) 
+        {
+            if(this.status == 201)
+            {
+                alert("Programare realizata cu succes!");
+            }
+            else
+                alert(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "/programari", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("nume="+nume+"&telefon="+telefon+"&email="+email+"&mesaj="+mesaj);
 }
 

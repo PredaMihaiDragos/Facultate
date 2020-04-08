@@ -16,6 +16,11 @@ class starRatingElem
             radio.onmouseout = function(elem) { starRatingElem.MouseOut(elem); };
             elem.appendChild(radio);
         }
+        this.emoji = document.createElement("i");
+        this.emoji.classList.add("radioEmoji");
+        this.emoji.classList.add("far");
+        this.emoji.classList.add("fa-meh");
+        elem.appendChild(this.emoji);
     }
     static Click(elem)
     {
@@ -35,6 +40,7 @@ class starRatingElem
             child.classList.remove("radio-checked");
             i++;
         }
+        starRating.get(elem.parentNode.id).UpdateEmoji();
     }
     static MouseOver(elem)
     {
@@ -54,6 +60,7 @@ class starRatingElem
             child.classList.add("radio-not-hover");
             i++;
         }
+      //  starRating.get(elem.parentNode.id).UpdateEmoji();
     }
     static MouseOut(elem)
     {
@@ -67,24 +74,69 @@ class starRatingElem
             child.classList.remove("radio-not-hover");
             i++;
         }
+       // starRating.get(elem.parentNode.id).UpdateEmoji();
+    }
+    GetStars()
+    {
+        let ret = 0;
+        const children = this.parent.childNodes;
+        let i = 0;
+        while(i < STARS)
+        {
+            const child = children[i];
+            if(child.classList.contains("radio-checked"))
+                ret++;
+            i++;
+        }
+        return ret;
+    }
+    UpdateEmoji()
+    {
+        const stars = this.GetStars();
+        this.emoji.classList.remove("fa-frown");
+        this.emoji.classList.remove("fa-meh");
+        this.emoji.classList.remove("fa-smile");
+        if(stars == 1 || stars == 2)
+        {
+            this.emoji.classList.add("fa-frown");
+            this.emoji.style.color = "red";
+        }
+        else if(stars == 3)
+        {
+            this.emoji.classList.add("fa-meh");
+            this.emoji.style.color = "yellowgreen";
+        }
+        else
+        {
+            this.emoji.classList.add("fa-smile");
+            this.emoji.style.color = "green";
+        }
     }
 }
 
-starRating_elements = {};
-function starRating_add(container)
-{
-    starRating_elements[container.id] = new starRatingElem(container);
-}
-function starRating_get(id)
-{
-    return starRating_elements[id];
-}
+class starRatingClass
+{ 
+    constructor()
+    {
+        this.elements = {};
+    }
+    add(container)
+    {
+        this.elements[container.id] = new starRatingElem(container);
+    }
+    get(id)
+    {
+        return this.elements[id];
+    }
+};
+
+const starRating = new starRatingClass();
 
 function initStarRating()
 {
     const elements = document.getElementsByClassName('starRating');
     for(elem of elements)
     {
-        starRating_add(elem);
+        starRating.add(elem);
     }
 }

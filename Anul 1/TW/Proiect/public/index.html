@@ -50,11 +50,11 @@
         <section id = "programari">
             <h1><i class="fas fa-book"></i> Completeaza urmatorul formular pentru a te programa online!</h1>
             <form>
-                <input type = "text" id="nume" placeholder = "Nume si prenume">
-                <input type = "text" id="telefon" placeholder = "Telefon">
-                <input type = "text" id="email" placeholder = "Email">
-                <textarea placeholder = "Mesajul dumneavoastra"></textarea>
-                <button>Trimite</button>
+                <input type = "text" id="programari_nume" placeholder = "Nume si prenume">
+                <input type = "text" id="programari_telefon" placeholder = "Telefon">
+                <input type = "text" id="programari_email" placeholder = "Email">
+                <textarea id="programari_mesaj" placeholder = "Mesajul dumneavoastra"></textarea>
+                <button id = "submitProgramari">Trimite</button>
             </form>
         </section>
         <aside id = "orar">
@@ -503,25 +503,31 @@
             <span id="chestionarClose" class="close">&times;</span>
             <h2>Chestionar de satisfactie</h2>
           </div>
-          <div class="chestionar-body">
+          <div class="chestionarBody">
             <h1>Completeaza urmatorul formular pentru a ne ajuta sa ne imbunatatim serviciile.</h1>
-                <input type = "text" id="chestionar_cnp" placeholder = "CNP">
+            <input type = "text" id="chestionarCnp" placeholder = "CNP">
 
-                <br>
-                Parerea generala
+            <span class="ratings">
+              <span class="rating">
+                <p>Parerea generala</p>
                 <span class="starRating" id = "parere"></span>
-
-                <br>
-                Calitatea serviciilor
+              </span>
+              <span class="rating">
+                <p>Calitatea serviciilor</p>
                 <span class="starRating" id = "calitate"></span>
-
-                <br>
-                Pretul
+              </span>
+              <span class="rating">
+                <p>Pretul</p>
                 <span class="starRating" id = "pret"></span>
+              </span>
+              <span class="rating">
+                <p>Promptitudine</p>
+                <span class="starRating" id = "promptitudine"></span>
+              </span>
+            </span>
 
-                <br>
-                Promptitudine
-                <span class="starRating" id = "pret"></span>
+            <br>
+            <button id="submitChestionar">Trimite</button>
           </div>
         </div>
     </div>
