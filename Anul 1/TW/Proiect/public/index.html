@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laborator de analize medicale Preda Cati-Adina</title>
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/starRating.css">
     <link rel="stylesheet" href="css/modalBox.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://kit.fontawesome.com/fe29c7813b.js" crossorigin="anonymous"></script>
 </head>
@@ -497,18 +498,36 @@
     </div>
 
     <div id="chestionarBox" class="modalBox">
-        <div class="chestionar-content">
-          <div class="chestionar-header">
+        <div class="chestionarContent">
+          <div class="chestionarHeader">
             <span id="chestionarClose" class="close">&times;</span>
             <h2>Chestionar de satisfactie</h2>
           </div>
           <div class="chestionar-body">
-            
+            <h1>Completeaza urmatorul formular pentru a ne ajuta sa ne imbunatatim serviciile.</h1>
+                <input type = "text" id="chestionar_cnp" placeholder = "CNP">
+
+                <br>
+                Parerea generala
+                <span class="starRating" id = "parere"></span>
+
+                <br>
+                Calitatea serviciilor
+                <span class="starRating" id = "calitate"></span>
+
+                <br>
+                Pretul
+                <span class="starRating" id = "pret"></span>
+
+                <br>
+                Promptitudine
+                <span class="starRating" id = "pret"></span>
           </div>
         </div>
     </div>
   
 </body>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/starRating.js"></script>
     <script type="text/javascript" src="js/modalBox.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>

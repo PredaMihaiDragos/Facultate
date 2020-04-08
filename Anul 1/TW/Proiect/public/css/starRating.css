@@ -1,0 +1,14 @@
+.radioStar
+{
+    color:black;
+}
+
+.radio-hover, .radio-checked
+{
+    color:red;
+}
+
+.radio-not-hover
+{
+    color:black;
+}

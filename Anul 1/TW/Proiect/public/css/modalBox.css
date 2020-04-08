@@ -13,7 +13,7 @@
   }
 
 
-.chestionar-content {
+.chestionarContent {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -53,11 +53,11 @@
     cursor: pointer;
   }
   
-  .chestionar-header {
+  .chestionarHeader {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
   }
   
-  .chestionar-body {padding: 2px 16px;}
+  .chestionarBody {padding: 2px 16px;}
   
