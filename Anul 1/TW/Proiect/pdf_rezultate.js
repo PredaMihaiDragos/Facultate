@@ -13,15 +13,15 @@ async function GetPdf(p, b, g) {
             if (image.complete) {
               return;
             }
-        
             return new Promise((resolve, reject) => {
               image.addEventListener('load', resolve);
               image.addEventListener('error', reject);
             });
           }));
     }, p, b, g);
-    const pdf = await page.pdf({ format: 'A4' });
-    await browser.close();
+
+    const pdf = await page.pdf({ format: 'A4', displayHeaderFooter:true, headerTemplate:'<url>Test</url>' });
+    browser.close();
     return pdf;
   }
 

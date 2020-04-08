@@ -75,5 +75,5 @@ function GetResults()
 {
     const id = document.getElementById("rezultate_id").value;
     const cnp = document.getElementById("rezultate_cnp").value;
-    window.open("/get_bilet?cnp="+cnp+"&id="+id);
+    const pdfWindow = window.open("/get_bilet?cnp="+cnp+"&id="+id);
 }

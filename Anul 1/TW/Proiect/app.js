@@ -63,6 +63,7 @@ app.get('/get_bilet', async function(req, res) {
 
     const pdf = await pdf_rez.GetPdf(pacient[0], bilet[0], grupe);
     res.contentType("application/pdf");
+    res.setHeader("Content-disposition", "filename=rezultat.pdf");
     res.send(pdf);
     return;
 })

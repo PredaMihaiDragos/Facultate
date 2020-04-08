@@ -6,7 +6,7 @@
     <title>Laborator de analize medicale Preda Cati-Adina</title>
     
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/modalBox.css">
 
     <script src="https://kit.fontawesome.com/fe29c7813b.js" crossorigin="anonymous"></script>
 </head>
@@ -27,7 +27,7 @@
     </header>
     <nav id = "navbar" class = "nonsticky">
         <span>
-            CHESTIONAR
+            <button onclick="ShowChestionar();">CHESTIONAR</button>
         </span>
         <span>
         <a onclick = "scrollToTarget('grid');" id="button_acasa" class="menuButton menuButton_active">Acasa</a>
@@ -39,8 +39,6 @@
         <a onclick = "scrollToTarget('rezultate');" id="button_rezultate" class="menuButton">Rezultate</a>
         </span>
         <span>
-        <a onclick = "scrollToTarget('analize');" id="button_analize" class="menuButton">Analize</a>
-        </span>
         <span>
         <a onclick = "scrollToTarget('certificari');" id="button_certificari" class="menuButton">Certificari</a>
         </span>
@@ -50,8 +48,6 @@
         <main>
             
         </main>
-        <section id = "analize">
-        </section>
         <section id = "programari">
             <h1><i class="fas fa-book"></i> Completeaza urmatorul formular pentru a te programa online!</h1>
             <form>
@@ -501,5 +497,20 @@
             Copyright &copy; 2020 Mihai-Dragos Preda
         </footer>
     </div>
+
+    <div id="chestionarBox" class="modalBox">
+        <div class="chestionar-content">
+          <div class="chestionar-header">
+            <span id="chestionarClose" class="close">&times;</span>
+            <h2>Chestionar de satisfactie</h2>
+          </div>
+          <div class="chestionar-body">
+            
+          </div>
+        </div>
+    </div>
+  
 </body>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/modalBox.js"></script>
 </html>

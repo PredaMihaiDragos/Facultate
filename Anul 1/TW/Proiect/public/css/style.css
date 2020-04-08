@@ -12,7 +12,7 @@ html {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 100vh repeat(4, var(--content-height)) 40px;
-  height: calc(var(--content-height) * 5);
+  height: calc(var(--content-height) * 4);
   width: 100vw;
 }
 
@@ -75,7 +75,7 @@ nav {
 }
 
 .sticky {
-  z-index:5000;
+  z-index:1;
   transition: background-color 0.5s ease;
   background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
@@ -277,21 +277,15 @@ main {
   outline:none;
 }
 
-#analize {
-  background-color:green;
-  grid-row-start:4;
-  grid-column: 1 / span 10;
-}
-
 #certificari {
-  grid-row-start: 5;
+  grid-row-start: 4;
   grid-column: 1 / span 10;
 }
 
 footer {
   grid-column: 1 / span 10;
   border-style:solid; 
-  grid-row-start: 6;
+  grid-row-start: 5;
   font-family:'Muli';
   padding: auto;
   height: 40px;
