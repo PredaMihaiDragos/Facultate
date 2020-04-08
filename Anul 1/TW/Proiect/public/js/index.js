@@ -46,7 +46,7 @@ function GetResults()
     const pdfWindow = window.open("/get_bilet?cnp="+cnp+"&id="+id);
 }
 
-submitChestionar.onclick = function()
+document.getElementById('submitChestionar').onclick = function()
 {
     const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
     const parere = encodeURIComponent(starRating.get("parere").GetStars());
@@ -71,9 +71,9 @@ submitChestionar.onclick = function()
     xhttp.open("PUT", "/chestionar", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("cnp="+cnp+"&parere="+parere+"&calitate="+calitate+"&pret="+pret+"&promptitudine="+promptitudine);
-}
+};
 
-submitProgramari.onclick() = function()
+document.getElementById('submitProgramari').onclick = function()
 {
     const nume = encodeURIComponent(document.getElementById("programari_nume").value);
     const telefon = encodeURIComponent(document.getElementById("programari_telefon").value);

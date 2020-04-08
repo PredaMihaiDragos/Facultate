@@ -34,13 +34,13 @@ app.put("/chestionar", async function(req, res) {
     // res.send("A aparut o problema in trimiterea chestionarului. Te rugam mai incearca o data.");
 })
 
-app.put("/programari", async function(req, res) {
+app.post("/programari", async function(req, res) {
     const nume = req.body.nume;
     const telefon = req.body.telefon;
     const email = req.body.email;
     const mesaj = req.body.mesaj;
 
-    //await db.AddReview(cnp, parere, calitate, pret, promptitudine, pacient);
+    await db.AddProgramare(nume, telefon, email, mesaj);
     res.status(201);
     res.send("Succes");
     // res.status(520);

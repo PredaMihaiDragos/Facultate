@@ -127,7 +127,7 @@ main {
   text-align:center;
 }
 
-#programari > form
+#programari > div
 {
   margin: auto;
 }
@@ -139,7 +139,7 @@ main {
   border-bottom-style: solid;
 }
 
-#programari > form > input, #programari > form > textarea, #programari > form > button
+#programari > div > input, #programari > div > textarea, #programari > div > button
 {
   margin-left:auto;
   display:block;
@@ -149,7 +149,7 @@ main {
   font-family: "Muli";
 }
 
-#programari > form > input, #programari > form > button
+#programari > div > input, #programari > div > button
 {
   position:relative;
   left:22%;
@@ -157,7 +157,7 @@ main {
   width: 50%;
 }
 
-#programari > form > textarea
+#programari > div > textarea
 {
   position:relative;
   left:22%;
@@ -165,13 +165,13 @@ main {
   width: 50%;
 }
 
-#programari > form > button:hover
+#programari > div > button:hover
 {
   transition: background-color 0.5s ease;
   background-color:lightsteelblue;
 }
 
-#programari > form > button:focus
+#programari > div > button:focus
 {
   outline:none;
 }

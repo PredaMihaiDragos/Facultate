@@ -78,15 +78,16 @@ function AddReview(cnp, parere, calitate, pret, promptitudine)
     });
 }
 
-function AddProgramare(cnp, parere, calitate, pret, promptitudine)
+function AddProgramare(nume, telefon, email, mesaj)
 {
-    cnp = mysql.escape(cnp);
-    parere = mysql.escape(parere);
-    calitate = mysql.escape(calitate);
-    pret = mysql.escape(pret);
-    promptitudine = mysql.escape(promptitudine);
-    let query = "REPLACE INTO chestionar(CNP, PARERE, CALITATE, PRET, PROMPTITUDINE) VALUES" + 
-                `(${cnp},${parere},${calitate},${pret},${promptitudine})`;
+    nume = mysql.escape(nume);
+    telefon = mysql.escape(telefon);
+    email = mysql.escape(email);
+    mesaj = mysql.escape(mesaj);
+
+
+    let query = "INSERT INTO programari(NUME, TELEFON, EMAIL, MESAJ) VALUES" + 
+                `(${nume},${telefon},${email},${mesaj})`;
     return new Promise((resolve, reject) => {
         Query(query,(successResponse) => {
             resolve(successResponse);
@@ -100,3 +101,4 @@ module.exports.GetPacient = GetPacient;
 module.exports.GetBilet = GetBilet;
 module.exports.GetGrupe = GetGrupe;
 module.exports.AddReview = AddReview;
+module.exports.AddProgramare = AddProgramare;
