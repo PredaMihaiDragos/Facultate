@@ -1,0 +1,7 @@
+Se dau n multimi de numere. Asupra acestora, aplicati urmatoarele operatii:
+
+1 x val - insereaza elementul val in multimea x
+2 x val - sterge elementul val din multimea x, daca exista
+3 x val - afiseaza 1 daca elementul val exista in multimea x si 0 altfel
+4 x y - muta toate elementele <= MIN din multimea x in multimea y, unde MIN este minimul din multimea y
+5 x - afiseaza in ordine crescatoare toate numerele din multimea x
