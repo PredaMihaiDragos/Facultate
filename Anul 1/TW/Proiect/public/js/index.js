@@ -96,5 +96,10 @@ document.getElementById('submitProgramari').onclick = function()
     xhttp.open("POST", "/programari", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("nume="+nume+"&telefon="+telefon+"&email="+email+"&mesaj="+mesaj);
+
+    document.getElementById("programari_nume").value = "";
+    document.getElementById("programari_telefon").value = "";
+    document.getElementById("programari_email").value = "";
+    document.getElementById("programari_mesaj").value = "";
 }
 
