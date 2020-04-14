@@ -1,5 +1,6 @@
 let navbar, body, sticky;
 
+
 function init()
 {
     navbar = document.getElementById("navbar");

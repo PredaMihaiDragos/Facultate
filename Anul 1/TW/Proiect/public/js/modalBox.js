@@ -10,7 +10,7 @@ window.onclick = function(event) {
     HideChestionar();
   }
   else if(event.target == certificariModal) {
-    HideCertificari();
+    HideCertificare();
   }
 }
 
@@ -24,12 +24,17 @@ function HideChestionar()
     chestionarModal.style.display = "none";
 }
 
-function ShowCertificari(url)
+function ShowCertificare(url)
 {
+    const img = document.createElement("img");
+    img.src = url;
+    certificariModal.appendChild(img);
     certificariModal.style.display = "block";
 }
 
-function HideCertificari()
+function HideCertificare()
 {
+    while(certificariModal.firstChild)
+      certificariModal.lastChild.remove();
     certificariModal.style.display = "none";
 }

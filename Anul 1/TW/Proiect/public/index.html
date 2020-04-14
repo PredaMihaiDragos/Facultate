@@ -493,17 +493,14 @@
             </div>
         </section>
         <section id = "certificari">
-          <div>
-            <img src="./images/sigla.jpg"></img>
-            <img src="./images/sigla.jpg"></img>
-            <img src="./images/sigla.jpg"></img>
-          </div>
-          <div id="certificariBox" class="modalBox">
-            <div class="certificariContent">
-              TEEEEEEEEEEST
+          <div class="container">
+            <h1>Certificari</h1>
+            <div>
+              <img onclick="ShowCertificare(this.src)" src="./images/sigla.jpg"></img>
+              <img onclick="ShowCertificare(this.src)" src="./images/sigla.jpg"></img>
+              <img onclick="ShowCertificare(this.src)" src="./images/sigla.jpg"></img>
             </div>
           </div>
-          
         </section>
         <footer>
             Copyright &copy; 2020 Mihai-Dragos Preda
@@ -544,7 +541,9 @@
           </div>
         </div>
     </div>
-  
+    <div id="certificariBox" class="modalBox">
+      <div class="certificariContent" id="certificareContainer"></div>
+    </div>
 </body>
     <script type="text/javascript" src="js/starRating.js"></script>
     <script type="text/javascript" src="js/modalBox.js"></script>
