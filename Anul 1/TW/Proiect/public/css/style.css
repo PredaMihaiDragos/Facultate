@@ -13,16 +13,13 @@ html {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 100vh repeat(4, var(--content-height)) 40px;
   height: calc(var(--content-height) * 4);
-  width: 100vw;
+  width: 99vw;
 }
 
 body {
   margin: 0 auto;
   padding: 0 0;
   background-color:#f2f2f2;
-}
-
-.fixedNavbar {
 }
 
 header 
@@ -32,7 +29,7 @@ header
   align-items:center;
   justify-content: space-evenly;
   height:150px;
-  width:100%;
+  width: 99vw;
   background-color:rgba(255, 255, 255, 0.6);
   font-family: "Muli";
 }
@@ -67,10 +64,10 @@ nav {
   background-color:rgba(0, 105, 204, 0.95);
   top:150px;
   position:absolute;
-  width:100%;
+  width: 99vw;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   height: 70px;
 }
 
@@ -79,18 +76,40 @@ nav {
   transition: background-color 0.5s ease;
   background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
-  width:100%;
+  width: 99vw;
   top:0;
 }
 
-nav a 
+.menuButton
 {
+  padding:2vw;
   transition: color 0.3s ease;
   cursor:pointer;
   font-family: 'Muli';
   font-weight: 1000;
   font-size:23px;
   color:white;
+}
+
+.chestionarButton
+{
+  margin-right:auto;
+}
+
+#chestionarIcon
+{
+  transition: transform 0.2s ease;
+  position:relative;
+  padding-top:50px;
+  padding-left:2vw;
+  height:100px;
+}
+
+#chestionarIcon:hover
+{
+  transition: transform 0.2s ease;
+  transform:scale(1.2);
+
 }
 
 .sticky a
@@ -191,12 +210,6 @@ main {
   font-family: "Muli";
 }
 
-#orar .analize
-{
-  height:400px;
-  overflow:scroll;
-}
-
 #orar .orar > h1
 {
   margin-left:100px;
@@ -215,6 +228,31 @@ main {
   font-size:20px;
   border-spacing:5px;
 }
+
+.analize
+{
+  height:50vh;
+  min-height:300px;
+
+}
+
+#analizeTable
+{
+  height:100%;
+  width:500px;
+  margin:auto;
+  overflow-y:scroll;
+}
+
+.analize > h1
+{
+  margin-left:100px;
+  margin-right:100px;
+  padding-bottom:10px;
+  border-bottom-style: solid;
+  font-size:25px;
+}
+
 
 #rezultate {
   grid-row-start: 3;
@@ -291,7 +329,7 @@ footer {
   height: 40px;
 }
 
-.chestionarContent {
+.chestionarContent, .certificariContent {
   position: relative;
   background-color: #fefefe;
   margin: auto;

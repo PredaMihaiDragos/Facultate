@@ -27,20 +27,20 @@
         </span>
     </header>
     <nav id = "navbar" class = "nonsticky">
-        <span>
-            <button onclick="ShowChestionar();">CHESTIONAR</button>
+        <span class="chestionarButton">
+            <img src="./images/chestionar-icon.png" onclick="ShowChestionar();" id = "chestionarIcon"></img>
         </span>
-        <span>
-        <a onclick = "scrollToTarget('grid');" id="button_acasa" class="menuButton menuButton_active">Acasa</a>
+        <span class="menuButton">
+        <a onclick = "scrollToTarget('grid');" id="button_acasa">Acasa</a>
         </span>
-        <span>
-        <a onclick = "scrollToTarget('programari');" id="button_programari" class="menuButton">Programari</a>
+        <span class="menuButton">
+        <a onclick = "scrollToTarget('programari');" id="button_programari">Programari</a>
         </span>
-        <span>
-        <a onclick = "scrollToTarget('rezultate');" id="button_rezultate" class="menuButton">Rezultate</a>
+        <span class="menuButton">
+        <a onclick = "scrollToTarget('rezultate');" id="button_rezultate">Rezultate</a>
         </span>
-        <span>
-        <a onclick = "scrollToTarget('certificari');" id="button_certificari" class="menuButton">Certificari</a>
+        <span class="menuButton">
+        <a onclick = "scrollToTarget('certificari');" id="button_certificari">Certificari</a>
         </span>
     </nav>
     <div id = "grid">
@@ -84,6 +84,8 @@
                 </table>
             </div>
             <div class = "analize">
+              <h1>Lista de analize</h1>
+              <div id = "analizeTable">
                 <table>
                     <tr>
                       <th>Nr. crt.</th>
@@ -474,6 +476,7 @@
                     </tr>
                     <tr>
                 </table>
+              </div>
             </div>
         </aside>
         <section id = "rezultate">
@@ -490,7 +493,12 @@
             </div>
         </section>
         <section id = "certificari">
-            Certificari
+          <div id="certificariBox" class="modalBox">
+            <div class="certificariContent">
+              TEEEEEEEEEEST
+            </div>
+          </div>
+          
         </section>
         <footer>
             Copyright &copy; 2020 Mihai-Dragos Preda

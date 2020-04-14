@@ -1,4 +1,5 @@
 const chestionarModal = document.getElementById("chestionarBox");
+const certificariModal = document.getElementById("certificariBox");
 
 document.getElementById("chestionarClose").onclick = function() {
   HideChestionar();
@@ -7,6 +8,9 @@ document.getElementById("chestionarClose").onclick = function() {
 window.onclick = function(event) {
   if (event.target == chestionarModal) {
     HideChestionar();
+  }
+  else if(event.target == certificariModal) {
+    HideCertificari();
   }
 }
 
@@ -18,4 +22,14 @@ function ShowChestionar()
 function HideChestionar()
 {
     chestionarModal.style.display = "none";
+}
+
+function ShowCertificari(url)
+{
+    certificariModal.style.display = "block";
+}
+
+function HideCertificari()
+{
+    certificariModal.style.display = "none";
 }
