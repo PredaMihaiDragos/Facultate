@@ -13,7 +13,7 @@ html {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 100vh repeat(4, var(--content-height)) 25px;
   height: calc(var(--content-height) * 4);
-  width: 99vw;
+  width: 100vw;
 }
 
 body {
@@ -29,7 +29,7 @@ header
   align-items:center;
   justify-content: space-evenly;
   height:150px;
-  width: 99vw;
+  width: 100vw;
   background-color:rgba(255, 255, 255, 0.6);
   font-family: "Muli";
 }
@@ -64,7 +64,7 @@ nav {
   background-color:rgba(0, 105, 204, 0.95);
   top:150px;
   position:absolute;
-  width: 99vw;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -76,7 +76,7 @@ nav {
   transition: background-color 0.5s ease;
   background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
-  width: 99vw;
+  width: 100vw;
   top:0;
 }
 
