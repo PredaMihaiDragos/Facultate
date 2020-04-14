@@ -11,7 +11,7 @@ html {
 #grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 100vh repeat(4, var(--content-height)) 40px;
+  grid-template-rows: 100vh repeat(4, var(--content-height)) 25px;
   height: calc(var(--content-height) * 4);
   width: 99vw;
 }
@@ -322,11 +322,12 @@ main {
 
 footer {
   grid-column: 1 / span 10;
-  border-style:solid; 
+  border-top-style:solid; 
   grid-row-start: 5;
   font-family:'Muli';
   padding: auto;
-  height: 40px;
+  text-align:center;
+  height:25px;
 }
 
 .chestionarContent, .certificariContent {
@@ -407,7 +408,7 @@ footer {
 
 @media (max-width: 768px) {
   #grid {
-    grid-template-rows: 100vh repeat(6, var(--content-height)) 40px;
+    grid-template-rows: 100vh repeat(6, var(--content-height)) 25px;
     height: calc(var(--content-height) * 7);
   }
   
