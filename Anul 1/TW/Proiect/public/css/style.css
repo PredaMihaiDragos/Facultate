@@ -109,7 +109,7 @@ nav {
 {
   transition: transform 0.2s ease;
   transform:scale(1.2);
-
+  cursor:pointer;
 }
 
 .sticky a
@@ -354,6 +354,17 @@ main {
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+.acreditare
+{
+  height:300px;
+  
+}
+
+.acreditare:hover
+{
+  cursor:pointer;
 }
 
 footer {
