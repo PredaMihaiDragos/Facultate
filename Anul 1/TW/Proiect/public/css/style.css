@@ -109,7 +109,7 @@ nav {
 {
   transition: transform 0.2s ease;
   transform:scale(1.2);
-
+  cursor:pointer;
 }
 
 .sticky a
@@ -129,6 +129,8 @@ main {
   background-size: cover;
   grid-row-start: 1;
   grid-column: 1 / span 10;
+  height:calc(100vh - 220px);
+  padding-top:220px;
 }
 
 #programari
@@ -354,6 +356,17 @@ main {
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+.acreditare
+{
+  height:300px;
+  
+}
+
+.acreditare:hover
+{
+  cursor:pointer;
 }
 
 footer {
