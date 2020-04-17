@@ -486,13 +486,18 @@
         <section id = "rezultate">
             <div class="container">
                 <h1><i class="fas fa-poll-h"></i> Obtine acum rezultatele tale!</h1>
-                <form onsubmit="return false;">
-                    <input type = "text" id="rezultate_cnp" placeholder = "CNP">
-                    <input type = "text" id="rezultate_id" placeholder = "Cod proba">
-                    <aside>
+                <form id="submitResults">
+                    <input type = "text" id="rezultate_cnp" placeholder = "CNP" required>
+                    <input type = "text" id="rezultate_id" placeholder = "Cod proba" required>
+                    <span class = "agreeSpan">
+                      <input type = "checkbox" id = "rezultate_agree" required><label for="rezultate_agree">Sunt de acord cu cele de mai jos</label> 
+                    </span>
+                    <aside class = "rezultateAside">
                         Rezultatele analizelor eliberate cu acest program nu au nici o valoare legala. Un buletin de analize conform normelor legale in vigoare trebuie sa poarte parafa, semnatura medicului si stampila laboratorului unde a fost efectuata. Va asteptam sa ridicati rezultatele analizelor de la sediul nostru!
+                    <br>
+                        Datele dumneavoastra personale sunt prelucrate (preluate, prelucrate, stocate) de catre Laboratorul de analize medicale Preda Cati Adina, in conformitate cu prevederile Regulamentului UE 679/2016 si Legile din domeniul sanatatii in vigoare, in scopul efectuarii de servicii medicale. Va puteti exercita drepturile de acces , de interventie si de opozitie in conditiile prevazute de Regulamentului UE 679/2016 si/sau dupa caz Legea nr. 677/2001, printr-o cerere scrisa, semnata si datata, depusa personal la laboratorul nostru. In cazul in care indicati o adresa de e-mail in cadrul cererii, raspunsul il puteti primi la adresa indicata in cererea dv. Avand in vedere intrarea in vigoare a Regulamentului (UE) 2016/679 privind protectia persoanelor fizice in ceea ce priveste prelucrarea datelor cu caracter personal si privind libera circulatie a acestor date si de abrogare a Directivei 95/46/CE (Regulamentul general privind protectia datelor) este necesara confirmarea dv in cazul in care doriti ca adresa dv de email sa fie stocata in baza de date a Societatii si sa primiti in continuare emailuri sau sa va accesati istoricul medical sau rezultatul investigatiilor medicale prin intermediul site-ul. Daca sunteti de acord, continuati navigarea si introduceti datele necesare pentru accesarea informatiilor dorite. Pentru informatii suplimentare legate de protectia datelor va rugam sa consultati site-ul companiei. De asemenea, pentru orice alte solicitari va rugam sa ne contactati la adresa adinapreda@gmail.com
                     </aside>
-                    <button onclick = "GetResults();">Vizualizeaza rezultate</button>  
+                    <button type="submit">Vizualizeaza rezultate</button>  
                 </form>
             </div>
         </section>

@@ -40,8 +40,11 @@ function scrollToTarget(id)
     });
 }
 
-function GetResults()
+document.getElementById("submitResults").addEventListener('submit', GetResults);
+
+function GetResults(e)
 {
+    e.preventDefault();
     const id = encodeURIComponent(document.getElementById("rezultate_id").value);
     const cnp = encodeURIComponent(document.getElementById("rezultate_cnp").value);
     const pdfWindow = window.open("/get_bilet?cnp="+cnp+"&id="+id);
@@ -103,9 +106,3 @@ document.getElementById('submitProgramari').onclick = function()
     document.getElementById("programari_email").value = "";
     document.getElementById("programari_mesaj").value = "";
 }
-
-new Glide('.glide', {
-    type:'carousel',
-    focusAt:'center',
-    perView:3
-}).mount();
