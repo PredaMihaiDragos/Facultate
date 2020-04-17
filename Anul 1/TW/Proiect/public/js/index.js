@@ -104,3 +104,8 @@ document.getElementById('submitProgramari').onclick = function()
     document.getElementById("programari_mesaj").value = "";
 }
 
+new Glide('.glide', {
+    type:'carousel',
+    focusAt:'center',
+    perView:3
+}).mount();
