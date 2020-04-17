@@ -150,19 +150,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
+    <ClInclude Include="CreateQuestion.h" />
+    <ClInclude Include="error.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameFrame.h" />
+    <ClInclude Include="GameFrameStyle.h" />
     <ClInclude Include="MultipleChoice.h" />
+    <ClInclude Include="Number.h" />
     <ClInclude Include="Question.h" />
+    <ClInclude Include="QuestionDialogStyle.h" />
     <ClInclude Include="questions.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="style.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
+    <ClCompile Include="CreateQuestion.cpp" />
+    <ClCompile Include="error.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="MultipleChoice.cpp" />
+    <ClCompile Include="Number.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="Word.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

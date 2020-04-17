@@ -10,7 +10,10 @@
 #include <wx/display.h>
 #include <wx/dialog.h>
 
+#include "CreateQuestion.h"
 #include "questions.h"
+#include "error.h"
+#include "style.h"
 
 class GameFrame : public wxFrame
 {
@@ -25,8 +28,6 @@ private:
     void OnAddQuestion(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
-
-    void OnMultipleChoice();
 
     wxDECLARE_EVENT_TABLE();
 };
