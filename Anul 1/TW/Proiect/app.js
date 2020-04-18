@@ -30,8 +30,6 @@ app.put("/chestionar", async function(req, res) {
     await db.AddReview(cnp, parere, calitate, pret, promptitudine, pacient);
     res.status(201);
     res.send("Succes");
-    // res.status(520);
-    // res.send("A aparut o problema in trimiterea chestionarului. Te rugam mai incearca o data.");
 })
 
 app.post("/programari", async function(req, res) {
@@ -43,8 +41,6 @@ app.post("/programari", async function(req, res) {
     await db.AddProgramare(nume, telefon, email, mesaj);
     res.status(201);
     res.send("Succes");
-    // res.status(520);
-    // res.send("A aparut o problema in trimiterea chestionarului. Te rugam mai incearca o data.");
 })
 
 app.get('/get_bilet', async function(req, res) {
