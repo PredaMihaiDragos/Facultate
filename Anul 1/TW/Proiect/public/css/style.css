@@ -21,6 +21,7 @@ body {
   padding: 0 0;
   background-color:#f2f2f2;
   overflow-x:hidden;
+  min-width:1100px;
 }
 
 header 
@@ -29,6 +30,7 @@ header
   display:flex;
   align-items:center;
   justify-content: space-evenly;
+  min-width:1100px;
   height:150px;
   width: 100vw;
   background-color:rgba(255, 255, 255, 0.6);
@@ -65,6 +67,7 @@ nav {
   background-color:rgba(0, 105, 204, 0.95);
   top:150px;
   position:absolute;
+  min-width:1100px;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -130,6 +133,7 @@ main {
   background-size: cover;
   grid-row-start: 1;
   grid-column: 1 / span 10;
+  min-width:1100px;
   height:calc(100vh - 220px);
   padding-top:220px;
 }
@@ -542,9 +546,19 @@ footer {
 
 
 @media (max-width: 1280px) {
+  body {
+    overflow-x:scroll;
+  }
+  nav {
+    background-color:red;
+  }
 }
 
 @media (max-width: 768px) {
+  nav {
+    background-color:green;
+  }
+  
   #grid {
     grid-template-rows: 100vh repeat(6, var(--content-height)) 25px;
     height: calc(var(--content-height) * 7);
