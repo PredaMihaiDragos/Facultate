@@ -175,6 +175,11 @@ main {
   margin-bottom:10px;
 }
 
+.info > button:focus
+{
+  outline:none;
+}
+
 .info > button:hover
 {
   background-color: rgb(0, 20, 134);

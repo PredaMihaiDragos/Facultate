@@ -60,7 +60,6 @@ class starRatingElem
             child.classList.add("radio-not-hover");
             i++;
         }
-      //  starRating.get(elem.parentNode.id).UpdateEmoji();
     }
     static MouseOut(elem)
     {
@@ -74,7 +73,12 @@ class starRatingElem
             child.classList.remove("radio-not-hover");
             i++;
         }
-       // starRating.get(elem.parentNode.id).UpdateEmoji();
+    }
+    SetStars(val)
+    {
+        if(val == null)
+            return;
+        starRatingElem.Click({target: this.parent.childNodes[val]});
     }
     GetStars()
     {

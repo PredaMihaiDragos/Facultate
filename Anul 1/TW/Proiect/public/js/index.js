@@ -7,6 +7,16 @@ function init()
     sticky = 150;
     Scroll();
     initStarRating();
+    loadLocalStorage();
+}
+
+function loadLocalStorage()
+{
+    document.getElementById("chestionarCnp").value = localStorage.getItem("chestionarCnp");
+    starRating.get("parere").SetStars(localStorage.getItem("parere"));
+    starRating.get("calitate").SetStars(localStorage.getItem("calitate"));
+    starRating.get("pret").SetStars(localStorage.getItem("pret"));
+    starRating.get("promptitudine").SetStars(localStorage.getItem("promptitudine"));
 }
 
 window.onscroll = function() {Scroll()};
@@ -57,6 +67,12 @@ document.getElementById('submitChestionar').onclick = function()
     const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
     const pret = encodeURIComponent(starRating.get("pret").GetStars());
     const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
+
+    localStorage.setItem("chestionarCnp", cnp);
+    localStorage.setItem("parere", parere);
+    localStorage.setItem("calitate", calitate);
+    localStorage.setItem("pret", pret);
+    localStorage.setItem("promptitudine", promptitudine);
 
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() 
