@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 :root {
-  --content-height: calc(100vh - 70px);
-  --header-height: 150px;
+  --nav-height:70px;
+  --min-height:570px;
   --min-width:850px;
+  --content-height: calc(100vh - var(--nav-height)); 
+  --main-height: 100vh;
+  --header-height: 150px;
+  --main-padding: calc(var(--header-height) + var(--nav-height));
+  --orar-height:250px;
 }
 
 html {
@@ -13,8 +18,8 @@ html {
 #grid {
   display: grid;
   grid-template-columns: repeat(10, minmax(calc(var(--min-width) / 10), 1fr));
-  grid-template-rows: 100vh repeat(4, var(--content-height)) 25px;
-  height: calc(var(--content-height) * 4);
+  grid-template-rows: var(--main-height) repeat(4, var(--content-height)) 25px;
+  height: calc((100vh - var(--nav-height)) * 4);
   width: 100vw;
 }
 
@@ -74,7 +79,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 70px;
+  height: var(--nav-height);
 }
 
 .sticky {
@@ -134,8 +139,8 @@ main {
   grid-row-start: 1;
   grid-column: 1 / span 10;
   min-width:var(--min-width);
-  height:calc(100vh - 220px);
-  padding-top:220px;
+  height: calc(var(--main-height) - var(--main-padding));
+  padding-top:var(--main-padding);
 }
 
 .info-container
@@ -258,21 +263,21 @@ main {
   grid-row-start: 2;
   grid-column: span 4;
   text-align:center;
-
   background-color:rgb(129, 167, 204);
 }
 
 #orar .orar
 {
-  height:300px;
+  height:var(--orar-height);
   font-family: "Muli";
 }
 
 #orar .orar > h1
 {
+  margin-top:0px;
   margin-left:100px;
   margin-right:100px;
-  padding-bottom:10px;
+  padding-bottom:5px;
   border-bottom-style: solid;
   font-size:25px;
 }
@@ -289,13 +294,12 @@ main {
 
 .analize
 {
-  height:50vh;
-  min-height:300px;
+  height:calc(100% - 273px);
 }
 
 #analizeTable
 {
-  height:100%;
+  height:calc(100% - 65px);
   width:calc(100% - 50px);
   margin:auto;
   overflow-y:scroll;
@@ -325,8 +329,8 @@ main {
 
 .analize > h1
 {
-  margin-left:100px;
-  margin-right:100px;
+  margin-left:10%;
+  margin-right:10%;
   padding-bottom:10px;
   border-bottom-style: solid;
   font-size:25px;
@@ -463,8 +467,8 @@ main {
 
 footer {
   grid-column: 1 / span 10;
-  border-top-style:solid; 
   grid-row-start: 5;
+  border-top-style:solid; 
   font-family:'Muli';
   padding: auto;
   text-align:center;
@@ -554,29 +558,18 @@ footer {
   body {
     overflow-x:scroll;
   }
-  .analize
-  {
-    height:40%;
-  }
-  #analizeTable
-  {
-    height:100%;
-    margin:auto;
-    overflow-y:scroll;
-  }
 
   .analizeTableNumber
   {
     display:none;
   }
+}
 
-  .analize > h1
-  {
-    margin-left:0px;
-    margin-right:0px;
-    padding-bottom:0px;
-    border-bottom-style: solid;
-    font-size:20px;
+@media (min-width: 767px) and (max-height: 640px)
+{
+  :root {
+    --main-height: calc(var(--min-height) + var(--nav-height));
+    --content-height: var(--min-height);
   }
 }
 
@@ -586,8 +579,8 @@ footer {
   }
   
   #grid {
-    grid-template-rows: 100vh repeat(6, var(--content-height)) 25px;
-    height: calc(var(--content-height) * 7);
+    grid-template-rows: var(--main-height) repeat(5, var(--content-height)) 25px;
+    height: calc((100vh - var(--nav-height)) * 5);
   }
   
   main {
@@ -616,18 +609,8 @@ footer {
     grid-column: 1 / span 10;
   }
   
-  #chestionar {
-    grid-row-start: 6;
-    grid-column: 1 / span 10;
-  }
-  
-  #contact {
-    grid-row-start: 7;
-    grid-column: 1 / span 10;
-  }
-  
   footer {
-    grid-row-start: 8;
+    grid-row-start: 6;
     grid-column: 1 / span 10;
   }
 }

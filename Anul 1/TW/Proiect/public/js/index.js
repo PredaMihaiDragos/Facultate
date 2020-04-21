@@ -123,3 +123,8 @@ document.getElementById('submitProgramari').onclick = function()
     document.getElementById("programari_email").value = "";
     document.getElementById("programari_mesaj").value = "";
 }
+
+window.onresize = function() {
+    const main = document.getElementById("main");
+    //console.log(main.clientHeight);
+};
