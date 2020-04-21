@@ -1,10 +1,10 @@
-let navbar, body, sticky;
+let navbar, body;
 
 
 function init()
 {
     navbar = document.getElementById("navbar");
-    sticky = 150;
+    
     Scroll();
     initStarRating();
     loadLocalStorage();
@@ -23,6 +23,7 @@ window.onscroll = function() {Scroll()};
 
 function Scroll() 
 {
+    const sticky = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height'));
     if (window.pageYOffset >= sticky) 
     {
         navbar.classList.add("sticky");

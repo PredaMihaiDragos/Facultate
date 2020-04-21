@@ -2,6 +2,8 @@
 
 :root {
   --content-height: calc(100vh - 70px);
+  --header-height: 150px;
+  --min-width:850px;
 }
 
 html {
@@ -10,7 +12,7 @@ html {
 
 #grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, minmax(calc(var(--min-width) / 10), 1fr));
   grid-template-rows: 100vh repeat(4, var(--content-height)) 25px;
   height: calc(var(--content-height) * 4);
   width: 100vw;
@@ -21,7 +23,7 @@ body {
   padding: 0 0;
   background-color:#f2f2f2;
   overflow-x:hidden;
-  min-width:1100px;
+  min-width:var(--min-width);
 }
 
 header 
@@ -30,8 +32,8 @@ header
   display:flex;
   align-items:center;
   justify-content: space-evenly;
-  min-width:1100px;
-  height:150px;
+  min-width:var(--min-width);
+  height:var(--header-height);
   width: 100vw;
   background-color:rgba(255, 255, 255, 0.6);
   font-family: "Muli";
@@ -65,9 +67,9 @@ header .contact .icon
 nav {
   transition: background-color 0.5s ease;
   background-color:rgba(0, 105, 204, 0.95);
-  top:150px;
+  top:var(--header-height);
   position:absolute;
-  min-width:1100px;
+  min-width:var(--min-width);
   width: 100vw;
   display: flex;
   align-items: center;
@@ -78,9 +80,7 @@ nav {
 .sticky {
   z-index:1;
   transition: background-color 0.5s ease;
-  background-color:rgba(0, 105, 204, 0.95);
   position:fixed;
-  width: 100vw;
   top:0;
 }
 
@@ -133,7 +133,7 @@ main {
   background-size: cover;
   grid-row-start: 1;
   grid-column: 1 / span 10;
-  min-width:1100px;
+  min-width:var(--min-width);
   height:calc(100vh - 220px);
   padding-top:220px;
 }
@@ -291,13 +291,12 @@ main {
 {
   height:50vh;
   min-height:300px;
-
 }
 
 #analizeTable
 {
   height:100%;
-  width:500px;
+  width:calc(100% - 50px);
   margin:auto;
   overflow-y:scroll;
 }
@@ -546,11 +545,38 @@ footer {
 
 
 @media (max-width: 1280px) {
+  :root {
+    --header-height:100px;
+  }
+  header {
+    font-size:13px;
+  }
   body {
     overflow-x:scroll;
   }
-  nav {
-    background-color:red;
+  .analize
+  {
+    height:40%;
+  }
+  #analizeTable
+  {
+    height:100%;
+    margin:auto;
+    overflow-y:scroll;
+  }
+
+  .analizeTableNumber
+  {
+    display:none;
+  }
+
+  .analize > h1
+  {
+    margin-left:0px;
+    margin-right:0px;
+    padding-bottom:0px;
+    border-bottom-style: solid;
+    font-size:20px;
   }
 }
 
