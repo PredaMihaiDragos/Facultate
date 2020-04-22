@@ -102,8 +102,6 @@ void CreateQuestion::OnCreateQuestion()
         submitPos += wxPoint(0, Create::Answer::spaceY);
         submitQuestion = new wxButton(this, SUBMIT_NUMBER, Create::Submit::label, submitPos, Create::Submit::size);
     }
-
-    
 }
 
 void CreateQuestion::OnSubmitMultipleChoice(wxCommandEvent& event)
