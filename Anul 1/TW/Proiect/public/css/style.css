@@ -457,7 +457,6 @@ main {
 .acreditare
 {
   height:300px;
-  
 }
 
 .acreditare:hover
@@ -675,6 +674,10 @@ footer {
   #programari > div > textarea
   {
     left:17%;
+  }
+  .acreditare
+  {
+    height:250px;
   }
 }
 
