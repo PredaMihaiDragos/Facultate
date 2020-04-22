@@ -610,4 +610,78 @@ footer {
     grid-row-start: 6;
     grid-column: 1 / span 10;
   }
+  :root
+  {
+    --nav-height:30px;
+    --min-width:0px;
+    --header-height:65px;
+  }
+  header {
+    font-size:10px;
+  }
+  header .sigla > h1 {
+    font-size:10px;
+  }
+  header .locatie > h1 {
+    font-size:10px;
+  }
+  header .contact > h1 {
+    font-size:10px;
+  }
+  .chestionarButton
+  {
+    display:none;
+  }
+  nav {
+    font-size:10px;
+  }
+  .menuButton
+  {
+    font-size:10px;
+  }
+  .rezultateAside
+  {
+    font-size:8px !important;
+    padding-top:20px;
+  }
+
+  .info > h1
+  {
+    font-size:25px;
+  }
+
+  .info > h2
+  {
+    font-size:18px;
+  }
+
+
+  #programari > h1
+  {
+    font-size:20px;
+  }
+
+  #programari > div > input, #programari > div > textarea, #programari > div > button
+  {
+    margin:25px;
+    font-size:15px;
+  }
+
+  #programari > div > input, #programari > div > button
+  {
+    left:17%;
+  }
+
+  #programari > div > textarea
+  {
+    left:17%;
+  }
+}
+
+@media (max-width: 768px) and (max-height: 480px) {
+  :root {
+    --min-height:450px;
+    --main-height: calc(var(--min-height) + var(--nav-height));
+    --content-height: var(--min-height);
+  }
 }

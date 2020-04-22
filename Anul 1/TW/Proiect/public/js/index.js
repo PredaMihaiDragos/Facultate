@@ -39,11 +39,11 @@ function Scroll()
 function scrollToTarget(id)
 {
     const element = document.getElementById(id);
-    const headerOffset = 70;
+    const navOffset = parseInt(getComputedStyle(document.body).getPropertyValue('--nav-height'));
     const style = window.getComputedStyle(element);
     const marginTop = style.getPropertyValue('margin-top'); 
     const elementPosition = element.offsetTop - parseInt(marginTop);
-    const offsetPosition = elementPosition - headerOffset;
+    const offsetPosition = elementPosition - navOffset;
 
     window.scrollTo({
          top: offsetPosition,
