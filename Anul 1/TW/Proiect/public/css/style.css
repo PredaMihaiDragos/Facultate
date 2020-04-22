@@ -574,9 +574,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  nav {
-    background-color:green;
-  }
   
   #grid {
     grid-template-rows: var(--main-height) repeat(5, var(--content-height)) 25px;
