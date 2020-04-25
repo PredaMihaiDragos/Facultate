@@ -20,14 +20,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="automaton.cpp" />
+    <ClCompile Include="dfa.cpp" />
     <ClCompile Include="lambda_nfa.cpp" />
     <ClCompile Include="nfa.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="automaton.h" />
+    <ClInclude Include="dfa.h" />
     <ClInclude Include="lambda_nfa.h" />
     <ClInclude Include="nfa.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="automaton.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nfa.in" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
