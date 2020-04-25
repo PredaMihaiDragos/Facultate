@@ -12,6 +12,12 @@ void automaton::AddStareFinala(int stare)
 	is_final[stare] = true;
 }
 
+void automaton::AddStareFinala(const std::vector<int> &stare)
+{
+    for (int x : stare)
+        is_final[x] = true;
+}
+
 void automaton::SetStareInit(int stare)
 {
     stare_init = stare;
@@ -33,10 +39,36 @@ bool automaton::Contains(int nod, char* x, int sz, std::set<std::pair<int, int> 
         return false;
     viz.insert(std::make_pair(nod, sz - 1));
     auto elem = vecini[nod].find(x[0]);
-    if (elem == vecini[nod].end())
-        return false;
-    for (int vecin : elem->second)
-        if (Contains(vecin, x + 1, sz - 1, viz))
-            return true;
+    if (elem != vecini[nod].end())
+    {
+        for (int vecin : elem->second)
+            if (Contains(vecin, x + 1, sz - 1, viz))
+                return true;
+    }
+    elem = vecini[nod].find(LAMBDA);
+    if (elem != vecini[nod].end())
+    {
+        for (int vecin : elem->second)
+            if (Contains(vecin, x, sz, viz))
+                return true;
+    }
     return false;
+}
+
+void automaton::Print()
+{
+    std::vector<std::pair<std::pair<int, int>, char> > edges;
+    for (int from = 0; from < nr_stari; ++from)
+        for (const auto& charEdges : vecini[from])
+            for (int to : charEdges.second)
+                edges.push_back(std::make_pair(std::make_pair(from, to), charEdges.first));
+    std::vector<int> finale;
+    for (int i = 0; i < nr_stari; ++i)
+        if (is_final[i])
+            finale.push_back(i);
+    std::cout << nr_stari << " " << edges.size() << " " << finale.size() << " " << stare_init << "\n";
+    for (auto stare : finale)
+        std::cout << stare << "\n";
+    for (auto edge : edges)
+        std::cout << edge.first.first << " " << edge.first.second << " " << edge.second << "\n";
 }
