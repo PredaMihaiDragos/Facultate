@@ -72,3 +72,13 @@ void automaton::Print()
     for (auto edge : edges)
         std::cout << edge.first.first << " " << edge.first.second << " " << edge.second << "\n";
 }
+
+veciniMatrix automaton::GetTranspose(const veciniMatrix& vecini)
+{
+    veciniMatrix ret(vecini.size());
+    for (unsigned int stare = 0; stare < vecini.size(); ++stare)
+        for (const auto& charEdges : vecini[stare])
+            for (int vecin : charEdges.second)
+                ret[vecin][charEdges.first].insert(stare);
+    return ret;
+}

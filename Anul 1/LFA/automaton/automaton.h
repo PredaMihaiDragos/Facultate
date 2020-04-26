@@ -31,6 +31,8 @@ public:
     bool IsFinal(int stare) const { return is_final[stare]; }
 
     void SetIsFinal(const std::vector<bool>& is_final) { this->is_final = is_final; }
+
+    static veciniMatrix GetTranspose(const veciniMatrix& vecini);
 private:
     bool Contains(int nod, char* x, int sz, std::set<std::pair<int, int> > &viz) const;
 protected:

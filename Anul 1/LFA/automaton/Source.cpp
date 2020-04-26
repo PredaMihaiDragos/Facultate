@@ -30,8 +30,10 @@ int main()
 
     nfa NFA(aut);
     dfa DFA(NFA);
+    DFA.Minimize();
+    DFA.Print();
 
-    in >> q;
+ /*   in >> q;
     char cuv[1005];
     while (q--)
     {
@@ -39,6 +41,6 @@ int main()
         out << DFA.Contains(cuv) << "\n";
     }
     in.close();
-    out.close();
+    out.close();*/
 	return 0;
 }
