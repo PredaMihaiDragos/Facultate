@@ -75,7 +75,6 @@ void dfa::Minimize()
 		classes.pop_back();
 	if (classes[0].empty())
 		classes.erase(classes.begin());
-	int t = 0;
 	while (true)
 	{
 		for (const auto& cls : classes)
