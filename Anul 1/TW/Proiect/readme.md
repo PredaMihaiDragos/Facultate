@@ -55,10 +55,10 @@ Link: [index.js](public/js/index.js)
 
 - Creare server Backend (2 puncte) ✔ 
 
-Link: [index.js](app.js)
+Link: [app.js](app.js)
 - CRUD API (Create, Read, Update si Delete) pentru a servi Frontend-ului (6 puncte) ✔ 
 
-Link: [index.js](app.js)
+Link: [app.js](app.js)
 
 #### Punctaj subiectiv (maxim 5 puncte)
 
