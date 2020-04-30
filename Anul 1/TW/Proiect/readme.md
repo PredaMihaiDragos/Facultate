@@ -17,7 +17,7 @@
 ##### HTML si CSS (maxim 8 puncte)
 
 - Fisiere separate pentru HTML si CSS (0.5 puncte) ✔
-- In interiorul documentelor HTML, sa se foloseasca minim 4 [taguri semantice]  (https://www.w3schools.com/html/html5_semantic_elements.asp) (1 punct) ✔
+- In interiorul documentelor HTML, sa se foloseasca minim 4 [taguri semantice](https://www.w3schools.com/html/html5_semantic_elements.asp) (1 punct) ✔
 ```html
 <header>, <nav>, <main>, <aside>, <footer> 
 ```
@@ -44,7 +44,7 @@ Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating
 - Folosirea evenimentelor JavaScript declansate de mouse/tastatura (1 punct) ✔
 
 Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating.js)
-- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) [GET, POST, PUT, DELETE]  (http://www.restapitutorial.com/lessons/httpmethods.html) (4 puncte) ✔ 
+- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) [GET, POST, PUT, DELETE](http://www.restapitutorial.com/lessons/httpmethods.html) (4 puncte) ✔ 
 
 Link: [index.js](public/js/index.js)
 - Folosirea localStorage (0.5 puncte) ✔ 
@@ -64,8 +64,8 @@ Link: [index.js](app.js)
 
 Ne vom imagina ca aplicatia trebuie prezentata unui client, care va aprecia, de exemplu:
 
-- calitatea sustinerii prezentarii proiectului
-- designul (sa arate placut si ingrijit)
-- utilitatea (sa rezolve probleme reale)
-- stabilitatea (sa NU contina defecte evidente)
-- complexitatea (sa aiba mai multe ecrane, layout-ul sa fie mai complex etc.)
+- calitatea sustinerii prezentarii proiectului ✔
+- designul (sa arate placut si ingrijit) ✔
+- utilitatea (sa rezolve probleme reale) ✔
+- stabilitatea (sa NU contina defecte evidente) ✔
+- complexitatea (sa aiba mai multe ecrane, layout-ul sa fie mai complex etc.) ✔
