@@ -78,6 +78,19 @@ function AddReview(cnp, parere, calitate, pret, promptitudine)
     });
 }
 
+function DeleteReview(cnp)
+{
+    cnp = mysql.escape(cnp);
+    let query = "DELETE FROM chestionar WHERE CNP=" + cnp;
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
 function AddProgramare(nume, telefon, email, mesaj)
 {
     nume = mysql.escape(nume);
@@ -101,3 +114,4 @@ module.exports.GetBilet = GetBilet;
 module.exports.GetGrupe = GetGrupe;
 module.exports.AddReview = AddReview;
 module.exports.AddProgramare = AddProgramare;
+module.exports.DeleteReview = DeleteReview;

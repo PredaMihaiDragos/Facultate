@@ -28,7 +28,7 @@
     </header>
     <nav id = "navbar" class = "nonsticky">
         <span class="chestionarButton">
-            <img src="./images/chestionar-icon.png" onclick="ShowChestionar();" id = "chestionarIcon"></img>
+            <img src="./images/chestionar-icon.png" onclick="ShowChestionar();" class = "chestionarIcon"></img>
         </span>
         <span class="menuButton">
         <a onclick = "scrollToTarget('grid');">Acasa</a>
@@ -43,7 +43,7 @@
         <a onclick = "scrollToTarget('certificari');">Certificari</a>
         </span>
     </nav>
-    <div id = "grid">
+    <div id = "grid" class = "grid">
         <main id = "main">
           <div class='info'>
             <h1>Bine ati venit!</h1>
@@ -51,7 +51,7 @@
             <button onclick = "scrollToTarget('rezultate');">Verifica rezultate</button>
           </div>
         </main>
-        <section id = "programari">
+        <section id = "programari" class = "programari">
             <h1><i class="fas fa-book"></i> Completeaza urmatorul formular pentru a te programa online!</h1>
             <div>
                 <input type = "text" id="programari_nume" placeholder = "Nume si prenume">
@@ -61,8 +61,8 @@
                 <button id = "submitProgramari">Trimite</button>
             </div>
         </section>
-        <aside id = "orar">
-            <div class = "orar">
+        <aside id = "orar" class = "orar">
+            <div class = "orarDiv">
                 <h1>Orar</h1>
                 <table>
                     <tr>
@@ -89,7 +89,7 @@
             </div>
             <div class = "analize">
               <h1>Lista de analize</h1>
-              <div id = "analizeTable">
+              <div id = "analizeTable" class = "analizeTable">
                 <table>
                     <tr>
                       <th class = "analizeTableNumber">Nr. crt.</th>
@@ -483,7 +483,7 @@
               </div>
             </div>
         </aside>
-        <section id = "rezultate">
+        <section id = "rezultate" class = "rezultate">
             <div class="container">
                 <h1><i class="fas fa-poll-h"></i> Obtine acum rezultatele tale!</h1>
                 <form id="submitResults">
@@ -501,7 +501,7 @@
                 </form>
             </div>
         </section>
-        <section id = "certificari">
+        <section id = "certificari" class = "certificari">
           <div class="container">
             <h1>Certificari RENAR</h1>
             <div>
@@ -545,7 +545,8 @@
             </span>
 
             <br>
-            <button id="submitChestionar">Trimite</button>
+            <button id="submitChestionar">Trimite</button> <br>
+            <button id="resetChestionar">Reset</button>
           </div>
         </div>
     </div>

@@ -32,6 +32,20 @@ app.put("/chestionar", async function(req, res) {
     res.send("Succes");
 })
 
+app.delete("/delete_chestionar", async function(req, res) {
+    const cnp = req.body.cnp;
+    const pacient = await db.GetPacient(cnp);
+    if(pacient.length == 0)
+    {
+        res.status(403);
+        res.send("Nu am gasit niciun pacient cu CNP-ul dat.");
+        return;
+    }
+    await db.DeleteReview(cnp);
+    res.status(201);
+    res.send("Succes");
+})
+
 app.post("/programari", async function(req, res) {
     const nume = req.body.nume;
     const telefon = req.body.telefon;
