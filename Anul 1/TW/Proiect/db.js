@@ -85,7 +85,6 @@ function AddProgramare(nume, telefon, email, mesaj)
     email = mysql.escape(email);
     mesaj = mysql.escape(mesaj);
 
-
     let query = "INSERT INTO programari(NUME, TELEFON, EMAIL, MESAJ) VALUES" + 
                 `(${nume},${telefon},${email},${mesaj})`;
     return new Promise((resolve, reject) => {
