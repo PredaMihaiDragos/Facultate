@@ -39,15 +39,26 @@ Link: [style.css](public/css/style.css)
 
 - Fisier separat JavaScript (0.5 puncte) ✔
 - Manipularea DOM-ului (crearea, editarea si stergerea elementelor/nodurilor HTML) (3 puncte) ✔
+
 Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating.js)
-- Folosirea evenimentelor JavaScript declansate de mouse/tastatura (1 punct)
-- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) ([GET, POST, PUT, DELETE](http://www.restapitutorial.com/lessons/httpmethods.html)) (4 puncte)
-- Folosirea localStorage (0.5 puncte)
+- Folosirea evenimentelor JavaScript declansate de mouse/tastatura (1 punct) ✔
+
+Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating.js)
+- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) ([GET, POST, PUT, DELETE]  (http://www.restapitutorial.com/lessons/httpmethods.html)) (4 puncte) ✔ 
+
+Link: [index.js](public/js/index.js)
+- Folosirea localStorage (0.5 puncte) ✔ 
+
+Link: [index.js](public/js/index.js)
 
 #### Backend API (maxim 8 puncte)
 
-- Creare server Backend (2 puncte)
-- CRUD API (Create, Read, Update si Delete) pentru a servi Frontend-ului (6 puncte)
+- Creare server Backend (2 puncte) ✔ 
+
+Link: [index.js](app.js)
+- CRUD API (Create, Read, Update si Delete) pentru a servi Frontend-ului (6 puncte) ✔ 
+
+Link: [index.js](app.js)
 
 #### Punctaj subiectiv (maxim 5 puncte)
 
