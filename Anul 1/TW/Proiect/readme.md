@@ -17,7 +17,7 @@
 ##### HTML si CSS (maxim 8 puncte)
 
 - Fisiere separate pentru HTML si CSS (0.5 puncte) ✔
-- In interiorul documentelor HTML, sa se foloseasca minim 4 [taguri semantice] ✔ (https://www.w3schools.com/html/html5_semantic_elements.asp) (1 punct)
+- In interiorul documentelor HTML, sa se foloseasca minim 4 [taguri semantice]  (https://www.w3schools.com/html/html5_semantic_elements.asp) (1 punct) ✔
 ```html
 <header>, <nav>, <main>, <aside>, <footer> 
 ```
