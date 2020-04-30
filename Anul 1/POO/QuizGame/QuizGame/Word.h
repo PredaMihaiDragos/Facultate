@@ -4,8 +4,9 @@
 class Word : public Question
 {
 private:
-	std::string correct;
 public:
-	double GetScore();
+	Word(const std::string& _text);
+	double GetScore() const override;
+	std::unordered_map<std::string, fieldType> toMap() override;
 };
 

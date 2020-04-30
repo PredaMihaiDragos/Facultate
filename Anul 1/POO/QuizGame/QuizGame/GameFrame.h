@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <memory>
+#include <functional>
 
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
@@ -10,7 +11,7 @@
 #include <wx/display.h>
 #include <wx/dialog.h>
 
-#include "CreateQuestion.h"
+#include "CreateQuestionDialog.h"
 #include "questions.h"
 #include "error.h"
 #include "style.h"
@@ -18,17 +19,20 @@
 class GameFrame : public wxFrame
 {
 public:
-    GameFrame(const wxString& title);
-    GameFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+	GameFrame(const wxString& title);
+	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
+	void AddQuestion(std::shared_ptr<Question> question);
 private:
-    wxMenu *menuFile, *menuHelp;
-    wxMenuBar *menuBar;
-    void CreateMenu();
+	wxMenu* menuFile, * menuHelp;
+	wxMenuBar* menuBar;
+	std::vector<std::shared_ptr<Question> > questions;
+	std::function<void(std::shared_ptr<Question>)> createdQuestionCallback;
+	void CreateMenu();
 
-    void OnAddQuestion(wxCommandEvent& event);
-    void OnExit(wxCommandEvent& event);
-    void OnAbout(wxCommandEvent& event);
-
-    wxDECLARE_EVENT_TABLE();
+	void OnAddQuestion(wxCommandEvent& event);
+	void OnExit(wxCommandEvent& event);
+	void OnAbout(wxCommandEvent& event);
+	
+	wxDECLARE_EVENT_TABLE();
 };
 

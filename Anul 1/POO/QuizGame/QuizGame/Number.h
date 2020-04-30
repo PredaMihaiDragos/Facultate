@@ -2,11 +2,12 @@
 
 #include "Question.h"
 
-class Number : public Question
+class Number : public virtual Question
 {
 private:
-	int correct;
 public:
-	double GetScore();
+	Number(const std::string& _text);
+	double GetScore() const override;
+	std::unordered_map<std::string, fieldType> toMap() override;
 };
 

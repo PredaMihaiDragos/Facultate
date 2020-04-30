@@ -11,13 +11,6 @@ EVT_MENU(wxID_EXIT, GameFrame::OnExit)
 EVT_MENU(wxID_ABOUT, GameFrame::OnAbout)
 wxEND_EVENT_TABLE()
 
-
-GameFrame::GameFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-    : wxFrame(NULL, wxID_ANY, title, pos, size)
-{
-    CreateMenu();
-}
-
 GameFrame::GameFrame(const wxString& title)
     : wxFrame(NULL, wxID_ANY, title)
 {
@@ -55,8 +48,15 @@ void GameFrame::OnAbout(wxCommandEvent& event)
         GameFrameStyle::Menu::Help::aboutTitle, wxOK | wxICON_INFORMATION);
 }
 
+
+
 void GameFrame::OnAddQuestion(wxCommandEvent& event)
 {
-    CreateQuestion *dlg = new CreateQuestion(this, QuestionDialogStyle::Window::pos, QuestionDialogStyle::Window::size);
+    CreateQuestionDialog *dlg = new CreateQuestionDialog(this, createdQuestionCallback, QuestionDialogStyle::Window::pos, QuestionDialogStyle::Window::size);
     dlg->Destroy();
+}
+
+void GameFrame::AddQuestion(std::shared_ptr<Question> question)
+{
+    questions.push_back(question);
 }

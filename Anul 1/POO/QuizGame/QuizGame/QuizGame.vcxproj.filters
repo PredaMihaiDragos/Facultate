@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,9 +45,6 @@
     <ClInclude Include="error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CreateQuestion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="QuestionDialogStyle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -58,6 +52,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameFrameStyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionCreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceCreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="creators.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WordCreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberCreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dbModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,11 +98,30 @@
     <ClCompile Include="error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CreateQuestion.cpp">
+    <ClCompile Include="QuestionCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateQuestionDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WordCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dbModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

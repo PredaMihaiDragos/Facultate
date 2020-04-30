@@ -2,7 +2,6 @@
 
 namespace QuestionDialogStyle
 {
-	const int choices = 4;
 	namespace Window
 	{
 		const wxString title = "Add question";
