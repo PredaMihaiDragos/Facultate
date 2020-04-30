@@ -44,7 +44,7 @@ Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating
 - Folosirea evenimentelor JavaScript declansate de mouse/tastatura (1 punct) ✔
 
 Link: [modalBox.js](public/js/modalBox.js), [starRating.js](public/js/starRating.js)
-- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) [GET, POST, PUT, DELETE](http://www.restapitutorial.com/lessons/httpmethods.html) (4 puncte) ✔ 
+- Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) ([GET, POST, PUT, DELETE](http://www.restapitutorial.com/lessons/httpmethods.html)) (4 puncte) ✔ 
 
 Link: [index.js](public/js/index.js)
 - Folosirea localStorage (0.5 puncte) ✔ 
