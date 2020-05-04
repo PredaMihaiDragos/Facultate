@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>WXUSINGDLL;wxMSVC_VERSION_AUTO;_CRT_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\preda\Desktop\C++\sqlite-amalgamation-3310100;C:\Users\preda\Desktop\C++\SQLiteCpp\src;C:\Users\preda\Desktop\C++\SQLiteCpp\include;$(wxwin)/include/msvc;$(wxwin)/include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,6 +154,7 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="database.h" />
     <ClInclude Include="dbModel.h" />
+    <ClInclude Include="dbModelCreator.h" />
     <ClInclude Include="error.h" />
     <ClInclude Include="GameFrame.h" />
     <ClInclude Include="GameFrameStyle.h" />
@@ -177,6 +178,7 @@
     <ClCompile Include="CreateQuestionDialog.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="dbModel.cpp" />
+    <ClCompile Include="dbModelCreator.cpp" />
     <ClCompile Include="error.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="MultipleChoice.cpp" />

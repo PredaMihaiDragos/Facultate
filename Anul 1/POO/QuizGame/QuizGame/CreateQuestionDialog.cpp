@@ -21,6 +21,7 @@ CreateQuestionDialog::CreateQuestionDialog(wxWindow* parent, std::function<void(
     inputText(nullptr),
     inputAnswer(nullptr),
     submitQuestion(nullptr),
+    creator(nullptr),
     multipleChoice(new wxButton(this, CREATE_MULTIPLE_CHOICE, QuestionType::MultipleChoice::title, QuestionType::MultipleChoice::pos)),
     word(new wxButton(this, CREATE_WORD, QuestionType::Word::title, QuestionType::Word::pos)),
     number(new wxButton(this, CREATE_NUMBER, QuestionType::Number::title, QuestionType::Number::pos))
@@ -65,7 +66,7 @@ void CreateQuestionDialog::OnCreateQuestion()
 
     if (std::is_same<T, MultipleChoice>::value)
     {
-        creator = std::make_unique<MultipleChoiceCreator>();
+        creator = MultipleChoiceCreator::GetInstance();
         for (int i = 0; i < MultipleChoice::choices; ++i)
         {
             wxPoint pos = Create::Choice::pos + 
@@ -86,7 +87,7 @@ void CreateQuestionDialog::OnCreateQuestion()
     }
     else if(std::is_same<T, Word>::value)
     {
-        creator = std::make_unique<WordCreator>();
+        creator = WordCreator::GetInstance();
         inputAnswer = new wxTextCtrl(this, wxID_ANY, wxEmptyString, Create::Answer::pos, Create::Answer::size, Create::Answer::style);
         inputAnswer->SetHint(Create::Answer::hint);
 
@@ -94,7 +95,7 @@ void CreateQuestionDialog::OnCreateQuestion()
     }
     else if (std::is_same<T, Number>::value)
     {
-        creator = std::make_unique<NumberCreator>();
+        creator = NumberCreator::GetInstance();
         inputAnswer = new wxTextCtrl(this, wxID_ANY, wxEmptyString, Create::Answer::pos, Create::Answer::size, Create::Answer::style);
         inputAnswer->SetHint(Create::Answer::hint);
 
@@ -106,7 +107,7 @@ void CreateQuestionDialog::OnCreateQuestion()
 void CreateQuestionDialog::OnSubmitQuestion(wxCommandEvent& event)
 {
     std::string text = inputText->GetValue().ToStdString();
-    std::shared_ptr<Question> questionToCreate = creator->CreateQuestion(text);
+    std::shared_ptr<Question> questionToCreate = creator->Create(text);
     
     if (std::shared_ptr<MultipleChoice> multipleChoiceToCreate = std::dynamic_pointer_cast<MultipleChoice>(questionToCreate))
     {

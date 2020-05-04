@@ -27,7 +27,6 @@ private:
 	void OnCreateNumber(wxCommandEvent& event);
 
 	void OnSubmitQuestion(wxCommandEvent& event);
-	void SubmitParseFields();
 
 	template<class T>
 	void OnCreateQuestion();
@@ -38,7 +37,7 @@ private:
 	wxButton* word;
 	wxButton* number;
 
-	std::unique_ptr<QuestionCreator> creator;
+	QuestionCreator* creator;
 	wxTextCtrl* inputText;
 	std::vector<wxTextCtrl*> inputChoice;
 	std::vector<wxRadioButton*> inputRadio;

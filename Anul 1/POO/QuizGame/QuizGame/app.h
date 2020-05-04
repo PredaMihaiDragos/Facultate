@@ -10,14 +10,16 @@
 #include "Question.h"
 #include "database.h"
 
-class app : public wxApp
+class app : 
+    public wxApp
 {
 private:
+    static database* db;
     GameFrame* frame;
 public:
     bool OnInit();
     int OnExit();
     static void OnQuestionCreated(std::shared_ptr<Question> question);
-    static std::vector<std::shared_ptr<Question> > LoadQuestions();
+    static std::vector<std::unique_ptr<Question> > LoadQuestions();
 };
 

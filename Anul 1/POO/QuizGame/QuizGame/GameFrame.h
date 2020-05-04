@@ -16,15 +16,18 @@
 #include "error.h"
 #include "style.h"
 
-class GameFrame : public wxFrame
+class GameFrame : 
+	public wxFrame
 {
 public:
-	GameFrame(const wxString& title);
+	GameFrame(const wxString& title, std::vector<std::unique_ptr<Question> > questions = std::vector<std::unique_ptr<Question> >());
 	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
 	void AddQuestion(std::shared_ptr<Question> question);
 private:
 	wxMenu* menuFile, * menuHelp;
 	wxMenuBar* menuBar;
+	wxStaticText* questionText;
+	int currentQuestion;
 	std::vector<std::shared_ptr<Question> > questions;
 	std::function<void(std::shared_ptr<Question>)> createdQuestionCallback;
 	void CreateMenu();
@@ -32,7 +35,10 @@ private:
 	void OnAddQuestion(wxCommandEvent& event);
 	void OnExit(wxCommandEvent& event);
 	void OnAbout(wxCommandEvent& event);
-	
+
+	void StartGame();
+	void UpdateQuestion();
+		
 	wxDECLARE_EVENT_TABLE();
 };
 
