@@ -38,6 +38,8 @@ private:
 
 	void StartGame();
 	void UpdateQuestion();
+	void NextQuestion();
+	void OnQuestionAnswered(double score); 
 		
 	wxDECLARE_EVENT_TABLE();
 };

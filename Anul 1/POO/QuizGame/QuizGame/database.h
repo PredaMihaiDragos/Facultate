@@ -11,7 +11,6 @@ class database
 {
 private:
 	std::shared_ptr<SQLite::Database> con;
-	static database* instance;
 	database();
 	database(const database&) = delete;
 	database& operator=(const database&) = delete;
@@ -22,8 +21,7 @@ private:
 public:
 	static database* GetInstance()
 	{
-		if (instance == nullptr)
-			instance = new database;
-		return instance;
+		static database instance;
+		return &instance;
 	}
 };

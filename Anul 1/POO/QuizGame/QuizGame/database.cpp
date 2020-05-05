@@ -1,7 +1,5 @@
 #include "database.h"
 
-database* database::instance = nullptr;
-
 database::database()
 {
 	con = std::make_shared<SQLite::Database>("database.db", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);

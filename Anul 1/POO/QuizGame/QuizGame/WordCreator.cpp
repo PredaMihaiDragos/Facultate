@@ -1,7 +1,5 @@
 #include "WordCreator.h"
 
-WordCreator* WordCreator::instance = nullptr;
-
 std::unique_ptr<dbModel> WordCreator::Create() const
 {
     return std::make_unique<Word>();
@@ -36,3 +34,7 @@ std::vector<std::unique_ptr<Question> > WordCreator::LoadAll() const
     return ret;
 }
 
+void WordCreator::ShowCreationDialog(wxWindow* parent, std::function<void(std::shared_ptr<Question>)> createdCallback) const
+{
+    auto* dlg = new CreationDialog(parent, createdCallback);
+}

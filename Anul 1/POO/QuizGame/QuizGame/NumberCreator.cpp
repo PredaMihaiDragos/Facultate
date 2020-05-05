@@ -1,7 +1,5 @@
 #include "NumberCreator.h"
 
-NumberCreator* NumberCreator::instance = nullptr;
-
 std::unique_ptr<dbModel> NumberCreator::Create() const
 {
     return std::make_unique<Number>();
@@ -33,4 +31,9 @@ std::vector<std::unique_ptr<Question> > NumberCreator::LoadAll() const
         error << "exception: " << e.what() << std::endl;
     }
     return ret;
+}
+
+void NumberCreator::ShowCreationDialog(wxWindow* parent, std::function<void(std::shared_ptr<Question>)> createdCallback) const
+{
+    auto* dlg = new CreationDialog(parent, createdCallback);
 }

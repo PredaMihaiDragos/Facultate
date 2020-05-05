@@ -22,9 +22,11 @@ std::unordered_map<std::string, fieldType> MultipleChoice::toMap() const
 	return ret;
 }
 
-double MultipleChoice::GetScore() const
+double MultipleChoice::GetScore(const std::string& answer) const
 {
-	return 100.0;
+	if(answer == correct)
+		return 100.0;
+	return 0.0;
 }
 
 void MultipleChoice::SetChoice(int index, const std::string& str)
@@ -41,7 +43,51 @@ std::string MultipleChoice::GetChoice(int index) const
 	return choice[index];
 }
 
-void MultipleChoice::Show(wxFrame* container) const
+void MultipleChoice::Show(wxFrame* container, std::function<void(double)> submitCallback)
 {
+	using namespace GameFrameStyle::Question;
+	auto *questionText = new wxStaticText(container, -1, GetText(), Text::pos, Text::size, Text::style);
+	questionText->SetFont(Text::font);
+	std::vector<wxStaticText*> inputChoice;
+	std::vector<wxRadioButton*> inputRadio;
 
+	wxPoint submitPos = Submit::pos + wxPoint(0, Text::size.y);
+	for (int i = 0; i < choices; ++i)
+	{
+		wxPoint pos = Choice::pos + wxPoint(0, Choice::spaceY * i + Choice::paddingTop);
+		wxStaticText* choice = new wxStaticText(container, wxID_ANY, GetChoice(i), pos, Choice::size, Choice::style);
+
+		long style = Radio::style;
+		if (i == 0)
+			style |= wxRB_GROUP;
+		pos += wxPoint(Choice::size.x + Radio::paddingLeft, Radio::paddingTop);
+		wxRadioButton* radio = new wxRadioButton(container, wxID_ANY, wxEmptyString, pos, Choice::size, style);
+
+		inputChoice.push_back(choice);
+		inputRadio.push_back(radio);
+	}
+	submitPos += wxPoint(0, Choice::spaceY * choices);
+	auto submitButton = new wxButton(container, wxID_ANY, QuestionDialogStyle::Create::Submit::label, submitPos, QuestionDialogStyle::Create::Submit::size);
+	submitButton->Bind(wxEVT_BUTTON, [this, questionText, inputChoice, inputRadio, submitButton, submitCallback](wxCommandEvent& event) {
+			double score = 0;
+			for (int i = 0; i < choices; ++i)
+			{
+				if (inputRadio[i]->GetValue())
+				{
+					std::string inputValue = inputChoice[i]->GetLabel().ToStdString();
+					score += GetScore(inputValue);
+					break;
+				}
+			}
+			submitCallback(score);
+			
+			questionText->Destroy();
+			for (int i = 0; i < choices; ++i)
+			{
+				inputChoice[i]->Destroy();
+				inputRadio[i]->Destroy();
+			}
+			
+			submitButton->Destroy();
+		});
 }

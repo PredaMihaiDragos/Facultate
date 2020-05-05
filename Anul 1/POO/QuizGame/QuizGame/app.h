@@ -5,16 +5,13 @@
 #include <wx/wx.h>
 #endif
 
-
 #include "GameFrame.h"
 #include "Question.h"
-#include "database.h"
 
 class app : 
     public wxApp
 {
 private:
-    static database* db;
     GameFrame* frame;
 public:
     bool OnInit();

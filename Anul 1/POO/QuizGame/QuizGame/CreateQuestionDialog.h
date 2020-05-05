@@ -26,10 +26,7 @@ private:
 	void OnCreateWord(wxCommandEvent& event);
 	void OnCreateNumber(wxCommandEvent& event);
 
-	void OnSubmitQuestion(wxCommandEvent& event);
-
-	template<class T>
-	void OnCreateQuestion();
+	void OnCreateQuestion(const QuestionCreator* creator);
 
 	std::function<void(std::shared_ptr<Question>)> createdCallback;
 
@@ -37,7 +34,6 @@ private:
 	wxButton* word;
 	wxButton* number;
 
-	QuestionCreator* creator;
 	wxTextCtrl* inputText;
 	std::vector<wxTextCtrl*> inputChoice;
 	std::vector<wxRadioButton*> inputRadio;

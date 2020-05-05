@@ -1,17 +1,13 @@
 #include "app.h"
 
-database* app::db = nullptr;
-
 wxIMPLEMENT_APP(app);
 
 bool app::OnInit()
 {
-    db = database::GetInstance();
     auto questions = LoadQuestions();
     frame = new GameFrame(GameFrameStyle::Window::title, move(questions));
     frame->SetCreatedQuestionCallback(OnQuestionCreated);
     frame->Show(true);
-    frame->Destroy();
     return true;
 }
 

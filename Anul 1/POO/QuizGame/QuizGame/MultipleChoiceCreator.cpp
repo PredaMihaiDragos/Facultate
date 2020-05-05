@@ -1,7 +1,5 @@
 #include "MultipleChoiceCreator.h"
 
-MultipleChoiceCreator* MultipleChoiceCreator::instance = nullptr;
-
 std::unique_ptr<dbModel> MultipleChoiceCreator::Create() const
 {
     return std::make_unique<MultipleChoice>();
@@ -38,4 +36,9 @@ std::vector<std::unique_ptr<Question> > MultipleChoiceCreator::LoadAll() const
         error << "exception: " << e.what() << std::endl;
     }
     return ret;
+}
+
+void MultipleChoiceCreator::ShowCreationDialog(wxWindow* parent, std::function<void(std::shared_ptr<Question>)> createdCallback) const
+{
+    auto* dlg = new CreationDialog(parent, createdCallback);
 }
