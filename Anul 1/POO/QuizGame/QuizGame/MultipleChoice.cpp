@@ -43,7 +43,7 @@ std::string MultipleChoice::GetChoice(int index) const
 	return choice[index];
 }
 
-void MultipleChoice::Show(wxFrame* container, std::function<void(double)> submitCallback)
+void MultipleChoice::Show(wxFrame* container, std::function<void(double, std::string message)> submitCallback)
 {
 	using namespace GameFrameStyle::Question;
 	auto *questionText = new wxStaticText(container, -1, GetText(), Text::pos, Text::size, Text::style);
@@ -51,7 +51,6 @@ void MultipleChoice::Show(wxFrame* container, std::function<void(double)> submit
 	std::vector<wxStaticText*> inputChoice;
 	std::vector<wxRadioButton*> inputRadio;
 
-	wxPoint submitPos = Submit::pos + wxPoint(0, Text::size.y);
 	for (int i = 0; i < choices; ++i)
 	{
 		wxPoint pos = Choice::pos + wxPoint(0, Choice::spaceY * i + Choice::paddingTop);
@@ -61,13 +60,14 @@ void MultipleChoice::Show(wxFrame* container, std::function<void(double)> submit
 		if (i == 0)
 			style |= wxRB_GROUP;
 		pos += wxPoint(Choice::size.x + Radio::paddingLeft, Radio::paddingTop);
-		wxRadioButton* radio = new wxRadioButton(container, wxID_ANY, wxEmptyString, pos, Choice::size, style);
+		wxRadioButton* radio = new wxRadioButton(container, wxID_ANY, wxEmptyString, pos, wxDefaultSize, style);
 
 		inputChoice.push_back(choice);
 		inputRadio.push_back(radio);
 	}
-	submitPos += wxPoint(0, Choice::spaceY * choices);
-	auto submitButton = new wxButton(container, wxID_ANY, QuestionDialogStyle::Create::Submit::label, submitPos, QuestionDialogStyle::Create::Submit::size);
+	wxPoint submitPos = Submit::pos + wxPoint(0, Choice::pos.y + Choice::spaceY * choices);
+	auto submitButton = new wxButton(container, wxID_ANY, Submit::label, submitPos, Submit::size);
+
 	submitButton->Bind(wxEVT_BUTTON, [this, questionText, inputChoice, inputRadio, submitButton, submitCallback](wxCommandEvent& event) {
 			double score = 0;
 			for (int i = 0; i < choices; ++i)
@@ -79,7 +79,12 @@ void MultipleChoice::Show(wxFrame* container, std::function<void(double)> submit
 					break;
 				}
 			}
-			submitCallback(score);
+			std::string message;
+			if (score < 100.0)
+				message = "Wrong answer! Correct answer was: <" + this->correct + ">";
+			else
+				message = "Correct answer! Congratulations!";
+			submitCallback(score, message);
 			
 			questionText->Destroy();
 			for (int i = 0; i < choices; ++i)

@@ -8,10 +8,11 @@ NumberCreator::CreationDialog::CreationDialog(wxWindow* parent, std::function<vo
 
     inputText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, Create::Question::pos, Create::Question::size, Create::Question::style);
     inputText->SetHint(Create::Question::hint);
-    wxPoint submitPos = Create::Submit::pos + wxPoint(0, Create::Question::spaceY);
+    
     inputAnswer = new wxTextCtrl(this, wxID_ANY, wxEmptyString, Create::Answer::pos, Create::Answer::size, Create::Answer::style);
     inputAnswer->SetHint(Create::Answer::hint);
-    submitPos += wxPoint(0, Create::Answer::spaceY);
+
+    wxPoint submitPos = Create::Submit::pos + wxPoint(0, Create::Answer::pos.y + Create::Answer::size.y);
     SetSubmitPos(submitPos);
 
     this->ShowModal();

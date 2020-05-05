@@ -9,7 +9,6 @@ MultipleChoiceCreator::CreationDialog::CreationDialog(wxWindow* parent, std::fun
 	inputText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, Create::Question::pos, Create::Question::size, Create::Question::style);
     inputText->SetHint(Create::Question::hint);
 
-    wxPoint submitPos = Create::Submit::pos + wxPoint(0, Create::Question::spaceY);
 
     for (int i = 0; i < MultipleChoice::choices; ++i)
     {
@@ -21,13 +20,13 @@ MultipleChoiceCreator::CreationDialog::CreationDialog(wxWindow* parent, std::fun
         long style = Create::Radio::style;
         if (i == 0)
             style |= wxRB_GROUP;
-        pos += wxPoint(Create::Choice::size.x + Create::Radio::paddingLeft, 0);
-        wxRadioButton* radio = new wxRadioButton(this, wxID_ANY, wxEmptyString, pos, Create::Choice::size, style);
+        pos += wxPoint(Create::Choice::size.x + Create::Radio::paddingLeft, Create::Radio::paddingTop);
+        wxRadioButton* radio = new wxRadioButton(this, wxID_ANY, wxEmptyString, pos, wxDefaultSize, style);
 
         inputChoice.push_back(choice);
         inputRadio.push_back(radio);
     }
-    submitPos += wxPoint(0, Create::Choice::spaceY * MultipleChoice::choices);
+    wxPoint submitPos = Create::Submit::pos + wxPoint(0, Create::Choice::pos.y + Create::Choice::spaceY * MultipleChoice::choices);
     SetSubmitPos(submitPos);
 
 	this->ShowModal();

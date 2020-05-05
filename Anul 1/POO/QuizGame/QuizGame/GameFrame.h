@@ -24,6 +24,7 @@ public:
 	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
 	void AddQuestion(std::shared_ptr<Question> question);
 private:
+	double totalScore;
 	wxMenu* menuFile, * menuHelp;
 	wxMenuBar* menuBar;
 	wxStaticText* questionText;
@@ -38,8 +39,9 @@ private:
 
 	void StartGame();
 	void UpdateQuestion();
+	void UpdateScore();
 	void NextQuestion();
-	void OnQuestionAnswered(double score); 
+	void OnQuestionAnswered(double score, std::string message);
 		
 	wxDECLARE_EVENT_TABLE();
 };

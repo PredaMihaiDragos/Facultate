@@ -16,7 +16,7 @@ public:
 	std::unordered_map<std::string, fieldType> toMap() const override;
 	void SetChoice(int index, const std::string& str);
 	std::string GetChoice(int index) const;
-	void Show(wxFrame* container, std::function<void(double)> submitCallback) override;
+	void Show(wxFrame* container, std::function<void(double, std::string message)> submitCallback) override;
 
 private:
 	std::vector<std::string> choice;

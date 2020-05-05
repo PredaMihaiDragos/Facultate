@@ -24,7 +24,7 @@ std::unordered_map<std::string, fieldType> Number::toMap() const
 	return ret;
 }
 
-void Number::Show(wxFrame* container, std::function<void(double)> submitCallback)
+void Number::Show(wxFrame* container, std::function<void(double, std::string message)> submitCallback)
 {
 	using namespace GameFrameStyle::Question;
 	auto questionText = new wxStaticText(container, -1, GetText(), Text::pos, Text::size, Text::style);
@@ -32,12 +32,17 @@ void Number::Show(wxFrame* container, std::function<void(double)> submitCallback
 
 	auto inputAnswer = new wxTextCtrl(container, wxID_ANY, wxEmptyString, Answer::pos, Answer::size, Answer::style);
 	inputAnswer->SetHint(Answer::hint);
-	wxPoint submitPos = Submit::pos + wxPoint(0, Text::size.y);
+	wxPoint submitPos = Submit::pos + wxPoint(0, Answer::pos.y + Answer::size.y);
 
 	auto submitButton = new wxButton(container, wxID_ANY, Submit::label, submitPos, Submit::size);
 	submitButton->Bind(wxEVT_BUTTON, [this, questionText, inputAnswer, submitButton, submitCallback](wxCommandEvent& event) {
 		double score = GetScore(inputAnswer->GetValue().ToStdString());
-		submitCallback(score);
+		std::string message;
+		if (score < 100.0)
+			message = "Wrong answer! Correct answer was: <" + this->correct + ">";
+		else
+			message = "Correct answer! Congratulations!";
+		submitCallback(score, message);
 
 		questionText->Destroy();
 		inputAnswer->Destroy();

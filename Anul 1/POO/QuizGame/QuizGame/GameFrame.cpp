@@ -14,7 +14,8 @@ wxEND_EVENT_TABLE()
 
 GameFrame::GameFrame(const wxString& title, std::vector<std::unique_ptr<Question> > questions) : 
     wxFrame(NULL, wxID_ANY, title),
-    currentQuestion(0)
+    currentQuestion(0),
+    totalScore(0.0)
 {
     this->SetPosition(GameFrameStyle::Window::pos);
     this->SetSize(GameFrameStyle::Window::size);
@@ -39,7 +40,6 @@ void GameFrame::CreateMenu()
     menuBar->Append(menuHelp, "&Help");
     SetMenuBar(menuBar);
     CreateStatusBar();
-    SetStatusText(GameFrameStyle::Window::status);
 }
 
 void GameFrame::OnExit(wxCommandEvent& event)
@@ -67,25 +67,40 @@ void GameFrame::AddQuestion(std::shared_ptr<Question> question)
 void GameFrame::StartGame()
 {
     currentQuestion = 0;
+    totalScore = 0;
     UpdateQuestion();
+    UpdateScore();
 }
 
 void GameFrame::UpdateQuestion()
 {
     auto current = questions[currentQuestion];
-    current->Show(this, [this](double score) {
-        this->OnQuestionAnswered(score);
+    current->Show(this, [this](double score, std::string message) {
+        this->OnQuestionAnswered(score, message);
     });
 }
 
 void GameFrame::NextQuestion()
 {
     currentQuestion++;
-    UpdateQuestion();
+    if (currentQuestion >= questions.size())
+    {
+        wxMessageBox("The game ended! Your total score was " + std::to_string(totalScore) + ". Press OK to start again.", "Game Over", wxOK);
+        StartGame();
+    }
+    else
+        UpdateQuestion();
 }
 
-void GameFrame::OnQuestionAnswered(double score)
+void GameFrame::OnQuestionAnswered(double score, std::string message)
 {
-    error << "SCORE: " << score << "\n";
+    wxMessageBox(message, "Answer result", wxOK);
+    totalScore += score;
+    UpdateScore();
     NextQuestion();
+}
+
+void GameFrame::UpdateScore()
+{
+    SetStatusText(GameFrameStyle::Window::scoreMessage + std::to_string(totalScore));
 }

@@ -5,7 +5,7 @@ namespace GameFrameStyle
 	namespace Window
 	{
 		const wxString title = "QuizGame by Mihai Preda";
-		const wxString status = "Welcome to QuizGame!";
+		const wxString scoreMessage = "Your score: ";
 		const wxPoint pos = wxPoint(480, 270);
 		const wxSize size = wxSize(960, 540);
 		const wxColour colour = *wxWHITE;
@@ -36,20 +36,21 @@ namespace GameFrameStyle
 		namespace Choice
 		{
 			const wxPoint pos = wxPoint(280, 70);
-			const wxSize size = wxSize(400, 80);
-			const int paddingTop = 10;
+			const wxSize size = wxSize(400, 60);
+			const int paddingTop = 5;
 			const long style = wxALIGN_CENTRE_HORIZONTAL;
-			const int spaceY = pos.y + paddingTop;
+			const int spaceY = size.y + paddingTop;
 		}
 		namespace Radio
 		{
 			const long style = 0L;
 			const int paddingLeft = 10;
-			const int paddingTop = -20;
+			const int paddingTop = 0;
 		}
 		namespace Answer
 		{
-			const wxPoint pos = wxPoint(10, 40);
+			using namespace GameFrameStyle::Question;
+			const wxPoint pos = wxPoint(380, Text::pos.y + Text::size.y + 20);
 			const wxSize size = wxSize(200, 40);
 			const wxString hint = "Answer";
 			const long style = 0L;
@@ -58,7 +59,7 @@ namespace GameFrameStyle
 		namespace Submit
 		{
 			const wxString label = "Submit";
-			const wxPoint pos = wxPoint(100, 50);
+			const wxPoint pos = wxPoint(380, 30);
 			const wxSize size = wxSize(200, 40);
 		}
 	}

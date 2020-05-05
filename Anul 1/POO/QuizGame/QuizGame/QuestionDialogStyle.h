@@ -46,17 +46,18 @@ namespace QuestionDialogStyle
 			const wxString hint = "Input choice";
 			const int paddingTop = 10;
 			const long style = 0L;
-			const int spaceY = pos.y + paddingTop;
+			const int spaceY = size.y + paddingTop;
 		}
 		namespace Radio
 		{
 			const long style = 0L;
 			const int paddingLeft = 10;
+			const int paddingTop = 12;
 		}
 		namespace Answer
 		{
 			using namespace QuestionDialogStyle::Create;
-			const wxPoint pos = wxPoint(10, 20 + Question::size.y);
+			const wxPoint pos = wxPoint(10, 20 + Question::pos.y + Question::size.y);
 			const wxSize size = wxSize(200, 40);
 			const wxString hint = "Answer";
 			const long style = 0L;
@@ -65,7 +66,7 @@ namespace QuestionDialogStyle
 		namespace Submit
 		{
 			const wxString label = "Submit";
-			const wxPoint pos = wxPoint(100, 50);
+			const wxPoint pos = wxPoint(100, 15);
 			const wxSize size = wxSize(200, 40);
 		}
 	}
