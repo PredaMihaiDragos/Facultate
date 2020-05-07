@@ -23,6 +23,7 @@
     <ClCompile Include="dfa.cpp" />
     <ClCompile Include="lambda_nfa.cpp" />
     <ClCompile Include="nfa.cpp" />
+    <ClCompile Include="regGrammar.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,7 @@
     <ClInclude Include="dfa.h" />
     <ClInclude Include="lambda_nfa.h" />
     <ClInclude Include="nfa.h" />
+    <ClInclude Include="regGrammar.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

@@ -23,9 +23,16 @@ void NumberCreator::CreationDialog::OnSubmitQuestion(wxCommandEvent& event)
     std::string text = inputText->GetValue().ToStdString();
     auto questionToCreate = std::make_shared<Number>(text);
     questionToCreate->SetCorrect(inputAnswer->GetValue().ToStdString());
-    if (createdCallback == nullptr)
-        throw "Error creating question: Question created callback not set!";
-    else
-        createdCallback(questionToCreate);
+    try
+    {
+        if (createdCallback == nullptr)
+            throw Exception("Error creating question: Question created callback not set!", "NumberCreationDialog.cpp");
+        else
+            createdCallback(questionToCreate);
+    }
+    catch (Exception &e)
+    {
+        Logger::GetInstance() += e;
+    }
     this->EndModal(0);
 }

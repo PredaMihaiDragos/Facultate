@@ -29,7 +29,8 @@ dfa::dfa(const nfa& from)
 						edges[charEdges.first] |= (1 << vecin);
 		for (const auto& edge : edges)
 		{
-			AddEdge(stare, edge.second, edge.first);
+			if(vecini[stare][edge.first].size() == 0)
+				AddEdge(stare, edge.second, edge.first);
 			if (viz.find(edge.second) == viz.end())
 			{
 				q.push(edge.second);
@@ -47,8 +48,11 @@ dfa::dfa(const nfa& from)
 
 void dfa::AddEdge(int from, int to, char val)
 {
-	if(vecini[from][val].size() == 0)
-		vecini[from][val].insert(to);
+	if (val == LAMBDA)
+		throw std::runtime_error("LAMBDA character not allowed in DFA!");
+	if(vecini[from][val].size() != 0)
+		throw std::runtime_error("Duplicate edge not allowed in DFA!");
+	vecini[from][val].insert(to);
 }
 
 void dfa::Minimize()
@@ -145,7 +149,8 @@ void dfa::Minimize()
 				AddStareFinala(i);
 			for (const auto& charEdges : old_vecini[stare])
 				for (int vecin : charEdges.second)
-					AddEdge(i, classOf[vecin], charEdges.first);
+					if (vecini[i][charEdges.first].size() == 0)
+						AddEdge(i, classOf[vecin], charEdges.first);
 		}
 }
 

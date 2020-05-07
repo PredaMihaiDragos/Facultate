@@ -2,5 +2,5 @@
 
 const std::shared_ptr<SQLite::Database> dbModelCreator::GetDatabaseCon() const
 {
-	return database::GetInstance()->con;
+	return database::GetInstance().con;
 }

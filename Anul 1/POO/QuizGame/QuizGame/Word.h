@@ -5,12 +5,12 @@
 
 class Word : public Question
 {
-private:
 public:
 	static constexpr const char tableName[] = "Word";
 	Word();
 	Word(const std::string& _text);
-	double GetScore(const std::string& answer) const override;
+	int GetScore(const std::string& answer) const override;
+	static int GetEditDistance(const std::string& first, const std::string& second);
 	std::unordered_map<std::string, fieldType> toMap() const override;
-	void Show(wxFrame* container, std::function<void(double, std::string message)> submitCallback) override;
+	void Show(wxFrame* container, std::function<void(int, std::string message)> submitCallback) override;
 };

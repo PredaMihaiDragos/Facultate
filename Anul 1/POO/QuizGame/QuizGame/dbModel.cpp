@@ -15,10 +15,10 @@ void dbModel::Save() const
 		else if (auto field = std::get_if<const std::string*>(&row.second))
 			query += "'" + **field + "'" + ",";
 		else
-			throw std::runtime_error("Field type not known!");
+			throw Exception("Field type not known!", "dbModel.cpp");
 	}
 	query.pop_back(); //delete ,
 	query += ")";
 
-	database::GetInstance()->Query(query);
+	database::GetInstance() << query;
 }

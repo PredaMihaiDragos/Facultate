@@ -11,8 +11,14 @@ void database::Query(const std::string& query)
 	{
 		con->exec(query);
 	}
-	catch (std::exception& e)
+	catch (Exception &e)
 	{
-		error << "exception: " << e.what() << std::endl;
+		Logger::GetInstance() += e;
 	}
+}
+
+database& operator<<(database& db, const std::string& query)
+{
+	db.Query(query);
+	return db;
 }

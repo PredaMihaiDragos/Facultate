@@ -22,7 +22,7 @@ std::unordered_map<std::string, fieldType> MultipleChoice::toMap() const
 	return ret;
 }
 
-double MultipleChoice::GetScore(const std::string& answer) const
+int MultipleChoice::GetScore(const std::string& answer) const
 {
 	if(answer == correct)
 		return 100.0;
@@ -32,18 +32,18 @@ double MultipleChoice::GetScore(const std::string& answer) const
 void MultipleChoice::SetChoice(int index, const std::string& str)
 {
 	if (index > choices)
-		throw std::out_of_range("Index " + std::to_string(index) + " is out of range!");
+		throw Exception("Index " + std::to_string(index) + " is out of range!", "MultipleChoice.cpp");
 	choice[index] = str;
 }
 
 std::string MultipleChoice::GetChoice(int index) const
 {
 	if (index > choices)
-		throw std::out_of_range("Index " + std::to_string(index) + " is out of range!");
+		throw Exception("Index " + std::to_string(index) + " is out of range!", "MultipleChoice.cpp");
 	return choice[index];
 }
 
-void MultipleChoice::Show(wxFrame* container, std::function<void(double, std::string message)> submitCallback)
+void MultipleChoice::Show(wxFrame* container, std::function<void(int, std::string message)> submitCallback)
 {
 	using namespace GameFrameStyle::Question;
 	auto *questionText = new wxStaticText(container, -1, GetText(), Text::pos, Text::size, Text::style);
@@ -69,7 +69,7 @@ void MultipleChoice::Show(wxFrame* container, std::function<void(double, std::st
 	auto submitButton = new wxButton(container, wxID_ANY, Submit::label, submitPos, Submit::size);
 
 	submitButton->Bind(wxEVT_BUTTON, [this, questionText, inputChoice, inputRadio, submitButton, submitCallback](wxCommandEvent& event) {
-			double score = 0;
+			int score = 0;
 			for (int i = 0; i < choices; ++i)
 			{
 				if (inputRadio[i]->GetValue())

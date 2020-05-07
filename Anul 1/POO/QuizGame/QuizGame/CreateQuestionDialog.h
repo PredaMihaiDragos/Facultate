@@ -26,7 +26,7 @@ private:
 	void OnCreateWord(wxCommandEvent& event);
 	void OnCreateNumber(wxCommandEvent& event);
 
-	void OnCreateQuestion(const QuestionCreator* creator);
+	void OnCreateQuestion(const QuestionCreator& creator);
 
 	std::function<void(std::shared_ptr<Question>)> createdCallback;
 

@@ -7,16 +7,21 @@
 
 #include "GameFrame.h"
 #include "Question.h"
+#include "Logger.h"
 
 class app : 
     public wxApp
 {
-private:
-    GameFrame* frame;
 public:
     bool OnInit();
     int OnExit();
+    app() {};
+    ~app();
     static void OnQuestionCreated(std::shared_ptr<Question> question);
     static std::vector<std::unique_ptr<Question> > LoadQuestions();
+private:
+    GameFrame* frame;
+    app(const app& oth) = delete;
+    app& operator=(const app&) = delete;
 };
 

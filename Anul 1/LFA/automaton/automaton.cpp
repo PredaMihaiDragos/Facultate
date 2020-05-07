@@ -23,6 +23,13 @@ void automaton::SetStareInit(int stare)
     stare_init = stare;
 }
 
+void automaton::SetNrStari(int nr_stari)
+{
+    this->nr_stari = nr_stari;
+    vecini.resize(nr_stari);
+    is_final.resize(nr_stari);
+}
+
 bool automaton::Contains(char* x) const
 {
     int sz = strlen(x);
@@ -55,24 +62,6 @@ bool automaton::Contains(int nod, char* x, int sz, std::set<std::pair<int, int> 
     return false;
 }
 
-void automaton::Print()
-{
-    std::vector<std::pair<std::pair<int, int>, char> > edges;
-    for (int from = 0; from < nr_stari; ++from)
-        for (const auto& charEdges : vecini[from])
-            for (int to : charEdges.second)
-                edges.push_back(std::make_pair(std::make_pair(from, to), charEdges.first));
-    std::vector<int> finale;
-    for (int i = 0; i < nr_stari; ++i)
-        if (is_final[i])
-            finale.push_back(i);
-    std::cout << nr_stari << " " << edges.size() << " " << finale.size() << " " << stare_init << "\n";
-    for (auto stare : finale)
-        std::cout << stare << "\n";
-    for (auto edge : edges)
-        std::cout << edge.first.first << " " << edge.first.second << " " << edge.second << "\n";
-}
-
 veciniMatrix automaton::GetTranspose(const veciniMatrix& vecini)
 {
     veciniMatrix ret(vecini.size());
@@ -81,4 +70,48 @@ veciniMatrix automaton::GetTranspose(const veciniMatrix& vecini)
             for (int vecin : charEdges.second)
                 ret[vecin][charEdges.first].insert(stare);
     return ret;
+}
+
+std::istream& operator>> (std::istream& in, automaton& aut)
+{
+    aut.vecini = veciniMatrix();
+    aut.is_final.clear();
+
+    int n, m, k, s, q;
+    in >> n >> m >> k >> s;
+    aut.SetNrStari(n+1);
+    aut.SetStareInit(s);
+    while (k--)
+    {
+        int stare;
+        in >> stare;
+        aut.AddStareFinala(stare);
+    }
+    while (m--)
+    {
+        int a, b;
+        char c;
+        in >> a >> b >> c;
+        aut.AddEdge(a, b, c);
+    }
+    return in;
+}
+
+std::ostream& operator<< (std::ostream& out, const automaton& aut)
+{
+    std::vector<std::pair<std::pair<int, int>, char> > edges;
+    for (int from = 0; from < aut.nr_stari; ++from)
+        for (const auto& charEdges : aut.vecini[from])
+            for (int to : charEdges.second)
+                edges.push_back(std::make_pair(std::make_pair(from, to), charEdges.first));
+    std::vector<int> finale;
+    for (int i = 0; i < aut.nr_stari; ++i)
+        if (aut.is_final[i])
+            finale.push_back(i);
+    out << aut.nr_stari << " " << edges.size() << " " << finale.size() << " " << aut.stare_init << "\n";
+    for (auto stare : finale)
+        out << stare << "\n";
+    for (auto edge : edges)
+        out << edge.first.first << " " << edge.first.second << " " << edge.second << "\n";
+    return out;
 }

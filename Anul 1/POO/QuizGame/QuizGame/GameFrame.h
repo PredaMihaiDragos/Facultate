@@ -21,10 +21,14 @@ class GameFrame :
 {
 public:
 	GameFrame(const wxString& title, std::vector<std::unique_ptr<Question> > questions = std::vector<std::unique_ptr<Question> >());
+	~GameFrame();
 	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
 	void AddQuestion(std::shared_ptr<Question> question);
 private:
-	double totalScore;
+	GameFrame(const GameFrame& oth) = delete;
+	GameFrame& operator=(const GameFrame&) = delete;
+
+	int totalScore;
 	wxMenu* menuFile, * menuHelp;
 	wxMenuBar* menuBar;
 	wxStaticText* questionText;
@@ -41,7 +45,7 @@ private:
 	void UpdateQuestion();
 	void UpdateScore();
 	void NextQuestion();
-	void OnQuestionAnswered(double score, std::string message);
+	void OnQuestionAnswered(int score, std::string message);
 		
 	wxDECLARE_EVENT_TABLE();
 };

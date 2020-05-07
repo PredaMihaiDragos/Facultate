@@ -31,9 +31,9 @@ std::vector<std::unique_ptr<Question> > MultipleChoiceCreator::LoadAll() const
             ret.push_back(move(current));
         }
     }
-    catch (std::exception& e)
+    catch (Exception &e)
     {
-        error << "exception: " << e.what() << std::endl;
+        Logger::GetInstance() += e;
     }
     return ret;
 }

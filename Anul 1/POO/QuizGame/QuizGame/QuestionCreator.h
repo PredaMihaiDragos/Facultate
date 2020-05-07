@@ -4,9 +4,9 @@
 #include "dbModelCreator.h"
 #include "QuestionCreationDialog.h"
 
-class QuestionCreator : public dbModelCreator
+class QuestionCreator : 
+	public dbModelCreator
 {
-private:
 public:
 	virtual ~QuestionCreator() {};
 	virtual std::unique_ptr<Question> Create(const std::string& text) const = 0;

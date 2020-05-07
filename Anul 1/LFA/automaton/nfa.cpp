@@ -32,6 +32,7 @@ nfa::nfa(const lambda_nfa& from)
 
 void nfa::AddEdge(int from, int to, char val)
 {
-	assert(val != LAMBDA);
+	if (val == LAMBDA)
+		throw std::runtime_error("LAMBDA character not allowed in NFA!");
 	vecini[from][val].insert(to);
 }

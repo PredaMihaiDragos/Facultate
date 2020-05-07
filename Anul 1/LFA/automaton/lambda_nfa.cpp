@@ -1,9 +1,26 @@
 #include "lambda_nfa.h"
 
-lambda_nfa::lambda_nfa(int nr_stari)
-	: automaton(nr_stari)
+lambda_nfa::lambda_nfa(int nr_stari) : 
+	automaton(nr_stari)
 {
 
+}
+
+lambda_nfa::lambda_nfa(const regGrammar& from) :
+	automaton(regGrammar::SIGMA)
+{
+	const int fin = regGrammar::SIGMA - 1;
+	SetStareInit('S' - 'A');
+	AddStareFinala(fin);
+	const auto &prodTerm = from.GetProdTerm();
+	const auto &prodNonTerm = from.GetProdNonTerm();
+
+	for (const auto& charProds : prodTerm)
+		for (const auto& prod : charProds.second)
+			AddEdge(charProds.first - 'A', fin, prod);
+	for (const auto& charProds : prodNonTerm)
+		for (const auto& prod : charProds.second)
+			AddEdge(charProds.first - 'A', prod.second - 'A', prod.first);
 }
 
 void lambda_nfa::AddEdge(int from, int to, char val)

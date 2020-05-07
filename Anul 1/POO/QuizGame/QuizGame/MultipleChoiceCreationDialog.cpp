@@ -41,13 +41,20 @@ void MultipleChoiceCreator::CreationDialog::OnSubmitQuestion(wxCommandEvent& eve
     for (int i = 0; i < MultipleChoice::choices; ++i)
     {
         std::string inputValue = inputChoice[i]->GetValue().ToStdString();
-        questionToCreate->SetChoice(i, inputValue);
+        (*questionToCreate)[i] = inputValue;
         if (inputRadio[i]->GetValue())
             questionToCreate->SetCorrect(inputValue);
     }
-    if (createdCallback == nullptr)
-        throw "Error creating question: Question created callback not set!";
-    else
-        createdCallback(questionToCreate);
+    try
+    {
+        if (createdCallback == nullptr)
+            throw Exception("Error creating question: Question created callback not set!", "MultipleChoiceCreationDialog.cpp");
+        else
+            createdCallback(questionToCreate);
+    }
+    catch (Exception &e)
+    {
+        Logger::GetInstance() += e;
+    }
     this->EndModal(0); 
 }

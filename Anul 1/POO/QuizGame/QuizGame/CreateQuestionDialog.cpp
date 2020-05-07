@@ -50,8 +50,8 @@ void CreateQuestionDialog::OnCreateNumber(wxCommandEvent& event)
     OnCreateQuestion(NumberCreator::GetInstance());
 }
 
-void CreateQuestionDialog::OnCreateQuestion(const QuestionCreator* creator)
+void CreateQuestionDialog::OnCreateQuestion(const QuestionCreator& creator)
 {
     this->EndModal(0);
-    creator->ShowCreationDialog(this->GetParent(), createdCallback);
+    creator.ShowCreationDialog(this->GetParent(), createdCallback);
 }

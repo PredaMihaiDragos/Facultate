@@ -1,6 +1,7 @@
 #pragma once
 
 #include "automaton.h"
+#include "regGrammar.h"
 #include "nfa.h"
 
 #include <queue>

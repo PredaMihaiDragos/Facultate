@@ -15,6 +15,7 @@ class QuestionCreationDialog :
 {
 public:
 	QuestionCreationDialog(wxWindow* parent);
+	virtual ~QuestionCreationDialog() {};
 protected:
 	void SetSubmitPos(const wxPoint& pos) { submitQuestion->SetPosition(pos); }
 private:

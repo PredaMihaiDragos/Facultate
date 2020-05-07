@@ -1,7 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
+#include <sstream>
 #include <vector>
 #include <string>
 #include <queue>
@@ -22,8 +21,6 @@ public:
     virtual void AddEdge(int from, int to, char val) = 0;
     bool Contains(char* x) const;
 
-    void Print();
-
     const veciniMatrix& GetVecini() const { return vecini; }
     const std::vector<bool>& GetIsFinal() const { return is_final; }
     int GetStareInit() const { return stare_init;  }
@@ -31,8 +28,12 @@ public:
     bool IsFinal(int stare) const { return is_final[stare]; }
 
     void SetIsFinal(const std::vector<bool>& is_final) { this->is_final = is_final; }
+    void SetNrStari(int nr_stari);
 
     static veciniMatrix GetTranspose(const veciniMatrix& vecini);
+
+    friend std::istream& operator>> (std::istream& in, automaton& aut);
+    friend std::ostream& operator<< (std::ostream& out, const automaton& aut);
 private:
     bool Contains(int nod, char* x, int sz, std::set<std::pair<int, int> > &viz) const;
 protected:

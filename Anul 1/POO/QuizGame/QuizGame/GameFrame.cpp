@@ -59,6 +59,11 @@ void GameFrame::OnAddQuestion(wxCommandEvent& event)
     dlg->Destroy();
 }
 
+GameFrame::~GameFrame()
+{
+    Destroy();
+}
+
 void GameFrame::AddQuestion(std::shared_ptr<Question> question)
 {
     questions.push_back(question);
@@ -75,7 +80,7 @@ void GameFrame::StartGame()
 void GameFrame::UpdateQuestion()
 {
     auto current = questions[currentQuestion];
-    current->Show(this, [this](double score, std::string message) {
+    (*current)(this, [this](int score, std::string message) {
         this->OnQuestionAnswered(score, message);
     });
 }
@@ -92,7 +97,7 @@ void GameFrame::NextQuestion()
         UpdateQuestion();
 }
 
-void GameFrame::OnQuestionAnswered(double score, std::string message)
+void GameFrame::OnQuestionAnswered(int score, std::string message)
 {
     wxMessageBox(message, "Answer result", wxOK);
     totalScore += score;

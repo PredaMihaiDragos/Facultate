@@ -2,6 +2,10 @@
 
 wxIMPLEMENT_APP(app);
 
+app::~app()
+{
+}
+
 bool app::OnInit()
 {
     auto questions = LoadQuestions();
@@ -18,15 +22,22 @@ int app::OnExit()
 
 void app::OnQuestionCreated(std::shared_ptr<Question> question)
 {
-    question->Save();
+    try
+    {
+        question->Save();
+    }
+    catch (Exception &e)
+    {
+        Logger::GetInstance() += e;
+    }
 }
 
 std::vector<std::unique_ptr<Question> > app::LoadQuestions()
 {
     std::vector<std::unique_ptr<Question> > ret;
-    std::vector<std::unique_ptr<Question> > multipleChoices = MultipleChoiceCreator::GetInstance()->LoadAll();
-    std::vector<std::unique_ptr<Question> > numbers = NumberCreator::GetInstance()->LoadAll();
-    std::vector<std::unique_ptr<Question> > words = WordCreator::GetInstance()->LoadAll();
+    std::vector<std::unique_ptr<Question> > multipleChoices = MultipleChoiceCreator::GetInstance().LoadAll();
+    std::vector<std::unique_ptr<Question> > numbers = NumberCreator::GetInstance().LoadAll();
+    std::vector<std::unique_ptr<Question> > words = WordCreator::GetInstance().LoadAll();
     ret.insert(ret.end(), std::make_move_iterator(multipleChoices.begin()), std::make_move_iterator(multipleChoices.end()));
     ret.insert(ret.end(), std::make_move_iterator(numbers.begin()), std::make_move_iterator(numbers.end()));
     ret.insert(ret.end(), std::make_move_iterator(words.begin()), std::make_move_iterator(words.end()));
