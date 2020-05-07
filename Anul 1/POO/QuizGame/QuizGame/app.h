@@ -5,6 +5,8 @@
 #include <wx/wx.h>
 #endif
 
+#include <thread>
+
 #include "GameFrame.h"
 #include "Question.h"
 #include "Logger.h"

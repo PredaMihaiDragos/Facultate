@@ -8,9 +8,16 @@ app::~app()
 
 bool app::OnInit()
 {
-    auto questions = LoadQuestions();
-    frame = new GameFrame(GameFrameStyle::Window::title, move(questions));
+    std::vector<std::unique_ptr<Question> > questions; 
+    std::thread dbThread([&questions]() {
+        questions = LoadQuestions();
+    });
+    frame = new GameFrame(GameFrameStyle::Window::title);
     frame->SetCreatedQuestionCallback(OnQuestionCreated);
+    dbThread.join();
+    for (auto &q : questions)
+        frame->AddQuestion(move(q));
+    frame->Init();
     frame->Show(true);
     return true;
 }

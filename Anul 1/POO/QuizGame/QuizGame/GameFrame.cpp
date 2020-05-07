@@ -21,7 +21,10 @@ GameFrame::GameFrame(const wxString& title, std::vector<std::unique_ptr<Question
     this->SetSize(GameFrameStyle::Window::size);
     this->SetBackgroundColour(GameFrameStyle::Window::colour);
     move(questions.begin(), questions.end(), back_inserter(this->questions));
+}
 
+void GameFrame::Init()
+{
     CreateMenu();
     StartGame();
 }

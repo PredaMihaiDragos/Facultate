@@ -24,6 +24,7 @@ public:
 	~GameFrame();
 	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
 	void AddQuestion(std::shared_ptr<Question> question);
+	void Init();
 private:
 	GameFrame(const GameFrame& oth) = delete;
 	GameFrame& operator=(const GameFrame&) = delete;
