@@ -13,7 +13,7 @@ class database :
 	public Singleton<database>
 {
 public:
-	database();
+	database(token) {};
 private:
 	std::shared_ptr<SQLite::Database> con;
 	void Query(const std::string& query);
