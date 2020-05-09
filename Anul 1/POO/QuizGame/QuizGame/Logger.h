@@ -12,6 +12,7 @@ class Logger :
 	public Singleton<Logger>
 {
 public:
+	Logger(token) {};
 	void operator+=(logType toLog);
 private:
 };
