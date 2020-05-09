@@ -8,7 +8,6 @@ class WordCreator :
 	public Singleton<WordCreator>
 {
 public:
-	WordCreator(token) {};
 	std::unique_ptr<dbModel> Create() const override;
 	std::unique_ptr<Question> Create(const std::string& text) const override;
 	std::vector<std::unique_ptr<Question> > LoadAll() const override;
@@ -30,5 +29,8 @@ private:
 
 		void OnSubmitQuestion(wxCommandEvent& event) override;
 	};
+
+	WordCreator() {};
+	friend class Singleton<WordCreator>;
 };
 

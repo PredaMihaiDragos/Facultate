@@ -13,7 +13,6 @@ class database :
 	public Singleton<database>
 {
 public:
-	database(token) {};
 private:
 	std::shared_ptr<SQLite::Database> con;
 	void Query(const std::string& query);
@@ -21,4 +20,7 @@ private:
 
 	friend class dbModel;
 	friend class dbModelCreator;
+
+	database();
+	friend class Singleton<database>;
 };

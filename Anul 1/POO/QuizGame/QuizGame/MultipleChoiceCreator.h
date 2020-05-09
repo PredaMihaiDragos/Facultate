@@ -8,7 +8,6 @@ class MultipleChoiceCreator :
 	public Singleton<MultipleChoiceCreator>
 {
 public:
-	MultipleChoiceCreator(token) {};
 	std::unique_ptr<dbModel> Create() const override;
 	std::unique_ptr<Question> Create(const std::string& text) const override;
 	std::vector<std::unique_ptr<Question> > LoadAll() const override;
@@ -31,5 +30,8 @@ private:
 
 		void OnSubmitQuestion(wxCommandEvent& event) override;
 	};
+
+	MultipleChoiceCreator() {};
+	friend class Singleton<MultipleChoiceCreator>;
 };
 

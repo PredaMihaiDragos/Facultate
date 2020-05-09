@@ -12,9 +12,10 @@ class Logger :
 	public Singleton<Logger>
 {
 public:
-	Logger(token) {};
 	void operator+=(logType toLog);
 private:
+	Logger() {};
+	friend class Singleton<Logger>;
 };
 
 inline void Logger::operator+=(logType toLog)

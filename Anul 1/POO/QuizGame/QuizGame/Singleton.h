@@ -13,13 +13,12 @@ public:
     Singleton& operator= (const Singleton) = delete;
 
 protected:
-    struct token {};
     Singleton() {}
 };
 
 template<typename T>
 T& Singleton<T>::GetInstance()
 {
-    static T instance(token());
+    static T instance;
     return instance;
 }

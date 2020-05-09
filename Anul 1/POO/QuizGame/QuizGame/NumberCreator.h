@@ -7,7 +7,6 @@ class NumberCreator :
 	public Singleton<NumberCreator>
 {
 public:
-	NumberCreator(token) {};
 	std::unique_ptr<dbModel> Create() const override;
 	std::unique_ptr<Question> Create(const std::string& text) const override;
 	std::vector<std::unique_ptr<Question> > LoadAll() const override;
@@ -29,6 +28,9 @@ private:
 
 		void OnSubmitQuestion(wxCommandEvent& event) override;
 	};
+
+	NumberCreator() {};
+	friend class Singleton<NumberCreator>;
 };
 
 
