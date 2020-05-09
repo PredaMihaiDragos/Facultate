@@ -7,6 +7,12 @@ class WordCreator :
 	public QuestionCreator,
 	public Singleton<WordCreator>
 {
+public:
+	WordCreator(token) {};
+	std::unique_ptr<dbModel> Create() const override;
+	std::unique_ptr<Question> Create(const std::string& text) const override;
+	std::vector<std::unique_ptr<Question> > LoadAll() const override;
+	void ShowCreationDialog(wxWindow* parent, std::function<void(std::shared_ptr<Question>)> createdCallback) const override;
 private:
 
 	class CreationDialog
@@ -24,10 +30,5 @@ private:
 
 		void OnSubmitQuestion(wxCommandEvent& event) override;
 	};
-public:
-	std::unique_ptr<dbModel> Create() const override;
-	std::unique_ptr<Question> Create(const std::string& text) const override;
-	std::vector<std::unique_ptr<Question> > LoadAll() const override;
-	void ShowCreationDialog(wxWindow* parent, std::function<void(std::shared_ptr<Question>)> createdCallback) const override;
 };
 
