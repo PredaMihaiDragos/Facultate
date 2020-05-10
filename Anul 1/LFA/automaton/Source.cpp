@@ -18,7 +18,7 @@ int main()
     lambda_nfa aut(gr);
     nfa NFA(aut);
     dfa DFA(NFA);
-  //  DFA.Minimize();
+    DFA.Minimize();
 
     ofstream out("grammar.out");
     out << DFA;
