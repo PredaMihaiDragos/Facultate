@@ -1,18 +1,9 @@
 #include "dfa.h"
 
-dfa::dfa(int nr_stari)
-	: automaton(nr_stari)
-{
-
-}
-
 dfa::dfa(const nfa& from)
-	: automaton(1 << from.GetNrStari())
-{
-	int from_stari = from.GetNrStari();
-	const veciniMatrix from_vecini = from.GetVecini();
-	assert(from_stari <= 30);
+{	
 	SetStareInit(1 << from.GetStareInit());
+	auto fromVecini = from.GetVecini();
 	std::queue<int> q;
 	std::unordered_set<int> viz;
 	q.push(stare_init);
@@ -22,11 +13,13 @@ dfa::dfa(const nfa& from)
 		int stare = q.front();
 		q.pop();
 		std::unordered_map<char, int> edges;
-		for (int from_stare = 0; from_stare < from_stari; ++from_stare)
-			if (stare & (1 << from_stare))
-				for (const auto& charEdges : from_vecini[from_stare])
-					for (int vecin : charEdges.second)
-						edges[charEdges.first] |= (1 << vecin);
+		for (const auto& p : fromVecini)
+			if (stare & (1 << p.first))
+			{
+				auto vec = from.GetVecini(p.first);
+					for (auto vecin : vec)
+						edges[vecin.first] |= (1 << vecin.second);
+			}
 		for (const auto& edge : edges)
 		{
 			if(vecini[stare][edge.first].size() == 0)
@@ -38,11 +31,12 @@ dfa::dfa(const nfa& from)
 			}
 		}
 	}
-	for (int stare = 0; stare < nr_stari; ++stare)
+	for (const auto& p : vecini)
 	{
-		for (int from_stare = 0; from_stare < from_stari; ++from_stare)
-			if (from.IsFinal(from_stare) && (stare & (1 << from_stare)))
-				AddStareFinala(stare);
+		auto f = from.GetFinals();
+		for (int stare: f)
+			if (p.first & (1 << stare))
+				AddStareFinala(p.first);
 	}
 }
 
@@ -57,24 +51,25 @@ void dfa::AddEdge(int from, int to, char val)
 
 void dfa::Minimize()
 {
-	std::vector<bool> vizInitial(nr_stari);
+	std::unordered_set<int> vizInitial;
 	DFS(stare_init, vizInitial);
 
 	vecini = GetTranspose(vecini);
-	std::vector<bool> vizFinal(nr_stari);
-	for (int i = 0; i < nr_stari; ++i)
-		if (is_final[i])
-			DFS(i, vizFinal);
+	std::unordered_set<int> vizFinal;
+	for (auto stare:finals)
+		DFS(stare, vizFinal);
 	vecini = GetTranspose(vecini);
 
-	std::vector<int> classOf(nr_stari), newClassOf(nr_stari);
+	std::unordered_map<int, int> classOf, newClassOf;
 	std::vector<std::vector<int> > classes(2), newClasses;
-	for (int i = 0; i < nr_stari; ++i)
-		if (vizInitial[i] || vizFinal[i])
-		{
-			classes[is_final[i]].push_back(i);
-			classOf[i] = is_final[i];
-		}
+
+	auto vizTotal = vizInitial;
+	vizTotal.insert(vizFinal.begin(), vizFinal.end());
+	for (int p:vizTotal)
+	{
+		classes[IsFinal(p)].push_back(p);
+		classOf[p] = IsFinal(p);
+	}
 	if (classes[1].empty())
 		classes.pop_back();
 	if (classes[0].empty())
@@ -135,17 +130,16 @@ void dfa::Minimize()
 	}
 
 	auto old_vecini = vecini;
-	auto old_is_final = is_final;
+	auto old_finals = finals;
 
-	nr_stari = classes.size();
-	vecini = veciniMatrix(nr_stari);
-	is_final = std::vector<bool>(nr_stari);
+	vecini = veciniMatrix();
+	finals = std::unordered_set<int>();
 	SetStareInit(classOf[stare_init]);
 
 	for (int i = 0; i < classes.size(); ++i)
 		for (auto stare : classes[i])
 		{
-			if (old_is_final[stare])
+			if (old_finals.find(stare) != old_finals.end())
 				AddStareFinala(i);
 			for (const auto& charEdges : old_vecini[stare])
 				for (int vecin : charEdges.second)
@@ -154,12 +148,12 @@ void dfa::Minimize()
 		}
 }
 
-void dfa::DFS(int current, std::vector<bool>& viz) const
+void dfa::DFS(int current, std::unordered_set<int>& viz) const
 {
-	if (viz[current])
+	if (viz.find(current) != viz.end())
 		return;
-	viz[current] = true;
-	for (const auto& charEdges : vecini[current])
-		for (int vecin : charEdges.second)
-			DFS(vecin, viz);
+	viz.insert(current);
+	auto v = GetVecini(current);
+	for (auto vecin : v)
+		DFS(vecin.second, viz);
 }

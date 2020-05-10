@@ -8,12 +8,11 @@
 #include <unordered_set>
 #include <set>
 
-typedef std::vector<std::unordered_map<char, std::unordered_set<int> > > veciniMatrix;
+typedef std::unordered_map<int, std::unordered_map<char, std::unordered_set<int> > > veciniMatrix;
 
 class automaton
 {
 public:
-    automaton(int nr_stari);
     static const char LAMBDA = '$';
     void AddStareFinala(int stare);
     void AddStareFinala(const std::vector<int> &stare);
@@ -22,13 +21,13 @@ public:
     bool Contains(char* x) const;
 
     const veciniMatrix& GetVecini() const { return vecini; }
-    const std::vector<bool>& GetIsFinal() const { return is_final; }
+    const std::unordered_set<int>& GetFinals() const { return finals; }
     int GetStareInit() const { return stare_init;  }
-    int GetNrStari() const { return nr_stari; }
-    bool IsFinal(int stare) const { return is_final[stare]; }
+    std::unordered_set<int> GetVecini(int stare, char c) const;
+    std::set<std::pair<char, int> > GetVecini(int stare) const;
+    bool IsFinal(int stare) const { return finals.find(stare) != finals.end(); }
 
-    void SetIsFinal(const std::vector<bool>& is_final) { this->is_final = is_final; }
-    void SetNrStari(int nr_stari);
+    void SetFinals(const std::unordered_set<int>& finals) { this->finals = finals; }
 
     static veciniMatrix GetTranspose(const veciniMatrix& vecini);
 
@@ -38,7 +37,6 @@ private:
     bool Contains(int nod, char* x, int sz, std::set<std::pair<int, int> > &viz) const;
 protected:
     veciniMatrix vecini;
-    std::vector<bool> is_final;
+    std::unordered_set<int> finals;
     int stare_init;
-    int nr_stari;
 };

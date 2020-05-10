@@ -23,7 +23,19 @@ int main()
     ofstream out("grammar.out");
     out << DFA;
     out.close();
-    /*ofstream out("nfa.out");
+
+
+   /* ifstream in("nfa.in");
+    lambda_nfa aut;
+    in >> aut;
+
+    nfa NFA(aut);
+    dfa DFA(NFA);
+    DFA.Minimize();
+
+    cout << DFA;
+
+    ofstream out("nfa.out");
     int q;
     in >> q;
     char cuv[1005];
@@ -34,16 +46,6 @@ int main()
     }
     in.close();
     out.close();*/
-
-   /*ifstream in("nfa.in");
-    lambda_nfa aut;
-    in >> aut;
-
-    nfa NFA(aut);
-    dfa DFA(NFA);
-    DFA.Minimize();
-
-    cout << DFA;*/
 
 	return 0;
 }
