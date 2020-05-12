@@ -1,6 +1,6 @@
 #include <vector>
 
-namespace mergesort
+namespace Mergesort
 {
     void sort_util(std::vector<int> &v, std::vector<int> &tmp, int st, int dr)
     {

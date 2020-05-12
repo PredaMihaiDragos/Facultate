@@ -1,6 +1,6 @@
 #include <vector>
 
-namespace heapsort
+namespace Heapsort
 {
     void Comb_Heap(std::vector<int> &v, int ind, int sz)
     {

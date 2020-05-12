@@ -55,11 +55,11 @@ int main()
         cout << "Quicksort ";
         test_function(quicksort::Sort, v);
         cout << "Mergesort ";
-        test_function(mergesort::Sort, v);
+        test_function(Mergesort::Sort, v);
         cout << "Heapsort ";
-        test_function(heapsort::Sort, v);
+        test_function(Heapsort::Sort, v);
         cout << "Radixsort ";
-        test_function(radixsort::Sort, v);
+        test_function(Radixsort::Sort, v);
         cout << "Treapsort ";
         test_function(treapsort::Sort, v);
 

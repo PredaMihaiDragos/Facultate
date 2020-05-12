@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace radixsort
+namespace Radixsort
 {
     const int base = 256;
 
