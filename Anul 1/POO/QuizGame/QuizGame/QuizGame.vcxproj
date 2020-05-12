@@ -104,12 +104,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL;wxMSVC_VERSION_AUTO;_CRT_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(wxwin)/include/msvc; $(wxwin)/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\preda\Desktop\C++\sqlite-amalgamation-3310100;C:\Users\preda\Desktop\C++\SQLiteCpp\src;C:\Users\preda\Desktop\C++\SQLiteCpp\include;$(wxwin)/include/msvc;$(wxwin)/include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\preda\Desktop\C++\wxWidgets\3.1.3\lib\vc142_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\preda\Desktop\C++\sqlite3\lib;C:\Users\preda\Desktop\C++\SQLiteCpp\lib;C:\Users\preda\Desktop\C++\wxWidgets\3.1.3\lib\vc142_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SQLiteCpp.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,32 +152,59 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
-    <ClInclude Include="CreateQuestion.h" />
+    <ClInclude Include="database.h" />
+    <ClInclude Include="dbModel.h" />
+    <ClInclude Include="dbModelCreator.h" />
     <ClInclude Include="error.h" />
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="GameFrame.h" />
     <ClInclude Include="GameFrameStyle.h" />
+    <ClInclude Include="creators.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="MultipleChoice.h" />
+    <ClInclude Include="MultipleChoiceCreator.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="NumberCreator.h" />
     <ClInclude Include="Question.h" />
+    <ClInclude Include="QuestionCreationDialog.h" />
+    <ClInclude Include="QuestionCreator.h" />
     <ClInclude Include="QuestionDialogStyle.h" />
     <ClInclude Include="questions.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SQLException.h" />
     <ClInclude Include="style.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Word.h" />
+    <ClInclude Include="WordCreator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
-    <ClCompile Include="CreateQuestion.cpp" />
+    <ClCompile Include="CreateQuestionDialog.cpp" />
+    <ClCompile Include="database.cpp" />
+    <ClCompile Include="dbModel.cpp" />
+    <ClCompile Include="dbModelCreator.cpp" />
     <ClCompile Include="error.cpp" />
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="GameFrame.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="MultipleChoice.cpp" />
+    <ClCompile Include="MultipleChoiceCreationDialog.cpp" />
+    <ClCompile Include="MultipleChoiceCreator.cpp" />
     <ClCompile Include="Number.cpp" />
+    <ClCompile Include="NumberCreationDialog.cpp" />
+    <ClCompile Include="NumberCreator.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="QuestionCreationDialog.cpp" />
+    <ClCompile Include="QuestionCreator.cpp" />
+    <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="SQLException.cpp" />
     <ClCompile Include="Word.cpp" />
+    <ClCompile Include="WordCreator.cpp" />
+    <ClCompile Include="WordCreationDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

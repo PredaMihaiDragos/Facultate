@@ -15,7 +15,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(10, minmax(calc(var(--min-width) / 10), 1fr));
   grid-template-rows: var(--main-height) repeat(4, var(--content-height)) 25px;
@@ -105,7 +105,7 @@ nav {
   margin-right:auto;
 }
 
-#chestionarIcon
+.chestionarIcon
 {
   transition: transform 0.2s ease;
   position:relative;
@@ -114,7 +114,7 @@ nav {
   height:100px;
 }
 
-#chestionarIcon:hover
+.chestionarIcon:hover
 {
   transition: transform 0.2s ease;
   transform:scale(1.2);
@@ -194,7 +194,7 @@ main {
   background-color: rgb(0, 20, 134);
 }
 
-#programari
+.programari
 {
   background-color:#f2f2f2;
   grid-row-start: 2;
@@ -209,19 +209,19 @@ main {
   text-align:center;
 }
 
-#programari > div
+.programari > div
 {
   margin: auto;
 }
 
-#programari > h1
+.programari > h1
 {
   font-size:25px;
   padding-bottom:10px;
   border-bottom-style: solid;
 }
 
-#programari > div > input, #programari > div > textarea, #programari > div > button
+.programari > div > input, .programari > div > textarea, .programari > div > button
 {
   margin-left:auto;
   display:block;
@@ -231,7 +231,7 @@ main {
   font-family: "Muli";
 }
 
-#programari > div > input, #programari > div > button
+.programari > div > input, .programari > div > button
 {
   position:relative;
   left:22%;
@@ -239,7 +239,7 @@ main {
   width: 50%;
 }
 
-#programari > div > textarea
+.programari > div > textarea
 {
   position:relative;
   left:22%;
@@ -247,18 +247,18 @@ main {
   width: 50%;
 }
 
-#programari > div > button:hover
+.programari > div > button:hover
 {
   transition: background-color 0.5s ease;
   background-color:lightsteelblue;
 }
 
-#programari > div > button:focus
+.programari > div > button:focus
 {
   outline:none;
 }
 
-#orar 
+.orar 
 {
   grid-row-start: 2;
   grid-column: span 4;
@@ -266,13 +266,13 @@ main {
   background-color:rgb(129, 167, 204);
 }
 
-#orar .orar
+.orar .orarDiv
 {
   height:var(--orar-height);
   font-family: "Muli";
 }
 
-#orar .orar > h1
+.orar .orarDiv > h1
 {
   margin-top:0px;
   margin-left:100px;
@@ -282,7 +282,7 @@ main {
   font-size:25px;
 }
 
-#orar .orar > table
+.orar .orarDiv > table
 {
   position:relative;
   top:-10px;
@@ -297,7 +297,7 @@ main {
   height:calc(100% - 273px);
 }
 
-#analizeTable
+.analizetable
 {
   height:calc(100% - 65px);
   width:calc(100% - 50px);
@@ -305,20 +305,20 @@ main {
   overflow-y:scroll;
 }
 
-#analizeTable::-webkit-scrollbar-track
+.analizetable::-webkit-scrollbar-track
 {
     background-color: transparent;
     background-color: #F5F5F5;
     border-radius: 10px;
 }
 
-#analizeTable::-webkit-scrollbar
+.analizetable::-webkit-scrollbar
 {
     width: 10px;
     background-color: transparent;
 }
 
-#analizeTable::-webkit-scrollbar-thumb
+.analizetable::-webkit-scrollbar-thumb
 {
     border-radius:10px;
     background-image: linear-gradient(to top,
@@ -337,7 +337,7 @@ main {
 }
 
 
-#rezultate {
+.rezultate {
   grid-row-start: 3;
   grid-column: 1 / span 10;
   display:block;
@@ -352,19 +352,19 @@ main {
   z-index:0;
 }
 
-#rezultate .container
+.rezultate .container
 {
   max-width:700px;
 }
 
-#rezultate .container > h1
+.rezultate .container > h1
 {
   font-size:25px;
   padding-bottom:10px;
   border-bottom-style: solid;
 }
 
-#rezultate .container > form > input,  #rezultate .container > form > button
+.rezultate .container > form > input,  .rezultate .container > form > button
 {
   margin-left:auto;
   display:block;
@@ -374,7 +374,7 @@ main {
   font-family: "Muli";
 }
 
-#rezultate .container > form > input, #rezultate .container > form > button
+.rezultate .container > form > input, .rezultate .container > form > button
 {
   position:relative;
   left:22%;
@@ -382,13 +382,13 @@ main {
   width: 50%;
 }
 
-#rezultate .container > form > button:hover
+.rezultate .container > form > button:hover
 {
   transition: background-color 0.5s ease;
   background-color:lightsteelblue;
 }
 
-#rezultate .container > form > button:focus
+.rezultate .container > form > button:focus
 {
   outline:none;
 }
@@ -411,7 +411,7 @@ main {
   margin-right:10px;
 }
 
-#certificari {
+.certificari {
   grid-row-start: 4;
   grid-column: 1 / span 10;
   display:block;
@@ -425,24 +425,24 @@ main {
   z-index:0;
 }
 
-#certificari .container
+.certificari .container
 {
   max-width:700px;
 }
 
-#certificari .container > h1
+.certificari .container > h1
 {
   font-size:30px;
   padding-bottom:10px;
   border-bottom-style: solid;
 }
 
-#certificariBox
+.certificariBox
 {
   text-align:center;
 }
 
-#certificariBox > img
+.certificariBox > img
 {
   padding: 0;
   border: 1px solid #888;
@@ -584,23 +584,23 @@ footer {
     grid-column: 1 / span 10;
   }
   
-  #programari
+  .programari
   {
     grid-row-start: 2;
     grid-column: 1 / span 10;
   }
   
-  #orar {
+  .orar {
     grid-row-start: 3;
     grid-column: 1 / span 10;
   }
   
-  #rezultate {
+  .rezultate {
     grid-row-start: 4;
     grid-column: 1 / span 10;
   }
   
-  #certificari {
+  .certificari {
     grid-row-start: 5;
     grid-column: 1 / span 10;
   }
@@ -655,23 +655,23 @@ footer {
   }
 
 
-  #programari > h1
+  .programari > h1
   {
     font-size:20px;
   }
 
-  #programari > div > input, #programari > div > textarea, #programari > div > button
+  .programari > div > input, .programari > div > textarea, .programari > div > button
   {
     margin:25px;
     font-size:15px;
   }
 
-  #programari > div > input, #programari > div > button
+  .programari > div > input, .programari > div > button
   {
     left:17%;
   }
 
-  #programari > div > textarea
+  .programari > div > textarea
   {
     left:17%;
   }

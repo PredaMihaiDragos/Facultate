@@ -94,6 +94,35 @@ document.getElementById('submitChestionar').onclick = function()
     xhttp.send("cnp="+cnp+"&parere="+parere+"&calitate="+calitate+"&pret="+pret+"&promptitudine="+promptitudine);
 };
 
+document.getElementById('resetChestionar').onclick = function()
+{
+    const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
+    localStorage.setItem("chestionarCnp", "");
+    localStorage.setItem("parere", 2);
+    localStorage.setItem("calitate", 2);
+    localStorage.setItem("pret", 2);
+    localStorage.setItem("promptitudine", 2);
+    loadLocalStorage();
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4) 
+        {
+            if(this.status == 201)
+            {
+                alert("Raspunsurile tale au fost resetate.");
+            }
+            else
+                alert(xhttp.responseText);
+        }
+    };
+    xhttp.open("DELETE", "/delete_chestionar", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("cnp="+cnp);
+};
+
+
 document.getElementById('submitProgramari').onclick = function()
 {
     const nume = encodeURIComponent(document.getElementById("programari_nume").value);

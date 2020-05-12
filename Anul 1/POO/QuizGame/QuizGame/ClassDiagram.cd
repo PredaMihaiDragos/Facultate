@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="app">
+    <Position X="16.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAQAAQAAChgAQAAAAA=</HashCode>
+      <FileName>app.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="database">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <InheritanceLine Type="Singleton&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="2.18" />
+        <Point X="5.5" Y="2.75" />
+        <Point X="4.5" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAQAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>database.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dbModel">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQhAAEAAACAAAA=</HashCode>
+      <FileName>dbModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dbModelCreator">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAEAACAAAAAAAAAA=</HashCode>
+      <FileName>dbModelCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Exception">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAAAAAAAAAAAAAAAAAAABAAEBEAAAAACA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFrame">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAKQAAACAAAAAAACAIAgEQQQAQAAAAAgAAYAgSA=</HashCode>
+      <FileName>GameFrame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logger">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultipleChoice">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAEAAAAAAAAAAAIAAEEAAQBAAAAgAAiAAA=</HashCode>
+      <FileName>MultipleChoice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultipleChoiceCreator">
+    <Position X="1.5" Y="5.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MultipleChoiceCreator::CreationDialog" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MultipleChoiceCreator.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <InheritanceLine Type="QuestionCreator">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.501" Y="0.096" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <InheritanceLine Type="Singleton&lt;T&gt;">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.156" Y="0.074" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>MultipleChoiceCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Number">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAEAAQBAAAAgAAAAAA=</HashCode>
+      <FileName>Number.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumberCreator">
+    <Position X="7" Y="5.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="NumberCreator::CreationDialog" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NumberCreator.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <InheritanceLine Type="Singleton&lt;T&gt;">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.551" Y="0.11" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>NumberCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Question">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIEIAAAAAAAAAEAAAMAAgAgAIAAAg=</HashCode>
+      <FileName>Question.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestionCreationDialog" Collapsed="true">
+    <Position X="17.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAFAAEAAAAAAAAFAAAAAAAAA=</HashCode>
+      <FileName>QuestionCreationDialog.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestionCreator">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAE=</HashCode>
+      <FileName>QuestionCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAABAAAAAEAAAAgAAAAAAA=</HashCode>
+      <FileName>Singleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLException">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAACA=</HashCode>
+      <FileName>SQLException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Word">
+    <Position X="11.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAAAAAAAAAAAAAAAAAAAAEAAQBAAAAgAAAAAA=</HashCode>
+      <FileName>Word.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordCreator">
+    <Position X="4.25" Y="5.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="WordCreator::CreationDialog" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WordCreator.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <InheritanceLine Type="Singleton&lt;T&gt;">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.489" Y="0.108" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>WordCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

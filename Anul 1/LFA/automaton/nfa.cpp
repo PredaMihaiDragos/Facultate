@@ -1,37 +1,31 @@
 #include "nfa.h"
 
-nfa::nfa(int nr_stari)
-	: automaton(nr_stari)
-{
-
-}
-
 nfa::nfa(const lambda_nfa& from)
-	: automaton(from.GetNrStari())
 {
 	SetStareInit(from.GetStareInit());
-	const veciniMatrix &vecini = from.GetVecini();
+	auto fromVecini = from.GetVecini();
 
-	for (int stare = 0; stare < nr_stari; ++stare)
+	for(const auto &p:fromVecini)
 	{
-		std::set<std::pair<int, char> > to;
-		std::unordered_set<int> lambdaClosure = from.GetLambdaClosure(stare);
+		std::set<std::pair<char, int> > to;
+		std::unordered_set<int> lambdaClosure = from.GetLambdaClosure(p.first);
 		for (auto elem : lambdaClosure)
 		{
 			if (from.IsFinal(elem))
-				AddStareFinala(stare);
-			for (const auto& charEdges : vecini[elem])
+				AddStareFinala(p.first);
+			auto vec = from.GetVecini(elem);
+			for (const auto& charEdges : vec)
 				if (charEdges.first != LAMBDA)
-					for (int vecin : charEdges.second)
-						to.emplace(vecin, charEdges.first);
+					to.insert(charEdges);
 		}
 		for (auto& edge : to)
-			AddEdge(stare, edge.first, edge.second);
+			AddEdge(p.first, edge.second, edge.first); 
 	}
 }
 
 void nfa::AddEdge(int from, int to, char val)
 {
-	assert(val != LAMBDA);
+	if (val == LAMBDA)
+		throw std::runtime_error("LAMBDA character not allowed in NFA!");
 	vecini[from][val].insert(to);
 }

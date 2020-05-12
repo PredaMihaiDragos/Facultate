@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <memory>
+#include <functional>
 
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
@@ -10,25 +11,43 @@
 #include <wx/display.h>
 #include <wx/dialog.h>
 
-#include "CreateQuestion.h"
+#include "CreateQuestionDialog.h"
 #include "questions.h"
 #include "error.h"
 #include "style.h"
 
-class GameFrame : public wxFrame
+class GameFrame : 
+	public wxFrame
 {
 public:
-    GameFrame(const wxString& title);
-    GameFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+	GameFrame(const wxString& title, std::vector<std::unique_ptr<Question> > questions = std::vector<std::unique_ptr<Question> >());
+	~GameFrame();
+	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
+	void AddQuestion(std::shared_ptr<Question> question);
+	void Init();
 private:
-    wxMenu *menuFile, *menuHelp;
-    wxMenuBar *menuBar;
-    void CreateMenu();
+	GameFrame(const GameFrame& oth) = delete;
+	GameFrame& operator=(const GameFrame&) = delete;
 
-    void OnAddQuestion(wxCommandEvent& event);
-    void OnExit(wxCommandEvent& event);
-    void OnAbout(wxCommandEvent& event);
+	int totalScore;
+	wxMenu* menuFile, * menuHelp;
+	wxMenuBar* menuBar;
+	wxStaticText* questionText;
+	int currentQuestion;
+	std::vector<std::shared_ptr<Question> > questions;
+	std::function<void(std::shared_ptr<Question>)> createdQuestionCallback;
+	void CreateMenu();
 
-    wxDECLARE_EVENT_TABLE();
+	void OnAddQuestion(wxCommandEvent& event);
+	void OnExit(wxCommandEvent& event);
+	void OnAbout(wxCommandEvent& event);
+
+	void StartGame();
+	void UpdateQuestion();
+	void UpdateScore();
+	void NextQuestion();
+	void OnQuestionAnswered(int score, std::string message);
+		
+	wxDECLARE_EVENT_TABLE();
 };
 
