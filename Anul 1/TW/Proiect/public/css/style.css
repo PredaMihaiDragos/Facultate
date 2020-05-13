@@ -297,7 +297,7 @@ main {
   height:calc(100% - 273px);
 }
 
-.analizetable
+.analizeTable
 {
   height:calc(100% - 65px);
   width:calc(100% - 50px);
@@ -305,20 +305,20 @@ main {
   overflow-y:scroll;
 }
 
-.analizetable::-webkit-scrollbar-track
+.analizeTable::-webkit-scrollbar-track
 {
     background-color: transparent;
     background-color: #F5F5F5;
     border-radius: 10px;
 }
 
-.analizetable::-webkit-scrollbar
+.analizeTable::-webkit-scrollbar
 {
     width: 10px;
     background-color: transparent;
 }
 
-.analizetable::-webkit-scrollbar-thumb
+.analizeTable::-webkit-scrollbar-thumb
 {
     border-radius:10px;
     background-image: linear-gradient(to top,
