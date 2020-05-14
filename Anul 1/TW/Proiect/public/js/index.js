@@ -155,5 +155,4 @@ document.getElementById('submitProgramari').onclick = function()
 
 window.onresize = function() {
     const main = document.getElementById("main");
-    //console.log(main.clientHeight);
 };

@@ -23,7 +23,7 @@ app.put("/chestionar", async function(req, res) {
     const pacient = await db.GetPacient(cnp);
     if(pacient.length == 0)
     {
-        res.status(403);
+        res.status(404);
         res.send("Nu am gasit niciun pacient cu CNP-ul dat.");
         return;
     }
