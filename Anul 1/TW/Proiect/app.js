@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./db.js');
 const pdf_rez = require('./pdf_rezultate.js');
+const regex = require('./regex.js');
 
 const app = express();
 
@@ -15,7 +16,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.put("/chestionar", async function(req, res) {
-    const cnp = req.body.cnp;
+    const cnp = String(req.body.cnp);
+    if(!regex.cnp.test(cnp))
+    {
+        res.status(400);
+        res.send("CNP-ul introdus este invalid!");
+        return;
+    }
     const parere = req.body.parere;
     const calitate = req.body.calitate;
     const pret = req.body.pret;
@@ -34,6 +41,12 @@ app.put("/chestionar", async function(req, res) {
 
 app.delete("/delete_chestionar", async function(req, res) {
     const cnp = req.body.cnp;
+    if(!regex.cnp.test(cnp))
+    {
+        res.status(400);
+        res.send("CNP-ul introdus este invalid!");
+        return;
+    }
     const pacient = await db.GetPacient(cnp);
     if(pacient.length == 0)
     {
@@ -52,20 +65,53 @@ app.post("/programari", async function(req, res) {
     const email = req.body.email;
     const mesaj = req.body.mesaj;
 
+    if(!regex.name.test(nume))
+    {
+        res.status(400);
+        res.send("Numele introdus este invalid!");
+        return;
+    }
+    if(!regex.phone.test(telefon))
+    {
+        res.status(400);
+        res.send("Telefonul introdus este invalid!");
+        return;
+    }
+    if(!regex.mail.test(email))
+    {
+        res.status(400);
+        res.send("Mailul introdus este invalid!");
+        return;
+    }
+
     await db.AddProgramare(nume, telefon, email, mesaj);
     res.status(201);
     res.send("Succes");
 })
 
 app.get('/get_bilet', async function(req, res) {
-    const pacient = await db.GetPacient(req.query.cnp);
+    const cnp = req.query.cnp;
+    const id = req.query.id;
+    if(!regex.cnp.test(cnp))
+    {
+        res.status(400);
+        res.send("CNP-ul introdus este invalid!");
+        return;
+    }
+    if(!regex.bilet.test(id))
+    {
+        res.status(400);
+        res.send("ID-ul introdus este invalid!");
+        return;
+    }
+    const pacient = await db.GetPacient(cnp);
     if(pacient.length == 0)
     {
         res.status(404);      
         res.send('Pacientul nu a fost gasit.');
         return;
     }
-    const bilet = await db.GetBilet(req.query.cnp, req.query.id);
+    const bilet = await db.GetBilet(cnp, id);
     if(bilet.length == 0)
     {
         res.status(404);      
@@ -84,6 +130,16 @@ app.get('/get_bilet', async function(req, res) {
     res.setHeader("Content-disposition", "filename=rezultat.pdf");
     res.send(pdf);
     return;
+})
+
+app.post("/chestionarClick", async function(req, res) {
+    res.status(201);
+    res.send("Succes");
+})
+
+app.post("/sectionView", async function(req, res) {
+    res.status(201);
+    res.send("Succes");
 })
 
 module.exports = app;

@@ -1,10 +1,19 @@
 let navbar, body;
+let loaded = false;
+
+const menuButtons = {
+    "mainButton":"main", 
+    "programariButton":"programari",
+    "rezultateButton":"rezultate",
+    "certificariButton":"certificari"
+};
 
 
 function init()
 {
     navbar = document.getElementById("navbar");
     
+    loaded = true;
     Scroll();
     initStarRating();
     loadLocalStorage();
@@ -21,22 +30,7 @@ function loadLocalStorage()
 
 window.onscroll = function() {Scroll()};
 
-function Scroll() 
-{
-    const sticky = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height'));
-    if (window.pageYOffset >= sticky) 
-    {
-        navbar.classList.add("sticky");
-        isSticky = false;
-    } 
-    else if(window.pageYOffset < sticky)
-    {
-        navbar.classList.remove("sticky");
-        isSticky = true;
-    }
-}
-
-function scrollToTarget(id)
+function GetScrollPosition(id)
 {
     const element = document.getElementById(id);
     const navOffset = parseInt(getComputedStyle(document.body).getPropertyValue('--nav-height'));
@@ -44,11 +38,71 @@ function scrollToTarget(id)
     const marginTop = style.getPropertyValue('margin-top'); 
     const elementPosition = element.offsetTop - parseInt(marginTop);
     const offsetPosition = elementPosition - navOffset;
+    return Math.max(offsetPosition, 0);
+}
 
+let activeButton = "";
+function SetActiveButton(bt)
+{
+    if(activeButton == bt)
+        return;
+    activeButton = bt;
+    for (const [key, value] of Object.entries(menuButtons))
+    {
+        if(activeButton == key)
+            document.getElementById(key).classList.add("active");
+        else
+            document.getElementById(key).classList.remove("active");
+    }
+    setTimeout(function() { 
+        if(activeButton == bt) //daca am stat cel putin 1 sec pe sectiune
+        {
+            
+        }
+     }, 1000);
+}
+function Scroll() 
+{
+    if(!loaded)
+        return;
+    const sticky = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height'));
+    const y = window.pageYOffset;
+    if (y >= sticky) 
+    {
+        navbar.classList.add("sticky");
+        isSticky = false;
+    } 
+    else if(y < sticky)
+    {
+        navbar.classList.remove("sticky");
+        isSticky = true;
+    }
+    
+    let distMin = Number.POSITIVE_INFINITY;
+    let active;
+    for (const [key, value] of Object.entries(menuButtons))
+    {
+        let pos = GetScrollPosition(value);
+        if(Math.abs(y-pos) < distMin)
+        {
+            distMin = Math.abs(y-pos);
+            active = key;
+        }
+    }
+    SetActiveButton(active);
+}
+
+function scrollToTarget(id)
+{
     window.scrollTo({
-         top: offsetPosition,
+         top: GetScrollPosition(id),
          behavior: "smooth"
     });
+}
+
+function menuButton(id)
+{
+    scrollToTarget(menuButtons[id]);
 }
 
 document.getElementById("submitResults").addEventListener('submit', GetResults);
@@ -82,11 +136,11 @@ document.getElementById('submitChestionar').onclick = function()
         {
             if(this.status == 201)
             {
-                alert("Raspunsurile tale au fost primite. Multumim!");
+                Info("Raspunsurile tale au fost primite. Multumim!");
                 HideChestionar();
             }
             else
-                alert(xhttp.responseText);
+                Error(xhttp.responseText);
         }
     };
     xhttp.open("PUT", "/chestionar", true);
@@ -111,10 +165,10 @@ document.getElementById('resetChestionar').onclick = function()
         {
             if(this.status == 201)
             {
-                alert("Raspunsurile tale au fost resetate.");
+                Info("Raspunsurile tale au fost resetate.");
             }
             else
-                alert(xhttp.responseText);
+                Error(xhttp.responseText);
         }
     };
     xhttp.open("DELETE", "/delete_chestionar", true);
@@ -137,10 +191,10 @@ document.getElementById('submitProgramari').onclick = function()
         {
             if(this.status == 201)
             {
-                alert("Programare realizata cu succes!");
+                Info("Programarea a fost realizata cu succes!");
             }
             else
-                alert(xhttp.responseText);
+                Error(xhttp.responseText);
         }
     };
     xhttp.open("POST", "/programari", true);

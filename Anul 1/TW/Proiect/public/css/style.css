@@ -126,7 +126,7 @@ nav {
   color:white;
 }
 
-nav > span > a:hover
+nav > span > a:hover, nav > span > .active
 {
   transition: color 0.3s ease;
   color:rgb(0, 35, 68);
@@ -544,6 +544,105 @@ footer {
   text-align:center;
   background-color: #7bfdff;
   color: rgb(0, 0, 0);
+}
+
+.infoAlertWrapper
+{
+  top:5%;
+  width: 100%;
+  position: fixed;
+  background: transparent;
+  text-align:center;
+  z-index:5001;
+}
+
+.infoAlert
+{
+  border:solid;
+  display: inline-block;
+  padding:15px;
+  font-family:"Muli";
+  font-size:20px;
+  background-color:rgb(214, 240, 255);
+  border-radius:15px;
+}
+
+.infoAlert-okButton
+{
+  background-color: rgb(0, 33, 219);
+  border: none;
+  border-radius:20px;
+  text-decoration:none;
+  color: white;
+  padding: 3px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.infoAlert-okButton:focus
+{
+  outline:none;
+}
+
+.infoAlert-okButton:hover
+{
+  background-color: rgb(0, 20, 134);
+}
+
+.errorAlertWrapper
+{
+  display:none;
+  top:5%;
+  width: 100%;
+  position: fixed;
+  background: transparent;
+  text-align:center;
+  z-index:5001;
+}
+
+.errorAlert
+{
+  border:solid;
+  display: inline-block;
+  padding:15px;
+  font-family:"Muli";
+  font-size:20px;
+  background-color:rgb(255, 214, 214);
+  border-radius:15px;
+}
+
+.errorAlert-okButton
+{
+  background-color: rgb(219, 0, 0);
+  border: none;
+  border-radius:20px;
+  text-decoration:none;
+  color: white;
+  padding: 3px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.errorAlert-okButton:focus
+{
+  outline:none;
+}
+
+.errorAlert-okButton:hover
+{
+  background-color: rgb(134, 0, 0);
 }
 
 

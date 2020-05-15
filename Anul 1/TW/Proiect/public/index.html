@@ -26,21 +26,21 @@
             Luni – Vineri, între 07:00 - 16:00
         </span>
     </header>
-    <nav id = "navbar" class = "nonsticky">
+    <nav id = "navbar">
         <span class="chestionarButton">
             <img src="./images/chestionar-icon.png" onclick="ShowChestionar();" class = "chestionarIcon"></img>
         </span>
         <span class="menuButton">
-        <a onclick = "scrollToTarget('grid');">Acasa</a>
+        <a onclick = "menuButton('mainButton');" id="mainButton">Acasa</a>
         </span>
         <span class="menuButton">
-        <a onclick = "scrollToTarget('programari');">Programari</a>
+        <a onclick = "menuButton('programariButton');" id="programariButton">Programari</a>
         </span>
         <span class="menuButton">
-        <a onclick = "scrollToTarget('rezultate');">Rezultate</a>
+        <a onclick = "menuButton('rezultateButton');" id="rezultateButton">Rezultate</a>
         </span>
         <span class="menuButton">
-        <a onclick = "scrollToTarget('certificari');">Certificari</a>
+        <a onclick = "menuButton('certificariButton');" id="certificariButton">Certificari</a>
         </span>
     </nav>
     <div id = "grid" class = "grid">
@@ -555,7 +555,17 @@
         <span id="certificariClose" class="close">&times;</span>
       </div>
     </div>
+
+    <div class="errorAlertWrapper" id="errorAlertWrapper">
+      <div class="errorAlert" id="errorAlert">
+        <div id="errorAlert-text"></div>
+        <button class="errorAlert-okButton" id="errorAlert-okButton">
+
+        </button>
+      </div>
+    </div>
 </body>
+    <script type="text/javascript" src="js/customAlert.js"></script>
     <script type="text/javascript" src="js/starRating.js"></script>
     <script type="text/javascript" src="js/modalBox.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
