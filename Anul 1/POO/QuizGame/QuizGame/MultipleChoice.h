@@ -12,6 +12,7 @@ public:
 	static const int choices = 4;
 	static constexpr const char tableName[] = "MultipleChoice";
 	MultipleChoice();
+	virtual ~MultipleChoice() {};
 	MultipleChoice(const std::string &_text);
 	int GetScore(const std::string& answer) const override;
 	std::unordered_map<std::string, fieldType> toMap() const override;

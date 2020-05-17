@@ -12,6 +12,7 @@ class Logger :
 	public Singleton<Logger>
 {
 public:
+	virtual ~Logger() {};
 	void operator+=(logType toLog);
 private:
 	Logger() {};

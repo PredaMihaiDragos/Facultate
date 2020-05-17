@@ -21,7 +21,7 @@ class GameFrame :
 {
 public:
 	GameFrame(const wxString& title, std::vector<std::unique_ptr<Question> > questions = std::vector<std::unique_ptr<Question> >());
-	~GameFrame();
+	virtual ~GameFrame();
 	void SetCreatedQuestionCallback(std::function<void(std::shared_ptr<Question>)> fct) { createdQuestionCallback = fct; }
 	void AddQuestion(std::shared_ptr<Question> question);
 	void Init();

@@ -18,7 +18,7 @@ public:
     bool OnInit();
     int OnExit();
     app() {};
-    ~app();
+    virtual ~app();
     static void OnQuestionCreated(std::shared_ptr<Question> question);
     static std::vector<std::unique_ptr<Question> > LoadQuestions();
 private:

@@ -7,7 +7,6 @@ class Singleton
 {
 public:
     static T& GetInstance();
-
     virtual ~Singleton() {};
     Singleton(const Singleton&) = delete;
     Singleton& operator= (const Singleton) = delete;
