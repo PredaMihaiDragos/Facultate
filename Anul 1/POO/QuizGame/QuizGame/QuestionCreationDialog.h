@@ -19,6 +19,8 @@ public:
 protected:
 	void SetSubmitPos(const wxPoint& pos) { submitQuestion->SetPosition(pos); }
 private:
+	QuestionCreationDialog(const QuestionCreationDialog& oth) = delete;
+	QuestionCreationDialog& operator=(const QuestionCreationDialog&) = delete;
 	wxButton* submitQuestion;
 	virtual void OnSubmitQuestion(wxCommandEvent& event) = 0;
 
