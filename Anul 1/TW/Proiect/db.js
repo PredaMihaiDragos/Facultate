@@ -109,9 +109,26 @@ function AddProgramare(nume, telefon, email, mesaj)
     });
 }
 
+function AddEvent(type, value = 1)
+{
+    type = mysql.escape(type);
+    value = mysql.escape(value);
+
+    let query = "INSERT INTO events(TYPE, VALUE) VALUES" + 
+                `(${type},${value})`;
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
 module.exports.GetPacient = GetPacient;
 module.exports.GetBilet = GetBilet;
 module.exports.GetGrupe = GetGrupe;
 module.exports.AddReview = AddReview;
 module.exports.AddProgramare = AddProgramare;
 module.exports.DeleteReview = DeleteReview;
+module.exports.AddEvent = AddEvent;

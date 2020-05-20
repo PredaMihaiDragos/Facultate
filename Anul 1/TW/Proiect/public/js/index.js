@@ -8,6 +8,13 @@ const menuButtons = {
     "certificariButton":"certificari"
 };
 
+function Post(url, str = "")
+{
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+}
 
 function init()
 {
@@ -57,7 +64,7 @@ function SetActiveButton(bt)
     setTimeout(function() { 
         if(activeButton == bt) //daca am stat cel putin 1 sec pe sectiune
         {
-            
+            Post("sectionView", "section=" + menuButtons[activeButton]);
         }
      }, 1000);
 }
@@ -115,6 +122,15 @@ function GetResults(e)
     const pdfWindow = window.open("/get_bilet?cnp="+cnp+"&id="+id);
 }
 
+let startChestionar;
+function ChestionarClick()
+{
+    startChestionar = Date.now();
+    console.log(startChestionar);
+    Post("/chestionarClick");
+    ShowChestionar();
+}
+
 document.getElementById('submitChestionar').onclick = function()
 {
     const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
@@ -143,9 +159,11 @@ document.getElementById('submitChestionar').onclick = function()
                 Error(xhttp.responseText);
         }
     };
+    let time = Date.now() - startChestionar;
     xhttp.open("PUT", "/chestionar", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("cnp="+cnp+"&parere="+parere+"&calitate="+calitate+"&pret="+pret+"&promptitudine="+promptitudine);
+    xhttp.send("cnp="+cnp+"&parere="+parere+"&calitate="+calitate+
+               "&pret="+pret+"&promptitudine="+promptitudine+"&timp="+time);
 };
 
 document.getElementById('resetChestionar').onclick = function()
