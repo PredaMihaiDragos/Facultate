@@ -13,6 +13,7 @@ class database :
 	public Singleton<database>
 {
 public:
+	virtual ~database() {};
 private:
 	std::shared_ptr<SQLite::Database> con;
 	void Query(const std::string& query);

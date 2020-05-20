@@ -8,6 +8,7 @@ class Word : public Question
 public:
 	static constexpr const char tableName[] = "Word";
 	Word();
+	virtual ~Word() {};
 	Word(const std::string& _text);
 	int GetScore(const std::string& answer) const override;
 	static int GetEditDistance(const std::string& first, const std::string& second);
