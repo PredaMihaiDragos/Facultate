@@ -2,7 +2,7 @@
 
 lambda_nfa::lambda_nfa(const regGrammar& from) 
 {
-	const int fin = regGrammar::SIGMA - 1;
+	const int fin = regGrammar::SIGMA;
 	SetStareInit('S' - 'A');
 	AddStareFinala(fin);
 	const auto &prodTerm = from.GetProdTerm();

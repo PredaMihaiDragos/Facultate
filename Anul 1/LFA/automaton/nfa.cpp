@@ -4,6 +4,7 @@ nfa::nfa(const lambda_nfa& from)
 {
 	SetStareInit(from.GetStareInit());
 	auto fromVecini = from.GetVecini();
+	SetFinals(from.GetFinals());
 
 	for(const auto &p:fromVecini)
 	{

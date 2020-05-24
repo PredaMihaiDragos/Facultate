@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    ifstream in("grammar.in");
+  /*  ifstream in("grammar.in");
     regGrammar gr;
     in >> gr;
     in.close();
@@ -22,10 +22,10 @@ int main()
 
     ofstream out("grammar.out");
     out << DFA;
-    out.close();
+    out.close();*/
 
 
-   /* ifstream in("nfa.in");
+    ifstream in("nfa.in");
     lambda_nfa aut;
     in >> aut;
 
@@ -33,7 +33,7 @@ int main()
     dfa DFA(NFA);
     DFA.Minimize();
 
-    cout << DFA;
+   // cout << DFA;
 
     ofstream out("nfa.out");
     int q;
@@ -45,7 +45,7 @@ int main()
         out << DFA.Contains(cuv) << "\n";
     }
     in.close();
-    out.close();*/
+    out.close();
 
 	return 0;
 }

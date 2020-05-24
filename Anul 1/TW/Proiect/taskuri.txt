@@ -2,7 +2,7 @@ VI) 4
 V) 20 --> putem salva in Local Storage?
 V) 14 --> valabil pentru Single Page?
 V) 11 --> am deja get bilete, e ok?
-IV) 7
+IV) 7 --------
 IV) 6 --> trb sa le avem pe toate?
 IV) 4
 IV) 1 (asa si asa)
@@ -10,7 +10,7 @@ III) 24 (asa si asa)
 III) 17
 III) 14 (asa si asa)
 III) 11 
-III) 6
+III) 6 --> pot sa fac meniul de sus?
 III) 5 (daca chiar nu am altceva)
 II) 13 (puncte usoare)
 II) 12 (bunaaaa)
