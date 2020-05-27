@@ -1,0 +1,4 @@
+[Wed May 27 2020 10:53:36 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a modificat raspunsul la chestionar cu cnp-ul 5000315450020.
+[Wed May 27 2020 10:53:42 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a sters raspunsul la chestionar cu cnp-ul 5000315450020.
+[Wed May 27 2020 11:00:15 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a adaugat o programare cu numele Preda Mihai Dragos.
+[Wed May 27 2020 11:00:35 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a vizualizat biletul 3-2496.

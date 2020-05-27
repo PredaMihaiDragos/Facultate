@@ -6,6 +6,7 @@ const logger = require('morgan');
 const db = require('./db.js');
 const pdf_rez = require('./pdf_rezultate.js');
 const regex = require('./regex.js');
+const log = require('./log.js');
 
 const app = express();
 
@@ -41,6 +42,8 @@ app.put("/chestionar", async function(req, res) {
         db.AddEvent("chestionar_timp", timp);
         await db.AddReview(cnp, parere, calitate, pret, promptitudine, pacient);
         res.status(201);
+        var datetime = new Date();
+        log.write(`[${datetime}] IP-ul ${req.ip} a modificat raspunsul la chestionar cu cnp-ul ${cnp}.\n`);
         res.send("Succes");
     }
     catch(err)
@@ -69,6 +72,8 @@ app.delete("/delete_chestionar", async function(req, res) {
         }
         await db.DeleteReview(cnp);
         res.status(201);
+        var datetime = new Date();
+        log.write(`[${datetime}] IP-ul ${req.ip} a sters raspunsul la chestionar cu cnp-ul ${cnp}.\n`);
         res.send("Succes");
     }
     catch(err)
@@ -107,6 +112,8 @@ app.post("/programari", async function(req, res) {
 
         await db.AddProgramare(nume, telefon, email, mesaj);
         res.status(201);
+        var datetime = new Date();
+        log.write(`[${datetime}] IP-ul ${req.ip} a adaugat o programare cu numele ${nume}.\n`);
         res.send("Succes");
     }
     catch(err)
@@ -158,6 +165,8 @@ app.get('/get_bilet', async function(req, res) {
         const pdf = await pdf_rez.GetPdf(pacient[0], bilet[0], grupe);
         res.contentType("application/pdf");
         res.setHeader("Content-disposition", "filename=rezultat.pdf");
+        var datetime = new Date();
+        log.write(`[${datetime}] IP-ul ${req.ip} a vizualizat biletul ${id}.\n`);
         res.send(pdf);
     }
     catch(err)

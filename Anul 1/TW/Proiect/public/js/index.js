@@ -133,18 +133,6 @@ function ChestionarClick()
 
 document.getElementById('submitChestionar').onclick = function()
 {
-    const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
-    const parere = encodeURIComponent(starRating.get("parere").GetStars());
-    const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
-    const pret = encodeURIComponent(starRating.get("pret").GetStars());
-    const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
-
-    localStorage.setItem("chestionarCnp", cnp);
-    localStorage.setItem("parere", parere);
-    localStorage.setItem("calitate", calitate);
-    localStorage.setItem("pret", pret);
-    localStorage.setItem("promptitudine", promptitudine);
-
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() 
     {
@@ -152,6 +140,17 @@ document.getElementById('submitChestionar').onclick = function()
         {
             if(this.status == 201)
             {
+                const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
+                const parere = encodeURIComponent(starRating.get("parere").GetStars());
+                const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
+                const pret = encodeURIComponent(starRating.get("pret").GetStars());
+                const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
+
+                localStorage.setItem("chestionarCnp", cnp);
+                localStorage.setItem("parere", parere);
+                localStorage.setItem("calitate", calitate);
+                localStorage.setItem("pret", pret);
+                localStorage.setItem("promptitudine", promptitudine);
                 Info("Raspunsurile tale au fost primite. Multumim!");
                 HideChestionar();
             }
