@@ -133,6 +133,12 @@ function ChestionarClick()
 
 document.getElementById('submitChestionar').onclick = function()
 {
+    const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
+    const parere = encodeURIComponent(starRating.get("parere").GetStars());
+    const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
+    const pret = encodeURIComponent(starRating.get("pret").GetStars());
+    const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
+    
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() 
     {
@@ -140,12 +146,6 @@ document.getElementById('submitChestionar').onclick = function()
         {
             if(this.status == 201)
             {
-                const cnp = encodeURIComponent(document.getElementById("chestionarCnp").value);
-                const parere = encodeURIComponent(starRating.get("parere").GetStars());
-                const calitate = encodeURIComponent(starRating.get("calitate").GetStars());
-                const pret = encodeURIComponent(starRating.get("pret").GetStars());
-                const promptitudine = encodeURIComponent(starRating.get("promptitudine").GetStars());
-
                 localStorage.setItem("chestionarCnp", cnp);
                 localStorage.setItem("parere", parere);
                 localStorage.setItem("calitate", calitate);
