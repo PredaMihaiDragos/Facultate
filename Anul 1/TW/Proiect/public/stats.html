@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stats</title>
+
+    <link rel="stylesheet" href="css/stats.css">
 </head>
-<body>
-    
+<body onload="Init();">
+    <div id="graph" class="graph"></div>
+    <div class="input">
+        Start: <input id="inputStart" type = "date">
+        End: <input id="inputEnd" type = "date">
+    </div>
+
+    <script type="text/javascript" src="js/stats.js"></script>
 </body>
 </html>
