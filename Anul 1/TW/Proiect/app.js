@@ -16,6 +16,46 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*app.get("/test", async function(req, res) {
+    for(let i = 0; i <= 100000; i++)
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('chestionar_click',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+    res.send("Succes");
+})
+
+app.get("/insert", async function(req, res) {
+    for(let i = 0; i <= 1000; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('rezultate_primit',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    for(let i = 0; i <= 1000; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('programari_view',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    for(let i = 0; i <= 1534; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('rezultate_view',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    for(let i = 0; i <= 2543; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('main_view',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    for(let i = 0; i <= 792; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('certificari_view',1,FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    for(let i = 0; i <= 241; i++)
+    {
+        await db.query("INSERT INTO `events`(`TYPE`, `VALUE`, `TIMESTAMP`) VALUES ('chestionar_timp',FLOOR(2000 + (RAND() * 20000)),FROM_UNIXTIME( UNIX_TIMESTAMP('2020-01-01 00:00:00') + FLOOR(0 + (RAND() * 31536000)) ))");
+        
+    }
+    res.send("Succes");
+})*/
+
 app.put("/chestionar", async function(req, res) {
     try
     {

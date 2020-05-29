@@ -125,6 +125,17 @@ function AddEvent(type, value = 1)
     });
 }
 
+function MakeQuery(query)
+{
+    return new Promise((resolve, reject) => {
+        Query(query,(successResponse) => {
+            resolve(successResponse);
+        }, (errorResponse) => {
+            reject(errorResponse)
+        });
+    });
+}
+
 module.exports.GetPacient = GetPacient;
 module.exports.GetBilet = GetBilet;
 module.exports.GetGrupe = GetGrupe;
@@ -132,3 +143,4 @@ module.exports.AddReview = AddReview;
 module.exports.AddProgramare = AddProgramare;
 module.exports.DeleteReview = DeleteReview;
 module.exports.AddEvent = AddEvent;
+module.exports.query = MakeQuery;

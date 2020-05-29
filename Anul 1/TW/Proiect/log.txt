@@ -6,3 +6,5 @@
 [Wed May 27 2020 13:33:49 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a vizualizat biletul 3-2496.
 [Wed May 27 2020 13:34:02 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a vizualizat biletul 3-2496.
 [Wed May 27 2020 13:35:22 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a sters raspunsul la chestionar cu cnp-ul 5000315450020.
+[Thu May 28 2020 23:22:07 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a modificat raspunsul la chestionar cu cnp-ul 5000315450020.
+[Thu May 28 2020 23:22:51 GMT+0300 (Eastern European Summer Time)] IP-ul ::1 a vizualizat biletul 3-2496.
