@@ -22,6 +22,8 @@ function removeSpaces(str)
 
 function AddUpdate(value)
 {
+    if(allUpdates.includes(value))
+        return;
     allUpdates.push(value);
 }
 
