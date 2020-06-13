@@ -49,6 +49,7 @@ function GetScrollPosition(id)
 }
 
 let activeButton = "";
+let sectionViewTimeout;
 function SetActiveButton(bt)
 {
     if(activeButton == bt)
@@ -61,11 +62,10 @@ function SetActiveButton(bt)
         else
             document.getElementById(key).classList.remove("active");
     }
-    setTimeout(function() { 
-        if(activeButton == bt) //daca am stat cel putin 1 sec pe sectiune
-        {
-            Post("sectionView", "section=" + menuButtons[activeButton]);
-        }
+    if(sectionViewTimeout)
+        clearTimeout(sectionViewTimeout);
+    sectionViewTimeout = setTimeout(function() { 
+        Post("sectionView", "section=" + menuButtons[activeButton]);
      }, 1000);
 }
 function Scroll() 
