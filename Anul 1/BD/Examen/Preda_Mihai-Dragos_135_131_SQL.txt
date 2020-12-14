@@ -1,0 +1,74 @@
+-- Preda Mihai-Dragos --
+-- Grupa: 135 --
+-- Nr 131 --
+
+--Exercitiul 1--
+select distinct c.denumire, c2.denumire as "depinde de", md.denumire as "mod desfasurare"
+from CURS c
+join DEPINDE d on (c.id = d.id_curs) 
+join CURS c2 on (c2.id = d.id_curs_necesar)
+join SESIUNE_CURS sc on (c.id = sc.id_curs)
+left join MOD_DESFASURARE md on(sc.id_mod_desfasurare = md.id)
+where c2.nivel = 'avansat';
+
+--Exercitiul 2--
+select c.denumire, count(distinct sc.id) as "sesiuni", count(distinct u.id) as "nr utilizatori"
+from CURS c
+join SESIUNE_CURS sc on(c.id = sc.id_curs)
+left join SE_INSCRIE se on(sc.id = se.id_sesiune_curs)
+left join UTILIZATOR u on(u.id = se.id_utilizator)
+group by c.denumire
+having count(distinct sc.id) >= 3;
+
+
+--Exericitiul 3--
+select id_curs, cost
+from SESIUNE_CURS crs
+where id in
+            (select c.id
+            from SESIUNE_CURS sc 
+            join CURS c on (sc.id_curs = c.id)
+            where sysdate - sc.data_start < c.durata_zile
+            and cost = crs.cost)
+group by id_curs, cost
+having count(id_curs) = (select count(id_curs)
+                        from SESIUNE_CURS sc 
+                        join CURS c on (sc.id_curs = c.id)
+                        where sysdate - sc.data_start < c.durata_zile
+                        and id_curs = crs.id_curs);
+
+--Exercitiul 4--
+insert into ALEGE_FAVORIT(id_utilizator, id_curs, data_adaugare)
+values((select u.id
+        from UTILIZATOR u
+        join SE_INSCRIE se on(se.id_utilizator = u.id)
+        join SESIUNE_CURS sc on(sc.id = se.id_sesiune_curs)
+        join CURS c on(c.id = sc.id_curs)
+        group by u.id
+        having count(distinct c.id) = (select max(count(distinct c.id))
+                                       from UTILIZATOR u
+                                       join SE_INSCRIE se on(se.id_utilizator = u.id)
+                                       join SESIUNE_CURS sc on(sc.id = se.id_sesiune_curs)
+                                       join CURS c on(c.id = sc.id_curs)
+                                       group by u.id)),
+        (select id
+         from CURS
+         where denumire = 'Advanced SQL'),
+         (select sysdate from dual)
+        );
+   
+--Exercitiul 5--
+select constraint_name, constraint_type, table_name
+from USER_CONSTRAINTS
+where lower(table_name) = 'sesiune_curs'
+and lower(constraint_name) like '%mod_desf%';
+
+alter table SESIUNE_CURS
+drop constraint fk_sesiune_mod_desf;
+
+alter table SESIUNE_CURS
+add constraint fk_sesiune_mod_desfasurare foreign key(id_mod_desfasurare) references mod_desfasurare(id) on delete set null;
+                    
+          
+                              
+                              
